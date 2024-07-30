@@ -1,0 +1,36 @@
+.qdbw-index.--list-lines ul,
+.qdbw-index.--list-stops ul{
+    list-style: none;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(3rem,1fr)); */
+}
+
+.qdbw-index.--list-lines li,
+.qdbw-index.--list-stops li{
+    margin: 6px 8px;
+}
+
+.qdbw-index.--list-lines a{
+    text-decoration: none;
+}
+
+.qdbw-index a.--error{
+    color: var(--colorTextRed);
+}
+
+.qdbw-index a.--error::after{
+    content: '损坏';
+    font-size: 50%;
+    position: relative;
+    top: -25%;
+}
+
+.qdbw-index a.--working::after{
+    content: '未完成';
+    font-size: 50%;
+    position: relative;
+    top: -25%;
+}

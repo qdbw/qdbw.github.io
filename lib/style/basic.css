@@ -1,0 +1,68 @@
+:root {
+    --backgroundColor: #242424;
+    --backgroundColorLighter: #363636;
+    --fontColor: #fff;
+    --colorTextRed: #f66;
+    --colorTextBlue: #3273d2;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --backgroundColor: #fff;
+        --backgroundColorLighter: #eaeaea;
+        --fontColor: #111;
+        --colorTextRed: #f00;
+    }
+}
+
+html {
+    background: #000;
+}
+
+body {
+    margin: 0;
+    background-color: var(--backgroundColor);
+    color: var(--fontColor);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    background: var(--backgroundColorLighter);
+    border-bottom: 1px solid #8888;
+    padding: 4px 24px;
+}
+
+footer {
+    background: #000;
+    color: #fff;
+}
+
+footer a {
+    color: #8888ff;
+}
+
+main {
+    margin: 24px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.block {
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0px 4px 10px 2px #0008;
+    transition: box-shadow .25s ease-in-out;
+}
+
+.block:hover {
+    box-shadow: 0px 8px 22px 2px #0008;
+}
+
+a {
+    color: var(--colorTextBlue);
+}
