@@ -1,11 +1,21 @@
-.qdbw-index.--list-lines ul,
-.qdbw-index.--list-stops ul{
+.qdbw-index.--list-lines ul{
     list-style: none;
     padding: 12px;
     display: flex;
     flex-wrap: wrap;
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(3rem,1fr)); */
+}
+
+.qdbw-index.--list-stops ul{
+    list-style: none;
+    padding: 0;
+}
+
+.qdbw-index.--list-stops ul ul{
+    padding-left: 12px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .qdbw-index.--list-lines li,

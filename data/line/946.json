@@ -1,4 +1,5 @@
 {
+    "lastChanged": "2024/8/3",
     "IS_WORKING": true,
     "NUMBER": 946,
     "FROM_TO": [
@@ -16,14 +17,14 @@
             "IMAGE": "[UNIVERSAL]"
         }
     },
-    "LINES": {
+    "Routes": {
         "DOWN": {
             "DISTANCE": 99,
             "TIME": [
                 "04:40",
                 "21:10"
             ],
-            "STOPS": [
+            "Stations": [
                 "后金",
                 "后金东",
                 "百福山庄南站",
@@ -89,7 +90,7 @@
                 "06:10",
                 "22:30"
             ],
-            "STOPS": [
+            "Stations": [
                 "洛东小区",
                 "项城路社区",
                 "郑州路重庆南路",

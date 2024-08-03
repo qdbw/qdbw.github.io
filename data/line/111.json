@@ -1,4 +1,5 @@
 {
+    "lastChanged": "2024/8/3",
     "IS_WORKING": true,
     "NUMBER": 111,
     "FROM_TO": [
@@ -17,14 +18,14 @@
             "IMAGE": "[UNIVERSAL]"
         }
     },
-    "LINES": {
+    "Routes": {
         "ROUND": {
             "DISTANCE": 99,
             "TIME": [
                 "05:00",
                 "21:00"
             ],
-            "STOPS": [
+            "Stations": [
                 "前金停车场",
                 "南寨",
                 "松树庄",
