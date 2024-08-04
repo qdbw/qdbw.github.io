@@ -2,7 +2,7 @@
     padding-left: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .qdbw-line.--model li {
@@ -25,9 +25,9 @@
     max-height: 240px;
 }
 
-.qdbw-line.--line .--list-root{
+.qdbw-line.--line .--list-root {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .qdbw-line.--line ul {
@@ -40,4 +40,8 @@
 
 .qdbw-line.--line .--list-root>div {
     width: fit-content;
+}
+
+.qdbw-line>h2 {
+    margin: 0;
 }

@@ -1,5 +1,7 @@
 {
     "Station": "王家泊子",
     "Location": "XX,XXX",
-    "Description": "位于书云东路与华岭路交叉路口的站点。"
+    "Description": "位于书云东路与华岭路交叉路口的站点。",
+    "IsAllRoutesIncluded": true,
+    "LastChanged": "2024/8/4"
 }

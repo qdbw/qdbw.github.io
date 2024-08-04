@@ -1,6 +1,5 @@
 {
-    "lastChanged": "2024/8/3",
-    "IS_WORKING": true,
+    "LastChanged": "2024/8/3",
     "NUMBER": 111,
     "FROM_TO": [
         [
@@ -19,8 +18,8 @@
         }
     },
     "Routes": {
-        "ROUND": {
-            "DISTANCE": 99,
+        "LoopLine": {
+            "DISTANCE": 44.4,
             "TIME": [
                 "05:00",
                 "21:00"

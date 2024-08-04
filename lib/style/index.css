@@ -39,7 +39,7 @@
 }
 
 .qdbw-index a.--working::after{
-    content: '未完成';
+    content: '施工';
     font-size: 50%;
     position: relative;
     top: -25%;

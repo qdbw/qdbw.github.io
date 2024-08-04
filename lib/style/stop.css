@@ -1,0 +1,19 @@
+.qdbw-stop.--line ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+}
+
+.qdbw-stop.--line ul h3 {
+    margin: 4px;
+    font-size: larger;
+}
+
+.qdbw-stop.--line ul h3 a {
+    text-decoration: none;
+}
+
+.qdbw-stop>h2 {
+    margin: 0;
+}

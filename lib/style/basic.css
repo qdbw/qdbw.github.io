@@ -54,13 +54,12 @@ img {
 
 .block {
     padding: 12px;
-    border-radius: 18px;
-    box-shadow: 0px 4px 10px 2px #0008;
+    box-shadow: none;
     transition: box-shadow .25s ease-in-out;
 }
 
 .block:hover {
-    box-shadow: 0px 8px 22px 2px #0008;
+    box-shadow: 0px 8px 6px -2px #0004;
 }
 
 a {

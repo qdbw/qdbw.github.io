@@ -1,5 +1,5 @@
 {
-    "lastChanged": "2024/8/3",
+    "LastChanged": "2024/8/3",
     "NUMBER": 909,
     "FROM_TO": [
         [
@@ -12,8 +12,7 @@
             "IMAGE": "[HIDE]"
         },
         "BYD6121LGEV4": {
-            "IMAGE": "[UNIVERSAL]",
-            "COUNT": 1
+            "IMAGE": "DD811"
         }
     },
     "Routes": {
