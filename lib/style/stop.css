@@ -17,3 +17,16 @@
 .qdbw-stop>h2 {
     margin: 0;
 }
+
+.qdbw-stop.--line .--list-root .--list-child span:nth-child(2) {
+    font-weight: bold;
+}
+
+.qdbw-stop.--line .--list-root .--list-child span.--alias {
+    font-style: italic;
+    color: #888;
+}
+
+.qdbw-stop.--line .--list-root .--list-child span.--skip {
+    color: red;
+}
