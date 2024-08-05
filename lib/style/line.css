@@ -50,11 +50,15 @@
 .qdbw-line.--line details .--list-roads>li {
     height: calc( var(--count) * 36px + (var(--count) - 1) * 8px);
     display: flex;
-    background-image: linear-gradient(0,#0000,#0f46);
+    background-image: linear-gradient(0,#0f41,#0f46);
     border-radius: 8px;
     padding: 4px;
     justify-content: center;
     box-sizing: border-box;
+}
+
+.qdbw-line.--line details .--list-roads>li.--solid {
+    background: #0f46;
 }
 
 .qdbw-line.--line .--list-root .h-link{
