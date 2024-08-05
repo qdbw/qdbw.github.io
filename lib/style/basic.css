@@ -82,7 +82,7 @@ img {
     display: flex;
     align-items: center;
     height: 36px;
-    background-color: #8884;
+    background-color: #8882;
     padding: 4px 8px;
     border-radius: 8px;
     box-sizing: border-box;
@@ -99,7 +99,7 @@ img {
 
 .h-link:hover,
 .qdbw-basic.--nav a:hover {
-    background-color: #8882;
+    background-color: #8884;
 }
 
 .block {

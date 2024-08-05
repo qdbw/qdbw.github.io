@@ -42,6 +42,21 @@
     margin: 4px;
 }
 
+.qdbw-line.--line details .--flex-root {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.qdbw-line.--line details .--list-roads>li {
+    height: calc( var(--count) * 36px + (var(--count) - 1) * 8px);
+    display: flex;
+    background-image: linear-gradient(0,#0000,#0f46);
+    border-radius: 8px;
+    padding: 4px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
 .qdbw-line.--line .--list-root .h-link{
     padding-left: 14px;
 }
@@ -53,7 +68,7 @@
     justify-content: center;
     height: 18px;
     width: 28px;
-    background-color: greenyellow;
+    background-color: #8fa;
     color: black;
     border-radius: 99px;
     position: absolute;
