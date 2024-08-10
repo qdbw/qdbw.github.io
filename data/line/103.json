@@ -1,5 +1,5 @@
 {
-    "LastChanged": "2024/8/4",
+    "LastChanged": "2024/8/10",
     "NUMBER": 103,
     "FROM_TO": [
         [
@@ -12,7 +12,9 @@
     ],
     "MODELS": {
         "CA6100URBEV26": {
-            "IMAGE": "DD1714"
+            "Images": [
+                "DD1714"
+            ]
         }
     },
     "Routes": {
