@@ -102,6 +102,10 @@ img {
     background-color: #8884;
 }
 
+.h-link+.h-link {
+    margin-top: 4px;
+}
+
 .block {
     padding: 12px;
     box-shadow: none;
