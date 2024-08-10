@@ -1,5 +1,5 @@
 {
-    "LastChanged": "2024/8/4",
+    "LastChanged": "2024/8/10",
     "NUMBER": 906,
     "FROM_TO": [
         [
@@ -61,7 +61,7 @@
                 "长城路 1"
             ]
         },
-        "UP": {
+        "Uplink": {
             "TIME": [
                 "06:10",
                 "21:10"
@@ -113,13 +113,13 @@
     },
     "MODELS": {
         "BYD6121LGEV4": {
-            "IMAGES": [
-                "DD806"
+            "Images": [
+                "DD806",
+                "DD845"
             ]
         },
         "SWB6121EV6": {
-            "COUNT": "1",
-            "IMAGE": "[UNIVERSAL]"
+            "Images": []
         }
     }
 }
