@@ -1,0 +1,50 @@
+{
+    "LastChanged": "2024/8/10",
+    "IsStillWorking": true,
+    "NUMBER": 775,
+    "FROM_TO": [
+        [
+            "天山一路枢纽站",
+            "新韵路"
+        ]
+    ],
+    "COMPANIES": [
+        "CHENGYUN_HOLDING/CHENGYANG/11"
+    ],
+    "MODELS": {
+        "CA6120URN21": {
+            "Images": [
+                "CL986"
+            ]
+        },
+        "HFF6105G39C": {}
+    },
+    "Ticket": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": {
+        "Downlink": {
+            "DISTANCE": 28.4,
+            "TIME": [
+                "05:00",
+                "20:30"
+            ],
+            "Stations": [
+                "天山一路枢纽站",
+                "新韵路"
+            ]
+        },
+        "Uplink": {
+            "DISTANCE": 27.5,
+            "TIME": [
+                "06:35",
+                "22:05"
+            ],
+            "Stations": [
+                "新韵路",
+                "天山一路枢纽站"
+            ]
+        }
+    }
+}
