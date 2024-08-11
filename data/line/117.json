@@ -15,7 +15,11 @@
             "IMAGE": "[HIDE]"
         },
         "SWB6115Q7-3": {},
-        "CA6100URBEV26": {}
+        "CA6100URBEV26": {
+            "Images": [
+                "DD1715"
+            ]
+        }
     },
     "Ticket": {
         "Manual": false,
