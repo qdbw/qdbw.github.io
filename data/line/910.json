@@ -97,9 +97,9 @@
     },
     "MODELS": {
         "BYD6121LGEV4": {
-            "IMAGE": "DD702",
-            "SELF_ID": "DD702",
-            "IDENTIFIER": "鲁B 07798D"
+            "Images": [
+                "DD702"
+            ]
         }
     }
 }
