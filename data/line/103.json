@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/10",
     "NUMBER": 103,
     "FROM_TO": [
         [
@@ -19,7 +18,7 @@
     },
     "Routes": {
         "DOWN": {
-            "DISTANCE": 26.5,
+            "Distance": 26.5,
             "TIME": [
                 "4:50",
                 "20:50"
@@ -72,7 +71,7 @@
             ]
         },
         "UP": {
-            "DISTANCE": 26.6,
+            "Distance": 26.6,
             "TIME": [
                 "6:10",
                 "22:05"

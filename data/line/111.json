@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/3",
     "NUMBER": 111,
     "FROM_TO": [
         [
@@ -14,12 +13,12 @@
     ],
     "MODELS": {
         "BYD6121LGEV4": {
-            "IMAGE": "[UNIVERSAL]"
+            "Images": []
         }
     },
     "Routes": {
         "LoopLine": {
-            "DISTANCE": 44.4,
+            "Distance": 44.4,
             "TIME": [
                 "05:00",
                 "21:00"

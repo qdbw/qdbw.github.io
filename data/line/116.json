@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/10",
     "NUMBER": 116,
     "FROM_TO": [
         [
@@ -22,9 +21,9 @@
     },
     "Routes": {
         "Downlink": {
-            "DISTANCE": 23.4,
+            "Distance": 23.4,
             "TIME": [
-                "5:10",
+                "05:10",
                 "19:00"
             ],
             "Stations": [
@@ -86,9 +85,9 @@
             ]
         },
         "Uplink": {
-            "DISTANCE": 22.5,
+            "Distance": 22.5,
             "TIME": [
-                "6:20",
+                "06:20",
                 "20:20"
             ],
             "Stations": [

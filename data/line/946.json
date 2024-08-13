@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/3",
     "NUMBER": 946,
     "FROM_TO": [
         [
@@ -13,12 +12,14 @@
     ],
     "MODELS": {
         "BYD6121LGEV4": {
-            "IMAGE": "DD750"
+            "Images": [
+                "DD750"
+            ]
         }
     },
     "Routes": {
         "DOWN": {
-            "DISTANCE": 28.2,
+            "Distance": 28.2,
             "TIME": [
                 "04:40",
                 "21:10"
@@ -84,7 +85,7 @@
             ]
         },
         "UP": {
-            "DISTANCE": 28.9,
+            "Distance": 28.9,
             "TIME": [
                 "06:10",
                 "22:30"

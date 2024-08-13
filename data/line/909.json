@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/10",
     "NUMBER": 909,
     "FROM_TO": [
         [
@@ -14,14 +13,14 @@
             ]
         },
         "BYD6121LGEV4": {
-            "IMAGES": [
+            "Images": [
                 "DD811"
             ]
         }
     },
     "Routes": {
         "Downlink": {
-            "DISTANCE": 25.0,
+            "Distance": 25.0,
             "TIME": [
                 "5:00",
                 "21:00"
@@ -96,7 +95,7 @@
             ]
         },
         "Uplink": {
-            "DISTANCE": 25.1,
+            "Distance": 25.1,
             "TIME": [
                 "05:30",
                 "22:00"
