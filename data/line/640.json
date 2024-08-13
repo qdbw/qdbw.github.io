@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/4",
     "NUMBER": 640,
     "FROM_TO": [
         [
@@ -8,7 +7,7 @@
         ]
     ],
     "COMPANIES": [
-        "CHENGYUN_HOLDING/JIAOYUN/JIEDA"
+        "CHENGYUN_HOLDING/Jiaoyun/Jieda"
     ],
     "MODELS": {
         "LCK6115HGC": {
@@ -24,7 +23,7 @@
     },
     "Routes": {
         "Downlink": {
-            "DISTANCE": 17.5,
+            "Distance": 17.5,
             "TIME": [
                 "05:30",
                 "22:00"
@@ -68,7 +67,7 @@
             ]
         },
         "Uplink": {
-            "DISTANCE": 17.3,
+            "Distance": 17.3,
             "TIME": [
                 "06:25",
                 "22:55"

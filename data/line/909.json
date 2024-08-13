@@ -18,6 +18,9 @@
             ]
         }
     },
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/7"
+    ],
     "Routes": {
         "Downlink": {
             "Distance": 25.0,

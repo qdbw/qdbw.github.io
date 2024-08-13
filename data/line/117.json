@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/4",
     "NUMBER": 117,
     "FROM_TO": [
         [
@@ -7,12 +6,12 @@
             "兴华路永平路"
         ]
     ],
-    "COMPANIES": [
-        "CHENGYUN_HOLDING/CHENGYANG/1"
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/1"
     ],
     "MODELS": {
         "BYD6121LGEV4": {
-            "IMAGE": "[HIDE]"
+            "Images": []
         },
         "SWB6115Q7-3": {},
         "CA6100URBEV26": {
@@ -27,7 +26,7 @@
     },
     "Routes": {
         "Downlink": {
-            "DISTANCE": 22.2,
+            "Distance": 22.2,
             "TIME": [
                 "04:50",
                 "20:30"
@@ -78,7 +77,7 @@
             ]
         },
         "Uplink": {
-            "DISTANCE": 24.4,
+            "Distance": 24.4,
             "TIME": [
                 "05:55",
                 "21:35"
