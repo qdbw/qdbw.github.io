@@ -22,7 +22,7 @@
         "Downlink": {
             "Distance": 25.0,
             "TIME": [
-                "5:00",
+                "05:00",
                 "21:00"
             ],
             "Stations": [
