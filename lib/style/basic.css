@@ -174,6 +174,23 @@ li>.h-link {
     color: #3273d2;
 }
 
+.--flex- {
+    display: flex;
+}
+
+.-f-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.-m-100w {
+    width: 100%;
+}
+
+.m-talign {
+    text-align: center;
+}
+
 a {
     color: var(--colorTextBlue);
     -webkit-tap-highlight-color: #0000;

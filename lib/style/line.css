@@ -151,3 +151,33 @@ main {
 .desc-box > p {
     margin: 4px;
 }
+
+.line-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: #3272d2;
+    user-select: none;
+    cursor: pointer;
+}
+
+.time-sym::before {
+    content: '';
+    background: #3272d2;
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.time-sym.--first::before{
+    content: '首';
+}
+
+.time-sym.--last::before{
+    content: '末';
+}
