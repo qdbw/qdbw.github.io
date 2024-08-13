@@ -1,5 +1,6 @@
 :root {
     --backgroundColor: #242424;
+    --backgroundColorWidget: #282828;
     --backgroundColorHT: #24242488;
     --backgroundColorLighter: #363636;
     --fontColor: #fff;
@@ -9,7 +10,8 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --backgroundColor: #fff;
+        --backgroundColor: #fafafa;
+        --backgroundColorWidget: #fff;
         --backgroundColorLighter: #eaeaea;
         --backgroundColorHT: #ffffff88;
         --fontColor: #111;

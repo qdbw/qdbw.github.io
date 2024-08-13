@@ -39,9 +39,9 @@ main {
 }
 
 .desc-box {
-    box-shadow: 0px 1px 3px #4444;
+    box-shadow: 0px 1px 3px #0004;
     border-radius: 8px;
-    background-color: var(--backgroundColor);
+    background-color: var(--backgroundColorWidget);
     margin: 8px;
     padding: 8px 12px;
     display: flex;
