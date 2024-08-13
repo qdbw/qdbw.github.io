@@ -1,5 +1,6 @@
 :root {
     --backgroundColor: #242424;
+    --backgroundColorHT: #24242488;
     --backgroundColorLighter: #363636;
     --fontColor: #fff;
     --colorTextRed: #f66;
@@ -10,6 +11,7 @@
     :root {
         --backgroundColor: #fff;
         --backgroundColorLighter: #eaeaea;
+        --backgroundColorHT: #ffffff88;
         --fontColor: #111;
         --colorTextRed: #f00;
     }
@@ -81,6 +83,7 @@ img {
     text-decoration: none;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 36px;
     background-color: #8882;
     padding: 4px 8px;
@@ -111,6 +114,45 @@ img {
     display: inline-flex;
 }
 
+.h-link.--col {
+    flex-direction: column;
+}
+
+.h-link.--unlock-height {
+    height: unset;
+    min-height: 36px;
+}
+
+li>.h-link {
+    min-height: 100%;
+}
+
+.on-hover-root>.on-hover {
+    position: absolute;
+    top: 80%;
+    width: 125%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease-in-out;
+    background-color: var(--backgroundColorHT);
+    border: 1px solid #9996;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0px 2px 4px #4444;
+    backdrop-filter: blur(20px);
+    color: var(--fontColor);
+    font-size: medium;
+    z-index: 9000;
+}
+
+.on-hover-root:hover>.on-hover {
+    opacity: 1;
+}
+
+.on-hover.--width-fit {
+    width: fit-content;
+}
+
 .block {
     padding: 12px;
     box-shadow: none;
@@ -119,6 +161,17 @@ img {
 
 .block:hover {
     box-shadow: 0px 8px 6px -2px #0004;
+}
+
+.--stretch {
+    transform: scale(1.2,0.8);
+    width: 1.5rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.--accent-colored {
+    color: #3273d2;
 }
 
 a {
