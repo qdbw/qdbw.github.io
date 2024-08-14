@@ -21,6 +21,7 @@
 
 * {
     position: relative;
+    box-sizing: border-box;
 }
 
 html {
@@ -31,6 +32,7 @@ body {
     margin: 0;
     background-color: var(--backgroundColor);
     color: var(--fontColor);
+    font-family: sans-serif, serif;
 }
 
 header {
@@ -196,4 +198,12 @@ li>.h-link {
 a {
     color: var(--colorTextBlue);
     -webkit-tap-highlight-color: #0000;
+}
+
+hr.divider {
+    width: 100%;
+    margin: 16px 0;
+    opacity: .25;
+    border: none;
+    border-top: 1px solid var(--fontColor);
 }

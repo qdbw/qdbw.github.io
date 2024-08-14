@@ -42,3 +42,21 @@
     position: relative;
     top: -25%;
 }
+
+.page-navi-root{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.page-navi-root>.h-link {
+    margin: 4px;
+}
+
+.page-navi-root>.h-link.--onthis {
+    color: var(--fontColor);
+}
+
+.page-navi-root>.h-link.--onthis:hover {
+    background: transparent;
+}
