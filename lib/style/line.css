@@ -70,6 +70,7 @@
     writing-mode: vertical-rl;
     width: 100%;
     word-break: keep-all;
+    min-width: calc(3rem + 8px);
 }
 
 .route-list-root.--roads>li.--solid {
