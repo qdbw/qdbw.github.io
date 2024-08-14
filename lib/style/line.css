@@ -106,7 +106,11 @@
         align-items: unset;
     }
 
-    .route-list-root {
+    .qdbw-line.--line .--list-root>div {
+        margin: 8px;
+    }
+
+    .route-list-root.--stops {
         padding-left: 8px;
     }
 
