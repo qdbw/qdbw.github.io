@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/3",
     "NUMBER": 910,
     "FROM_TO": [
         [
@@ -11,7 +10,7 @@
         "CHENGYUN_HOLDING/Chengyang/7"
     ],
     "Routes": {
-        "DOWN": {
+        "Downlink": {
             "Distance": 21.1,
             "TIME": [
                 "05:00",
@@ -131,7 +130,8 @@
     "MODELS": {
         "BYD6121LGEV4": {
             "Images": [
-                "DD702"
+                "DD702",
+                "DD712"
             ]
         }
     }
