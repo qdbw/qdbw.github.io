@@ -56,6 +56,16 @@ main {
         grid-column: 1 / 2;
         grid-row: 2 / 10;
     }
+
+    header {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    main {
+        max-width: 1016px;
+        margin: auto;
+    }
 }
 
 .desc-box {
