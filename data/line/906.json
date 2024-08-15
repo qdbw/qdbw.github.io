@@ -117,17 +117,8 @@
             ]
         }
     },
-    "MODELS": {
-        "BYD6121LGEV4": {
-            "Images": [
-                "DD806",
-                "DD845"
-            ]
-        },
-        "SWB6121EV6": {
-            "Images": [
-                "DD398"
-            ]
-        }
+    "Models": {
+        "BYD6121LGEV4": {},
+        "SWB6121EV6": {}
     }
 }
