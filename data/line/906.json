@@ -1,5 +1,4 @@
 {
-    "LastChanged": "2024/8/10",
     "NUMBER": 906,
     "FROM_TO": [
         [
@@ -10,6 +9,10 @@
     "Companies": [
         "CHENGYUN_HOLDING/Chengyang/7"
     ],
+    "Models": {
+        "BYD6121LGEV4": {},
+        "SWB6121EV6": {}
+    },
     "Routes": {
         "Downlink": {
             "Distance": 19.1,
@@ -116,9 +119,5 @@
                 "无名路 1"
             ]
         }
-    },
-    "Models": {
-        "BYD6121LGEV4": {},
-        "SWB6121EV6": {}
     }
 }
