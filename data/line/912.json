@@ -1,0 +1,45 @@
+{
+    "IsStillWorking": true,
+    "NUMBER": 912,
+    "FROM_TO": [
+        [
+            "文阳路停车场",
+            "双埠社区"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/13"
+    ],
+    "Models": {
+        "TEG6112BEV01": {},
+        "BYD6851B3EV1": {}
+    },
+    "Ticket": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": {
+        "Downlink": {
+            "Distance": 99,
+            "TIME": [
+                "05:20",
+                "20:20"
+            ],
+            "Stations": [
+                "文阳路停车场",
+                "双埠社区"
+            ]
+        },
+        "Uplink": {
+            "Distance": 99,
+            "TIME": [
+                "06:30",
+                "21:30"
+            ],
+            "Stations": [
+                "双埠社区",
+                "文阳路停车场"
+            ]
+        }
+    }
+}

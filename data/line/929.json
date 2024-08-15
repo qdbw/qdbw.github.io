@@ -1,0 +1,46 @@
+{
+    "IsStillWorking": true,
+    "NUMBER": 929,
+    "FROM_TO": [
+        [
+            "天河路停车场",
+            "梦海路滨海路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/5"
+    ],
+    "Models": {
+        "SWB6107Q6": {},
+        "SWB6115Q7-3": {},
+        "SWB6117Q8": {}
+    },
+    "Ticket": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": {
+        "Downlink": {
+            "Distance": 99,
+            "TIME": [
+                "04:50",
+                "21:00"
+            ],
+            "Stations": [
+                "天河路停车场",
+                "梦海路滨海路"
+            ]
+        },
+        "Uplink": {
+            "Distance": 99,
+            "TIME": [
+                "06:10",
+                "22:20"
+            ],
+            "Stations": [
+                "梦海路滨海路",
+                "天河路停车场"
+            ]
+        }
+    }
+}

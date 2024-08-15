@@ -1,0 +1,46 @@
+{
+    "IsStillWorking": true,
+    "NUMBER": 930,
+    "FROM_TO": [
+        [
+            "新韵路",
+            "长城路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/2"
+    ],
+    "Models": {
+        "SWB6107Q6": {},
+        "SWB6115Q7-3": {},
+        "CA6100URBEV26": {}
+    },
+    "Ticket": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": {
+        "Downlink": {
+            "Distance": 99,
+            "TIME": [
+                "04:50",
+                "20:35"
+            ],
+            "Stations": [
+                "新韵路",
+                "长城路"
+            ]
+        },
+        "Uplink": {
+            "Distance": 99,
+            "TIME": [
+                "06:20",
+                "22:10"
+            ],
+            "Stations": [
+                "长城路 长城路②",
+                "新韵路"
+            ]
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "IsStillWorking": true,
+    "NUMBER": 943,
+    "FROM_TO": [
+        [
+            "后金",
+            "立交桥"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/3"
+    ],
+    "Models": {
+        "SWB6107Q6": {}
+    },
+    "Ticket": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": {
+        "Downlink": {
+            "Distance": 99,
+            "TIME": [
+                "05:45",
+                "21:15"
+            ],
+            "Stations": [
+                "后金",
+                "后金东",
+                "城阳区政府",
+                "职教中心",
+                "立交桥"
+            ]
+        },
+        "Uplink": {
+            "Distance": 99,
+            "TIME": [
+                "06:30",
+                "22:00"
+            ],
+            "Stations": [
+                "立交桥",
+                "后金"
+            ]
+        }
+    }
+}
