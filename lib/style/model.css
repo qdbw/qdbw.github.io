@@ -1,0 +1,25 @@
+.model-fuel {
+    --color: var(--fontColor);
+    margin: 2px;
+    padding: 2px;
+    border: 1px solid var(--color);
+    color: var(--color);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.75rem;
+    height: 1.75rem;
+}
+
+.model-fuel.--type-电, .model-fuel.--type-电动 {
+    --color: green;
+}
+
+.model-fuel.--type-天然气, .model-fuel.--type-压缩天然气 {
+    --color: #aaf;
+}
+
+.model-fuel.--type-Unknown {
+    display: none;
+}
