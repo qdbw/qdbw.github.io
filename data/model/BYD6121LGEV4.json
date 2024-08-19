@@ -1,7 +1,7 @@
 {
-    "NAME": "BYD6121LGEV4",
-    "BRAND": "比亚迪",
-    "FUEL_TYPES": [
+    "Name": "BYD6121LGEV4",
+    "Brand": "比亚迪",
+    "FuelTypes": [
         "电"
     ]
 }

@@ -1,7 +1,7 @@
 {
-    "NAME": "LCK6103GC",
-    "BRAND": "中通",
-    "FUEL_TYPES": [
+    "Name": "LCK6103GC",
+    "Brand": "中通",
+    "FuelTypes": [
         "压缩天然气"
     ]
 }

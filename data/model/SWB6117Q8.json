@@ -1,7 +1,7 @@
 {
-    "NAME": "SWB6117Q8",
-    "BRAND": "申沃",
-    "FUEL_TYPES": [
+    "Name": "SWB6117Q8",
+    "Brand": "申沃",
+    "FuelTypes": [
         "压缩天然气"
     ]
 }
