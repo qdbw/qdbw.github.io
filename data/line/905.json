@@ -1,0 +1,47 @@
+{
+    "IsStillWorking": true,
+    "NUMBER": 905,
+    "FROM_TO": [
+        [
+            "城阳十五中",
+            "刘家营小区",
+            "城阳十五中"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/4"
+    ],
+    "Models": {
+        "LCK6103GC": {},
+        "JS6116GHCJ": {},
+        "SWB6107Q6": {}
+    },
+    "Ticket": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": {
+        "Downlink": {
+            "Distance": 99,
+            "TIME": [
+                "05:00",
+                "20:00"
+            ],
+            "Stations": [
+                "OriginStation",
+                "Terminal"
+            ]
+        },
+        "Uplink": {
+            "Distance": 99,
+            "TIME": [
+                "06:00",
+                "22:00"
+            ],
+            "Stations": [
+                "OriginStation",
+                "Terminal"
+            ]
+        }
+    }
+}
