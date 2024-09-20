@@ -1,5 +1,6 @@
 BASIC*
 node_modules
+node
 nodejs
 package.json
 package-lock.json
