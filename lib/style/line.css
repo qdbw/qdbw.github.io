@@ -78,7 +78,12 @@
     writing-mode: horizontal-tb;
 }
 
-.time-sym::before {
+.time-sym {
+    padding: 0 4px;
+    font-weight: bold;
+}
+
+.time-sym:is(.--first,.--last)::before {
     content: '';
     background: #3272d2;
     color: #fff;
@@ -141,6 +146,11 @@
 
     .route-list-root .h-link.--skip::before {
         background-color: red;
+        color: white;
+    }
+
+    .route-list-root .h-link.--shutdown::before {
+        background-color: #777;
         color: white;
     }
 }
