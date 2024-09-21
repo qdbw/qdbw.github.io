@@ -49,14 +49,17 @@
     writing-mode: horizontal-tb;
 }
 
+.stationList .list-root>li {
+    margin: 4px;
+}
+
 @media (min-aspect-ratio: 0.9) {
     .stationListWithRoads .route-list-root.--stops,
     .stationList .list-root.--Station {
         padding-left: 8px;
     }
 
-    .stationListWithRoads .route-list-root>li,
-    .stationList .list-root>li {
+    .stationListWithRoads .route-list-root>li {
         margin: 4px;
     }
 

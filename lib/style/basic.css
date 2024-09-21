@@ -118,7 +118,8 @@ img {
     display: inline-flex;
 }
 
-.h-link.--col {
+.h-link.--col,
+.--flex-.-col {
     flex-direction: column;
 }
 
