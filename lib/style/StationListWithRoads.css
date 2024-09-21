@@ -1,8 +1,10 @@
-.stationListWithRoads .route-list-root .h-link {
+.stationListWithRoads .route-list-root .h-link,
+.stationList .list-root .h-link {
     word-break: keep-all;
 }
 
-.stationListWithRoads .route-list-root {
+.stationListWithRoads .route-list-root,
+.stationList .list-root {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -25,25 +27,46 @@
     min-width: calc(3rem + 8px);
 }
 
-.stationListWithRoads .route-list-root.--roads>li.--solid {
+.stationList .list-root.--roads>li {
+    display: flex;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: calc(var(--count) * 36px + (var(--count) - 1) * 8px);
+    box-sizing: border-box;
+    background-image: linear-gradient(0, #0f41, #0f46);
+    border-radius: 8px;
+    writing-mode: vertical-rl;
+    width: 100%;
+    word-break: keep-all;
+    min-width: calc(3rem + 8px);
+}
+
+.stationListWithRoads .route-list-root.--roads>li.--solid,
+.stationList .list-root.--roads>li.--solid {
     background: #0f46;
     writing-mode: horizontal-tb;
 }
 
 @media (min-aspect-ratio: 0.9) {
-    .stationListWithRoads .route-list-root.--stops {
+    .stationListWithRoads .route-list-root.--stops,
+    .stationList .list-root.--Station {
         padding-left: 8px;
     }
 
-    .stationListWithRoads .route-list-root>li {
+    .stationListWithRoads .route-list-root>li,
+    .stationList .list-root>li {
         margin: 4px;
     }
 
-    .stationListWithRoads .route-list-root .h-link {
+    .stationListWithRoads .route-list-root .h-link,
+    .stationList .list-root li>a {
         padding-left: 10px;
     }
 
-    .stationListWithRoads .route-list-root .h-link::before {
+    .stationListWithRoads .route-list-root .h-link::before,
+    .stationList .list-root li>a::before {
         content: attr(index);
         display: flex;
         align-items: center;
