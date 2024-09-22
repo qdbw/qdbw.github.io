@@ -1,0 +1,26 @@
+{
+    "Name": "118路",
+    "FROM_TO": [
+        [
+            "铁路青岛北站东广场",
+            "动投壹中心"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Licang/8"
+    ],
+    "Models": {
+        "LCK6103GC": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": false
+    },
+    "Routes": [
+        "下行",
+        "上行" 
+    ],
+    "Histories": [
+        "2021"
+    ]
+}
