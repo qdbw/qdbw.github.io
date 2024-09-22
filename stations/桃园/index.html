@@ -1,1 +1,111 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>桃园 | QDB Wiki</title><link rel="stylesheet" href="../../lib/style/basic.css"/><link rel="stylesheet" href="../../lib/style/stop.css"/><link rel="stylesheet" href="../../lib/style/model.css"/><link rel="stylesheet" href="../../lib/style/table.css"/></head><body name="桃园"><header><a href="../../">首页</a><a href="../../lines/">线路</a><a href="../../stations/">车站</a></header><main><div class="page-root pager-1"><div class="desc-box --flex- -f-center"><h1 class="on-hover-root title" ondblclick="navigator.clipboard.writeText(location.href)">桃园<div class="on-hover --width-fit"><p>双击以复制网页路径到剪切板</p></div></h1><p>公交站</p></div><div class="desc-box locationInfo"> <h2>位置信息</h2><p>位于道路：黑龙江中路</p></div><div class="desc-box locations"><h2>站点分布</h2><p>暂无详细信息</p></div><div class="desc-box introduction"><h2>站点描述</h2><p>暂无描述</p></div></div><div class="page-root pager-main"><div class="desc-box qdbw-stop --line"><h2>途径线路</h2><ul class="--list-root"><li><h3><a href="../../lines/103">103路</a></h3><div class="--list-child"><span>下行</span><span>第37站</span></div><div class="--list-child"><span>上行</span><span>第9站</span></div></li><li><h3><a href="../../lines/111">111路</a></h3><div class="--list-child"><span>环行</span><span>第30站</span></div><div class="--list-child"><span>环行</span><span>第48站</span></div></li><li><h3><a href="../../lines/129">129路</a></h3><div class="--list-child"><span>下行</span><span>第8站</span></div><div class="--list-child"><span>上行</span><span>第34站</span></div></li><li><h3><a href="../../lines/131">131路</a></h3><div class="--list-child"><span>下行</span><span>第8站</span></div><div class="--list-child"><span>上行</span><span>第27站</span></div></li><li><h3><a href="../../lines/371">371路</a></h3><div class="--list-child"><span>下行</span><span>第30站</span></div><div class="--list-child"><span>上行</span><span>第22站</span></div></li><li><h3><a href="../../lines/640">640路</a></h3><div class="--list-child"><span>下行</span><span>第18站</span></div><div class="--list-child"><span>上行</span><span>第19站</span></div></li><li><h3><a href="../../lines/946">946路</a></h3><div class="--list-child"><span>下行</span><span>第42站</span></div><div class="--list-child"><span>上行</span><span>第16站</span></div></li></ul></div></div></main><footer><p>2024 QDBw </p><p>2024 0xarch & 2024 Soloev</p><p>资料主要来源：<a href="//buspedia.top">巴士派迪</a></p><p>自豪地使用 Node.js 与 Pug 构建.</p></footer></body></html>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>桃园 | QDB Wiki</title>
+    <link rel="stylesheet" href="../../lib/style/basic.css" />
+    <link rel="stylesheet" href="../../lib/style/stop.css" />
+    <link rel="stylesheet" href="../../lib/style/model.css" />
+    <link rel="stylesheet" href="../../lib/style/table.css" />
+  </head>
+  <body name="桃园">
+    <header>
+      <a href="../../">首页</a><a href="../../lines/">线路</a
+      ><a href="../../stations/">车站</a>
+    </header>
+    <main>
+      <div class="page-root pager-1">
+        <div class="desc-box --flex- -f-center">
+          <h1
+            class="on-hover-root title"
+            ondblclick="navigator.clipboard.writeText(location.href)"
+          >
+            桃园
+            <div class="on-hover --width-fit">
+              <p>双击以复制网页路径到剪切板</p>
+            </div>
+          </h1>
+          <p>公交站</p>
+        </div>
+        <div class="desc-box locationInfo">
+          <h2>位置信息</h2>
+          <p>位于道路: 黑龙江中路</p>
+        </div>
+        <div class="desc-box locations">
+          <h2>站点分布</h2>
+          <p>暂无详细信息</p>
+        </div>
+        <div class="desc-box introduction">
+          <h2>站点描述</h2>
+          <p>暂无描述</p>
+        </div>
+      </div>
+      <div class="page-root pager-main">
+        <div class="desc-box qdbw-stop --line">
+          <h2>途径线路</h2>
+          <ul class="--list-root">
+            <li>
+              <h3><a href="../../lines/129">129路</a></h3>
+              <div class="--list-child">
+                <span>下行</span><span>第8站</span>
+              </div>
+              <div class="--list-child">
+                <span>上行</span><span>第34站</span>
+              </div>
+            </li>
+            <li>
+              <h3><a href="../../lines/131">131路</a></h3>
+              <div class="--list-child">
+                <span>下行</span><span>第8站</span>
+              </div>
+              <div class="--list-child">
+                <span>上行</span><span>第27站</span>
+              </div>
+            </li>
+            <li>
+              <h3>
+                <a href="../../lines/312@2018">312路</a
+                ><span class="route-tips --shutdown">停运</span
+                ><span class="route-tips --history">历史</span>
+              </h3>
+              <div class="--list-child">
+                <span>下行</span><span>第44站</span>
+              </div>
+              <div class="--list-child">
+                <span>上行</span><span>第55站</span>
+              </div>
+            </li>
+            <li>
+              <h3>
+                <a href="../../lines/312">312路</a
+                ><span class="route-tips --shutdown">停运</span>
+              </h3>
+              <div class="--list-child">
+                <span>下行</span><span>第44站</span>
+              </div>
+              <div class="--list-child">
+                <span>上行</span><span>第55站</span>
+              </div>
+            </li>
+            <li>
+              <h3><a href="../../lines/946">946路</a></h3>
+              <div class="--list-child">
+                <span>下行</span><span>第42站</span>
+              </div>
+              <div class="--list-child">
+                <span>上行</span><span>第16站</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>2024 QDBw</p>
+      <p>2024 0xarch & 2024 Soloev</p>
+      <p>资料主要来源：<a href="//buspedia.top">巴士派迪</a></p>
+      <p>自豪地使用 Node.js 与 Pug 构建.</p>
+    </footer>
+  </body>
+</html>
