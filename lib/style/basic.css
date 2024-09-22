@@ -218,11 +218,16 @@ hr.divider {
     padding: 2px 6px;
     font-size: 90%;
     display: inline-block;
+    border-radius: .35em;
+    text-align: center;
+}
+
+.route-tips.--history {
+    border: 1px solid #888;
+    color: #888;
 }
 
 .route-tips.--shutdown {
-    border: 1px solid #888;
-    border-radius: .35em;
-    color: #888;
-    text-align: center;
+    border: 1px solid #f00a;
+    color: #f00;
 }
