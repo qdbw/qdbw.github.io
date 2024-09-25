@@ -78,6 +78,7 @@
         flex-wrap: wrap;
         gap: 12px;
         align-items: unset;
+        justify-content: space-evenly;
     }
 
     .qdbw-line.--line .--list-root>div {
