@@ -1,23 +1,23 @@
 {
     "Name": "312路",
-    "Tags": [
-        "SHUTDOWN"
-    ],
-    "FROM_TO": [
+    "FromTo": [
         [
-            "轮渡",
-            "仰口"
+            "汽车东站停车场",
+            "市政府南通路"
         ]
     ],
     "Companies": [
-        "QINGDAO_BUS/Unknown/Shutdown"
+        "CHENGYUN_HOLDING/Laoshan/3"
     ],
     "Models": {
-        "JS6116GHCJ": {}
+        "BYD6121LGEV4": {},
+        "SWB6117Q8": {},
+        "SWB6115Q7-3": {},
+        "SWB6107Q6": {}
     },
     "TicketOptions": {
-        "Manual": true,
-        "Seasonal": false
+        "Manual": false,
+        "Seasonal": true
     },
     "Routes": [
         "下行",
