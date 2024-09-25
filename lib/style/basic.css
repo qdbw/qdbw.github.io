@@ -231,3 +231,17 @@ hr.divider {
     border: 1px solid #f00a;
     color: #f00;
 }
+
+.desc-box.navigator .pager {
+    margin-top: 10px;
+    border-top: 1px solid #8888;
+    padding-top: 5px;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.desc-box.navigator .pager .h-link {
+    margin: 2px;
+}
