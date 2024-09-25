@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../../lib/style/line.css" />
     <link rel="stylesheet" href="../../lib/style/model.css" />
     <link rel="stylesheet" href="../../lib/style/table.css" />
-    <link rel="stylesheet" href="../../lib/style/StationListWithRoads.css" />
+    <link
+      rel="stylesheet"
+      href="../../lib/style/StationListWithRoads.css.css"
+    />
   </head>
   <body>
     <header>
@@ -27,7 +30,9 @@
               <p>双击以复制网页路径到剪切板</p>
             </div>
           </h1>
-          <p></p>
+          <div class="fromToSymbol">
+            长城路<span class="--stretch">⇌</span>向阳小区
+          </div>
         </div>
         <div class="desc-box history">
           <h2>历史页面</h2>
@@ -73,109 +78,132 @@
                     </p>
                   </div>
                 </summary>
+                <link
+                  rel="stylesheet"
+                  href="../../lib/style/station_list.css"
+                />
                 <div class="stationList --flex-root">
-                  <ul class="list-root --stops">
-                    <li>
-                      <a class="h-link" index="1" href="../../stations/长城路/"
-                        >长城路②</a
-                      >
+                  <ul class="list-root">
+                    <li data-road="长城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="1"
+                            href="../../stations/长城路/"
+                            >长城路②</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="2"
-                        href="../../stations/小北曲社区/"
-                        >小北曲社区</a
-                      >
+                    <li data-road="和阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="2"
+                            href="../../stations/小北曲社区/"
+                            >小北曲社区</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="3"
-                        href="../../stations/阜城路和阳路/"
-                        >阜城路和阳路</a
-                      >
+                    <li data-road="阜城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="3"
+                            href="../../stations/阜城路和阳路/"
+                            >阜城路和阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="4"
+                            href="../../stations/阜城路崇阳路/"
+                            >阜城路崇阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="5"
+                            href="../../stations/阜城路文阳路/"
+                            >阜城路文阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="6"
+                            href="../../stations/阜城路兴阳路/"
+                            >阜城路兴阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="4"
-                        href="../../stations/阜城路崇阳路/"
-                        >阜城路崇阳路</a
-                      >
+                    <li data-road="兴阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="7"
+                            href="../../stations/兴阳路靖城路/"
+                            >兴阳路靖城路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="5"
-                        href="../../stations/阜城路文阳路/"
-                        >阜城路文阳路</a
-                      >
+                    <li data-road="泰城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="8"
+                            href="../../stations/泰城路兴阳路/"
+                            >泰城路兴阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="6"
-                        href="../../stations/阜城路兴阳路/"
-                        >阜城路兴阳路</a
-                      >
+                    <li data-road="民城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="9"
+                            href="../../stations/桃花源民城路/"
+                            >桃花源民城路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="10"
+                            href="../../stations/民城路文阳路/"
+                            >民城路文阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="11"
+                            href="../../stations/社会福利中心/"
+                            >社会福利中心</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="12"
+                            href="../../stations/向阳小区/"
+                            >向阳小区</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="7"
-                        href="../../stations/兴阳路靖城路/"
-                        >兴阳路靖城路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="8"
-                        href="../../stations/泰城路兴阳路/"
-                        >泰城路兴阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="9"
-                        href="../../stations/桃花源民城路/"
-                        >桃花源民城路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="10"
-                        href="../../stations/民城路文阳路/"
-                        >民城路文阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="11"
-                        href="../../stations/社会福利中心/"
-                        >社会福利中心</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="12"
-                        href="../../stations/向阳小区/"
-                        >向阳小区</a
-                      >
-                    </li>
-                  </ul>
-                  <ul class="list-root --roads">
-                    <li class="--solid" style="--count: 1">长城路</li>
-                    <li class="--solid" style="--count: 1">和阳路</li>
-                    <li style="--count: 4">阜城路</li>
-                    <li class="--solid" style="--count: 1">兴阳路</li>
-                    <li class="--solid" style="--count: 1">泰城路</li>
-                    <li style="--count: 4">民城路</li>
                   </ul>
                 </div>
               </details>
@@ -192,106 +220,135 @@
                     </p>
                   </div>
                 </summary>
+                <link
+                  rel="stylesheet"
+                  href="../../lib/style/station_list.css"
+                />
                 <div class="stationList --flex-root">
-                  <ul class="list-root --stops">
-                    <li>
-                      <a
-                        class="h-link"
-                        index="1"
-                        href="../../stations/向阳小区/"
-                        >向阳小区</a
-                      >
+                  <ul class="list-root">
+                    <li data-road="民城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="1"
+                            href="../../stations/向阳小区/"
+                            >向阳小区</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="2"
-                        href="../../stations/大北曲前社区/"
-                        >大北曲前社区</a
-                      >
+                    <li data-road="崇阳路"><ul></ul></li>
+                    <li data-road="泰城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="2"
+                            href="../../stations/大北曲前社区/"
+                            >大北曲前社区</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="3"
+                            href="../../stations/城市花园/"
+                            >城市花园</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="4"
+                            href="../../stations/臻园/"
+                            >臻园</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="5"
+                            href="../../stations/后桃林东/"
+                            >后桃林东</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="3"
-                        href="../../stations/城市花园/"
-                        >城市花园</a
-                      >
+                    <li data-road="兴阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="6"
+                            href="../../stations/兴阳路靖城路/"
+                            >兴阳路靖城路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="4" href="../../stations/臻园/"
-                        >臻园</a
-                      >
+                    <li data-road="阜城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="7"
+                            href="../../stations/阜城路兴阳路/"
+                            >阜城路兴阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="8"
+                            href="../../stations/阜城路文阳路/"
+                            >阜城路文阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="9"
+                            href="../../stations/阜城路崇阳路/"
+                            >阜城路崇阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="10"
+                            href="../../stations/阜城路和阳路/"
+                            >阜城路和阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="5"
-                        href="../../stations/后桃林东/"
-                        >后桃林东</a
-                      >
+                    <li data-road="和阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="11"
+                            href="../../stations/小北曲社区/"
+                            >小北曲社区</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="6"
-                        href="../../stations/兴阳路靖城路/"
-                        >兴阳路靖城路</a
-                      >
+                    <li data-road="山城路"><ul></ul></li>
+                    <li data-road="崇阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="12"
+                            href="../../stations/长城路/"
+                            >长城路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="7"
-                        href="../../stations/阜城路兴阳路/"
-                        >阜城路兴阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="8"
-                        href="../../stations/阜城路文阳路/"
-                        >阜城路文阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="9"
-                        href="../../stations/阜城路崇阳路/"
-                        >阜城路崇阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="10"
-                        href="../../stations/阜城路和阳路/"
-                        >阜城路和阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="11"
-                        href="../../stations/小北曲社区/"
-                        >小北曲社区</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="12" href="../../stations/长城路/"
-                        >长城路</a
-                      >
-                    </li>
-                  </ul>
-                  <ul class="list-root --roads">
-                    <li class="--solid" style="--count: 1">民城路</li>
-                    <li style="--count: 4">泰城路</li>
-                    <li class="--solid" style="--count: 1">兴阳路</li>
-                    <li style="--count: 4">阜城路</li>
-                    <li class="--solid" style="--count: 1">和阳路</li>
-                    <li class="--solid" style="--count: 1">崇阳路</li>
+                    <li data-road="长城路"><ul></ul></li>
                   </ul>
                 </div>
               </details>

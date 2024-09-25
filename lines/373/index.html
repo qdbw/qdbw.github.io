@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../../lib/style/line.css" />
     <link rel="stylesheet" href="../../lib/style/model.css" />
     <link rel="stylesheet" href="../../lib/style/table.css" />
-    <link rel="stylesheet" href="../../lib/style/StationListWithRoads.css" />
+    <link
+      rel="stylesheet"
+      href="../../lib/style/StationListWithRoads.css.css"
+    />
   </head>
   <body>
     <header>
@@ -27,7 +30,9 @@
               <p>双击以复制网页路径到剪切板</p>
             </div>
           </h1>
-          <p></p>
+          <div class="fromToSymbol">
+            镇平一路<span class="--stretch">⇌</span>城阳十五中
+          </div>
         </div>
         <div class="desc-box history">
           <h2>历史页面</h2>
@@ -69,226 +74,304 @@
                     </p>
                   </div>
                 </summary>
+                <link
+                  rel="stylesheet"
+                  href="../../lib/style/station_list.css"
+                />
                 <div class="stationList --flex-root">
-                  <ul class="list-root --stops">
-                    <li>
-                      <a
-                        class="h-link"
-                        index="1"
-                        href="../../stations/镇平一路/"
-                        >镇平一路</a
-                      >
+                  <ul class="list-root">
+                    <li data-road="镇平一路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="1"
+                            href="../../stations/镇平一路/"
+                            >镇平一路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="2"
-                        href="../../stations/唐河路镇平路/"
-                        >唐河路镇平路</a
-                      >
+                    <li data-road="镇平路"><ul></ul></li>
+                    <li data-road="唐河路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="2"
+                            href="../../stations/唐河路镇平路/"
+                            >唐河路镇平路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="3" href="../../stations/胜利桥/"
-                        >胜利桥</a
-                      >
+                    <li data-road="四流南路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="3"
+                            href="../../stations/胜利桥/"
+                            >胜利桥</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="4"
-                        href="../../stations/永平路振华路/"
-                        >永平路振华路</a
-                      >
+                    <li data-road="四流中路"><ul></ul></li>
+                    <li data-road="永平路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="4"
+                            href="../../stations/永平路振华路/"
+                            >永平路振华路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="5"
+                            href="../../stations/晓翁村/"
+                            >晓翁村</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="5" href="../../stations/晓翁村/"
-                        >晓翁村</a
-                      >
+                    <li data-road="升平路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="6"
+                            href="../../stations/升平路永年路/"
+                            >升平路永年路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="6"
-                        href="../../stations/升平路永年路/"
-                        >升平路永年路</a
-                      >
+                    <li data-road="永清路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="7"
+                            href="../../stations/永清路升平路/"
+                            >永清路升平路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="7"
-                        href="../../stations/永清路升平路/"
-                        >永清路升平路</a
-                      >
+                    <li data-road="文安路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="8"
+                            href="../../stations/文安路/"
+                            >文安路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="8" href="../../stations/文安路/"
-                        >文安路</a
-                      >
+                    <li data-road="重庆中路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="9"
+                            href="../../stations/文昌阁/"
+                            >文昌阁</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="10"
+                            href="../../stations/石沟/"
+                            >石沟</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="11"
+                            href="../../stations/南岭/"
+                            >南岭</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="12"
+                            href="../../stations/十梅庵/"
+                            >十梅庵</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="13"
+                            href="../../stations/胸科医院/"
+                            >胸科医院</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="14"
+                            href="../../stations/重庆中路湘潭路/"
+                            >重庆中路湘潭路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="15"
+                            href="../../stations/重庆中路瑞金路/"
+                            >重庆中路瑞金路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="9" href="../../stations/文昌阁/"
-                        >文昌阁</a
-                      >
+                    <li data-road="重庆北路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="16"
+                            href="../../stations/汽车北站/"
+                            >汽车北站②</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="17"
+                            href="../../stations/重庆北路夏塔路/"
+                            >重庆北路夏塔路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="18"
+                            href="../../stations/夏家庄社区/"
+                            >夏家庄社区</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="10" href="../../stations/石沟/"
-                        >石沟</a
-                      >
+                    <li data-road="威青公路"><ul></ul></li>
+                    <li data-road="黑龙江北路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="19"
+                            href="../../stations/黑龙江北路长城路/"
+                            >黑龙江北路长城路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="20"
+                            href="../../stations/黑龙江北路文阳路/"
+                            >黑龙江北路文阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="21"
+                            href="../../stations/黑龙江北路平阳路/"
+                            >黑龙江北路平阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="22"
+                            href="../../stations/黑龙江北路正阳中路/"
+                            >黑龙江北路正阳中路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="11" href="../../stations/南岭/"
-                        >南岭</a
-                      >
+                    <li data-road="正阳中路"><ul></ul></li>
+                    <li data-road="中城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="23"
+                            href="../../stations/中城路正阳中路/"
+                            >中城路正阳中路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="12" href="../../stations/十梅庵/"
-                        >十梅庵</a
-                      >
+                    <li data-road="明阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="24"
+                            href="../../stations/翰林苑/"
+                            >翰林苑</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="13"
-                        href="../../stations/胸科医院/"
-                        >胸科医院</a
-                      >
+                    <li data-road="春城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="25"
+                            href="../../stations/春城路春阳路/"
+                            >春城路春阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="14"
-                        href="../../stations/重庆中路湘潭路/"
-                        >重庆中路湘潭路</a
-                      >
+                    <li data-road="艳阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="26"
+                            href="../../stations/艳阳路国城路/"
+                            >艳阳路国城路②</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="15"
-                        href="../../stations/重庆中路瑞金路/"
-                        >重庆中路瑞金路</a
-                      >
+                    <li data-road="靖城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="27"
+                            href="../../stations/靖城路惠阳路/"
+                            >靖城路惠阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="16"
-                        href="../../stations/汽车北站/"
-                        >汽车北站②</a
-                      >
+                    <li data-road="硕阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="28"
+                            href="../../stations/城阳十五中/"
+                            >城阳十五中</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="17"
-                        href="../../stations/重庆北路夏塔路/"
-                        >重庆北路夏塔路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="18"
-                        href="../../stations/夏家庄社区/"
-                        >夏家庄社区</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="19"
-                        href="../../stations/黑龙江北路长城路/"
-                        >黑龙江北路长城路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="20"
-                        href="../../stations/黑龙江北路文阳路/"
-                        >黑龙江北路文阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="21"
-                        href="../../stations/黑龙江北路平阳路/"
-                        >黑龙江北路平阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="22"
-                        href="../../stations/黑龙江北路正阳中路/"
-                        >黑龙江北路正阳中路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="23"
-                        href="../../stations/中城路正阳中路/"
-                        >中城路正阳中路</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="24" href="../../stations/翰林苑/"
-                        >翰林苑</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="25"
-                        href="../../stations/春城路春阳路/"
-                        >春城路春阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="26"
-                        href="../../stations/艳阳路国城路/"
-                        >艳阳路国城路②</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="27"
-                        href="../../stations/靖城路惠阳路/"
-                        >靖城路惠阳路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="28"
-                        href="../../stations/城阳十五中/"
-                        >城阳十五中</a
-                      >
-                    </li>
-                  </ul>
-                  <ul class="list-root --roads">
-                    <li class="--solid" style="--count: 1">镇平一路</li>
-                    <li class="--solid" style="--count: 1">唐河路</li>
-                    <li class="--solid" style="--count: 1">四流南路</li>
-                    <li style="--count: 2">永平路</li>
-                    <li class="--solid" style="--count: 1">升平路</li>
-                    <li class="--solid" style="--count: 1">永清路</li>
-                    <li class="--solid" style="--count: 1">文安路</li>
-                    <li style="--count: 7">重庆中路</li>
-                    <li style="--count: 3">重庆北路</li>
-                    <li style="--count: 4">黑龙江北路</li>
-                    <li class="--solid" style="--count: 1">中城路</li>
-                    <li class="--solid" style="--count: 1">明阳路</li>
-                    <li class="--solid" style="--count: 1">春城路</li>
-                    <li class="--solid" style="--count: 1">艳阳路</li>
-                    <li class="--solid" style="--count: 1">靖城路</li>
-                    <li class="--solid" style="--count: 1">硕阳路</li>
                   </ul>
                 </div>
               </details>
@@ -305,221 +388,295 @@
                     </p>
                   </div>
                 </summary>
+                <link
+                  rel="stylesheet"
+                  href="../../lib/style/station_list.css"
+                />
                 <div class="stationList --flex-root">
-                  <ul class="list-root --stops">
-                    <li>
-                      <a
-                        class="h-link"
-                        index="1"
-                        href="../../stations/城阳十五中/"
-                        >城阳十五中②</a
-                      >
+                  <ul class="list-root">
+                    <li data-road="硕阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="1"
+                            href="../../stations/城阳十五中/"
+                            >城阳十五中②</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="2"
-                        href="../../stations/靖城路惠阳路/"
-                        >靖城路惠阳路</a
-                      >
+                    <li data-road="靖城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="2"
+                            href="../../stations/靖城路惠阳路/"
+                            >靖城路惠阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="3"
-                        href="../../stations/艳阳路国城路/"
-                        >艳阳路国城路</a
-                      >
+                    <li data-road="艳阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="3"
+                            href="../../stations/艳阳路国城路/"
+                            >艳阳路国城路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="4"
-                        href="../../stations/春城路春阳路/"
-                        >春城路春阳路</a
-                      >
+                    <li data-road="春城路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="4"
+                            href="../../stations/春城路春阳路/"
+                            >春城路春阳路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="5" href="../../stations/翰林苑/"
-                        >翰林苑</a
-                      >
+                    <li data-road="明阳路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="5"
+                            href="../../stations/翰林苑/"
+                            >翰林苑</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="6"
-                        href="../../stations/正阳中路中城路/"
-                        >正阳中路中城路</a
-                      >
+                    <li data-road="中城路"><ul></ul></li>
+                    <li data-road="正阳中路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="6"
+                            href="../../stations/正阳中路中城路/"
+                            >正阳中路中城路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="7"
-                        href="../../stations/黑龙江北路正阳中路/"
-                        >黑龙江北路正阳中路</a
-                      >
+                    <li data-road="黑龙江北路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="7"
+                            href="../../stations/黑龙江北路正阳中路/"
+                            >黑龙江北路正阳中路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="8"
+                            href="../../stations/黑龙江北路平阳路/"
+                            >黑龙江北路平阳路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="9"
+                            href="../../stations/黑龙江北路文阳路/"
+                            >黑龙江北路文阳路②</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="10"
+                            href="../../stations/黑龙江北路长城路/"
+                            >黑龙江北路长城路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="8"
-                        href="../../stations/黑龙江北路平阳路/"
-                        >黑龙江北路平阳路</a
-                      >
+                    <li data-road="重庆北路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="11"
+                            href="../../stations/夏家庄社区/"
+                            >夏家庄社区</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="12"
+                            href="../../stations/重庆北路夏塔路/"
+                            >重庆北路夏塔路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="13"
+                            href="../../stations/汽车北站/"
+                            >汽车北站③</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="9"
-                        href="../../stations/黑龙江北路文阳路/"
-                        >黑龙江北路文阳路②</a
-                      >
+                    <li data-road="重庆中路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="14"
+                            href="../../stations/重庆中路瑞金路/"
+                            >重庆中路瑞金路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="15"
+                            href="../../stations/重庆中路湘潭路/"
+                            >重庆中路湘潭路</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="16"
+                            href="../../stations/胸科医院/"
+                            >胸科医院</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="17"
+                            href="../../stations/十梅庵/"
+                            >十梅庵</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="18"
+                            href="../../stations/南岭/"
+                            >南岭</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="19"
+                            href="../../stations/石沟/"
+                            >石沟</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="10"
-                        href="../../stations/黑龙江北路长城路/"
-                        >黑龙江北路长城路</a
-                      >
+                    <li data-road="文安路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="20"
+                            href="../../stations/文安路/"
+                            >文安路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="11"
-                        href="../../stations/夏家庄社区/"
-                        >夏家庄社区</a
-                      >
+                    <li data-road="永清路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="21"
+                            href="../../stations/永清路升平路/"
+                            >永清路升平路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="12"
-                        href="../../stations/重庆北路夏塔路/"
-                        >重庆北路夏塔路</a
-                      >
+                    <li data-road="升平路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="22"
+                            href="../../stations/升平路永年路/"
+                            >升平路永年路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="13"
-                        href="../../stations/汽车北站/"
-                        >汽车北站③</a
-                      >
+                    <li data-road="永平路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="23"
+                            href="../../stations/晓翁村/"
+                            >晓翁村</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="24"
+                            href="../../stations/永平路振华路/"
+                            >永平路振华路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="14"
-                        href="../../stations/重庆中路瑞金路/"
-                        >重庆中路瑞金路</a
-                      >
+                    <li data-road="四流中路"><ul></ul></li>
+                    <li data-road="四流南路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="25"
+                            href="../../stations/胜利桥/"
+                            >胜利桥</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="15"
-                        href="../../stations/重庆中路湘潭路/"
-                        >重庆中路湘潭路</a
-                      >
+                    <li data-road="唐河路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="26"
+                            href="../../stations/唐河路镇平路/"
+                            >唐河路镇平路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="16"
-                        href="../../stations/胸科医院/"
-                        >胸科医院</a
-                      >
+                    <li data-road="镇平路"><ul></ul></li>
+                    <li data-road="镇平一路">
+                      <ul>
+                        <li>
+                          <a
+                            class="h-link"
+                            data-index="27"
+                            href="../../stations/镇平一路/"
+                            >镇平一路</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <a class="h-link" index="17" href="../../stations/十梅庵/"
-                        >十梅庵</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="18" href="../../stations/南岭/"
-                        >南岭</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="19" href="../../stations/石沟/"
-                        >石沟</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="20" href="../../stations/文安路/"
-                        >文安路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="21"
-                        href="../../stations/永清路升平路/"
-                        >永清路升平路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="22"
-                        href="../../stations/升平路永年路/"
-                        >升平路永年路</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="23" href="../../stations/晓翁村/"
-                        >晓翁村</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="24"
-                        href="../../stations/永平路振华路/"
-                        >永平路振华路</a
-                      >
-                    </li>
-                    <li>
-                      <a class="h-link" index="25" href="../../stations/胜利桥/"
-                        >胜利桥</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="26"
-                        href="../../stations/唐河路镇平路/"
-                        >唐河路镇平路</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="h-link"
-                        index="27"
-                        href="../../stations/镇平一路/"
-                        >镇平一路</a
-                      >
-                    </li>
-                  </ul>
-                  <ul class="list-root --roads">
-                    <li class="--solid" style="--count: 1">硕阳路</li>
-                    <li class="--solid" style="--count: 1">靖城路</li>
-                    <li class="--solid" style="--count: 1">艳阳路</li>
-                    <li class="--solid" style="--count: 1">春城路</li>
-                    <li class="--solid" style="--count: 1">明阳路</li>
-                    <li class="--solid" style="--count: 1">正阳中路</li>
-                    <li style="--count: 4">黑龙江北路</li>
-                    <li style="--count: 3">重庆北路</li>
-                    <li style="--count: 6">重庆中路</li>
-                    <li class="--solid" style="--count: 1">文安路</li>
-                    <li class="--solid" style="--count: 1">永清路</li>
-                    <li class="--solid" style="--count: 1">升平路</li>
-                    <li style="--count: 2">永平路</li>
-                    <li class="--solid" style="--count: 1">四流南路</li>
-                    <li class="--solid" style="--count: 1">唐河路</li>
-                    <li class="--solid" style="--count: 1">镇平一路</li>
                   </ul>
                 </div>
               </details>
