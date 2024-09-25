@@ -11,9 +11,7 @@
 .stationList>.list-root>li {
     display: flex;
     width: 100%;
-    margin: 4px;
-    border-radius: .5em;
-    overflow: hidden;
+    margin: 2px;
 }
 
 .stationList>.list-root>li::after{
@@ -22,9 +20,12 @@
     align-items: center;
     justify-content: center;
     width: 3em;
-    background-image: linear-gradient(#0f46,#0f43);
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+    color: #fff;
     margin-left: auto;
     padding: 4px;
+    border-radius: 0 .5em .5em 0;
     flex: .35;
     writing-mode: vertical-rl;
     word-break: keep-all;
@@ -41,10 +42,12 @@
     content: '无设站';
     display: flex;
     height: 100%;
-    background-color: #8882;
-    color: var(--colorTextBlue);
+    background-color: var(--backgroundColor);
     align-items: center;
     justify-content: center;
+    border-radius: .5em 0 0 .5em;
+    border: 1px solid dodgerblue;
+    border-right: none;
 }
 
 .stationList>.list-root>li>ul>li{
@@ -57,4 +60,27 @@
     flex: 1;
     min-height: 36px;
     border-radius: 0;
+    background: var(--backgroundColor);
+    border: 1px solid dodgerblue;
+    border-right: none;
+}
+
+.stationList>.list-root>li>ul>li>a:hover {
+    background: #8882;
+}
+
+.stationList>.list-root>li>ul>li:first-child>a{
+    border-top-left-radius: .5em;
+}
+
+.stationList>.list-root>li>ul>li:last-child>a{
+    border-bottom-left-radius: .5em;
+}
+
+.stationList>.list-root>li>ul>li:not(:first-child)>a{
+    border-top: 1px solid dodgerblue;
+}
+
+.stationList>.list-root>li>ul>li:not(:last-child)>a{
+    border-bottom: none;
 }
