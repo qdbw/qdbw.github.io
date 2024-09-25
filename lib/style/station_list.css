@@ -47,7 +47,8 @@
     background-color: var(--backgroundColor);
     align-items: center;
     justify-content: center;
-    border-radius: .5em 0 0 .5em;
+    border-radius: .5em;
+    margin: 2px;
 }
 
 .stationList>.list-root>li>ul>li{
@@ -57,34 +58,30 @@
 }
 
 .stationList>.list-root>li>ul>li>a {
+    margin: 2px;
     flex: 1;
     min-height: 36px;
+    min-width: 6.5em;
     border-radius: 0;
     background: var(--backgroundColor);
     text-wrap: balance;
     text-align: center;
+    border-radius: .5em;
 }
 
 .stationList>.list-root>li>ul>li>a:hover {
     background: var(--backgroundColorWidget);
 }
 
-.stationList>.list-root>li>ul>li:first-child>a{
-    border-top-left-radius: .5em;
-}
-
-.stationList>.list-root>li>ul>li:last-child>a{
-    border-bottom-left-radius: .5em;
-}
-
 .stationList>.list-root>li>ul>li:not(:first-child)>a{
     border-top: 1px solid dodgerblue;
+    margin-top: 0;
 }
 
 .stationList>.list-root>li>ul>li>a::after {
     content: attr(data-index);
     position: absolute;
-    right: -1em;
+    right: -.8em;
     display: block;
     background-color: var(--backgroundColor);
     width: 1.75em;
