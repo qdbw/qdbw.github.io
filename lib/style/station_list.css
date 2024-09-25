@@ -12,6 +12,10 @@
     display: flex;
     width: 100%;
     margin: 2px;
+    background-image: linear-gradient(dodgerblue,#3273d2 75%);
+    border: 1px solid dodgerblue;
+    border-radius: .5em;
+    overflow: hidden;
 }
 
 .stationList>.list-root>li::after{
@@ -20,8 +24,6 @@
     align-items: center;
     justify-content: center;
     width: 3em;
-    background-color: dodgerblue;
-    border: 1px solid dodgerblue;
     color: #fff;
     margin-left: auto;
     padding: 4px;
@@ -46,8 +48,6 @@
     align-items: center;
     justify-content: center;
     border-radius: .5em 0 0 .5em;
-    border: 1px solid dodgerblue;
-    border-right: none;
 }
 
 .stationList>.list-root>li>ul>li{
@@ -61,12 +61,12 @@
     min-height: 36px;
     border-radius: 0;
     background: var(--backgroundColor);
-    border: 1px solid dodgerblue;
-    border-right: none;
+    text-wrap: balance;
+    text-align: center;
 }
 
 .stationList>.list-root>li>ul>li>a:hover {
-    background: #8882;
+    background: var(--backgroundColorWidget);
 }
 
 .stationList>.list-root>li>ul>li:first-child>a{
@@ -81,6 +81,14 @@
     border-top: 1px solid dodgerblue;
 }
 
-.stationList>.list-root>li>ul>li:not(:last-child)>a{
-    border-bottom: none;
+.stationList>.list-root>li>ul>li>a::after {
+    content: attr(data-index);
+    position: absolute;
+    right: -1em;
+    display: block;
+    background-color: var(--backgroundColor);
+    width: 1.75em;
+    text-align: center;
+    border: 1px solid dodgerblue;
+    border-radius: 1em;
 }
