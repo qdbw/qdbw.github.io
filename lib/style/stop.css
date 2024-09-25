@@ -18,6 +18,12 @@
     margin: 0;
 }
 
+.qdbw-stop.--line>ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem,1fr));
+}
+
 .qdbw-stop.--line .--list-root .--list-child span:nth-child(2) {
     font-weight: bold;
 }
@@ -29,4 +35,13 @@
 
 .qdbw-stop.--line .--list-root .--list-child span.--skip {
     color: red;
+}
+
+.tag-list {
+    margin: 4px 0;
+}
+
+.s-index {
+    color: dodgerblue;
+    padding: 0 4px;
 }
