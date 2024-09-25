@@ -1,0 +1,22 @@
+include /Mixins/getURI.pug
+
+mixin StationListWithRoads(Stations,Roads)
+    .stationListWithRoads.--flex-root
+        ul.route-list-root.--stops
+            each station in Stations
+                - let stopUri = getStationURI(station.name)
+                - let stopName = station.option.hasAlias ? station.alias : station.name
+                - let classes = []
+                - if(station.option.skipThis) classes.push('--skip')
+                - if(station.routeRef.mainRef.JSON_DATA.Tags.includes('SHUTDOWN')) classes.push('--shutdown')
+                li
+                    a(index=station.index,class="h-link "+classes.join(' '),href=stopUri)= stopName
+        ul.route-list-root.--roads
+            each road in Roads 
+                - let roadLiteralData = road.split(" ")
+                - let roadName = roadLiteralData[0], stationCountOnRoad = parseInt(roadLiteralData[1]) ?? 0
+                if stationCountOnRoad != 0
+                    if stationCountOnRoad === 1
+                        li.--solid(style="--count: 1")= roadName
+                    else
+                        li(style="--count: "+stationCountOnRoad)= roadName

@@ -1,0 +1,24 @@
+mixin DepartureTime(TIME_ARRAY,Options)
+    div.departure-time
+        if TIME_ARRAY
+            if TIME_ARRAY.length === 2 && !Options.includes('Fixed')
+                p
+                    span.time-sym.--first= TIME_ARRAY[0]
+                    span.time-sym.--last= TIME_ARRAY[1]
+            else
+                p 发车时间
+                    if Options.includes('Interval')
+                        if TIME_ARRAY.length%2 != 0
+                            - throw new Error('[Template/Components/DepartureTime] Detected wrong format time: Interval time with *odd* length Times array!')
+                        - let i = 0
+                        while i < TIME_ARRAY.length
+                            - let str = TIME_ARRAY[i]
+                            - i++
+                            - str += '-'
+                            - str += TIME_ARRAY[i]
+                            - i++
+                            br
+                            span.time-sym= str
+                    else
+                        each time in TIME_ARRAY
+                            span.time-sym= time

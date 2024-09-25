@@ -1,0 +1,76 @@
+include /Components/Header.pug
+include /Components/Footer.pug
+include /Mixins/requestCSS.pug
+include /Mixins/getURI.pug
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title #{data.name} | QDB Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/stop.css")
+        +requestCSS("lib/style/model.css")
+        +requestCSS("lib/style/table.css")
+
+    body(name=data.name)
+        +Header
+        main
+            .page-root.pager-1
+                .desc-box.--flex-.-f-center
+                    h1.on-hover-root.title(ondblclick="navigator.clipboard.writeText(location.href)")
+                        if TitleHtml
+                            = TitleHtml
+                        else
+                            - let rawName = data.name
+                            if rawName.length > 6
+                                if rawName.includes('路')
+                                    = rawName.substring(0,rawName.indexOf('路')+1)
+                                    br
+                                    = rawName.substring(rawName.indexOf('路')+1)
+                                else
+                                    = rawName.substring(0,4)
+                                    br
+                                    = rawName.substring(4)
+                            else
+                                = data.name
+                        .on-hover.--width-fit
+                            p 双击以复制网页路径到剪切板
+                    p 公交站
+                .desc-box.locationInfo 
+                    h2 位置信息
+                    p 位于道路：#{OnRoad || data.roads.join(", ") || '未知'}
+                .desc-box.locations
+                    h2 站点分布
+                    if SubStops
+                        each subStop,key in SubStops
+                            h3= key
+                            p= subStop
+                    else 
+                        p 暂无详细信息
+                .desc-box.introduction
+                    h2 站点描述
+                    p= Description || '暂无描述'
+
+            .page-root.pager-main
+                .desc-box.qdbw-stop.--line
+                    h2 途径线路
+                    ul.--list-root
+                        each route,lineName in data.passedRoutes
+                            li
+                                h3
+                                    a(href=getURI("lines/"+lineName))= Data.Lines.has(lineName) ? Data.Lines.get(lineName).Name : lineName+'路'
+                                    if route[0].routeRef.mainRef.JSON_DATA.Tags.includes('SHUTDOWN')
+                                        span.route-tips.--shutdown 停运
+                                each obj in route
+                                    - let {type,index,alias,option,routeRef} = obj
+                                    .--list-child
+                                        - let lineNameText = OBJECT_LINE_NAME(type)[type];
+                                        span= lineNameText
+                                        span 第#{index}站
+                                        if option.hasAlias
+                                            span.--alias #{alias}
+                                        if option.skipThis
+                                            span.--skip 不停靠
+        +Footer

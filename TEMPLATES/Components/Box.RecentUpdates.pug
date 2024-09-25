@@ -1,0 +1,11 @@
+include /Mixins/getURI.pug
+
+mixin Box-RecentUpdates(recentUpdateArray)
+    .desc-box.RecentUpdats.qdbw-index.--list-lines.--recent-updates 
+        h2 最近更新线路
+        ul
+            each line in recentUpdateArray
+                li
+                    a.h-link(href=getURI("lines/"+line.GlobalId+"/")) #{line.Name}
+                        if line.IsHistoryLine
+                            .route-tips.--history #{line.GlobalId.split("@")[1]}

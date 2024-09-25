@@ -1,0 +1,58 @@
+include /Components/Header.pug
+include /Components/Footer.pug
+include /Mixins/requestCSS.pug
+include /Mixins/getURI.pug
+
+doctype 
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title 车站总览 - QDB Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/index.css")
+        +requestCSS("lib/style/table.css")
+    body
+        +Header
+        main
+            .page-root.pager-1
+                .desc-box.--flex-.-f-center
+                    h1 车站列表
+                    if $.isAllStations
+                        p 全览
+                    else
+                        p 第 #{$.pageIndex} 页
+                .desc-box
+                    p 共收录 #{Data.Stations.size} 个车站
+
+            .page-root.pager-main
+                .desc-box.qdbw-index.--list-stops
+                    h2 已收录车站
+                    ul
+                        each obj in Array.from(Current.entries())
+                            - let [firstLetter,stations] = obj
+                            li
+                                h3 #{firstLetter}
+                                ul
+                                    each station in stations
+                                        li
+                                            a.h-link(href=getStationURI(station.Name)) #{station.Name}
+            .page-root.pager-3
+                .desc-box.navigator
+                    .view-all
+                        a.h-link(href=getURI("stations/_all/")) 全览
+                    .pager
+                        if $.isIndex
+                            - let i = 1
+                            while i <= $.pageCount
+                                a.h-link(href=getURI("stations/_page"+i))= i
+                                - i++
+                        else
+                            - let i = 1
+                            while i <= $.pageCount
+                                if i != $.pageIndex
+                                    a.h-link(href=getURI("stations/_page"+i))= i
+                                else
+                                    a.h-link.--onthis= i
+                                - i++
+    +Footer

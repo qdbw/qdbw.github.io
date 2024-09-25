@@ -1,0 +1,38 @@
+include /Mixins/requestCSS.pug
+include /Components/Header.pug
+include /Components/Footer.pug
+include /Components/Box.RecentUpdates.pug
+
+doctype html
+html
+    head 
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title QDB Wiki - 青岛巴士 Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/index.css")
+        +requestCSS("lib/style/table.css")
+
+    body 
+        +Header
+
+        main
+            .page-root.pager-1 
+                .desc-box.--flex-.-f-center
+                    h1.title QDB Wiki
+                    p 青岛巴士 Wiki
+                
+                .desc-box
+                    p 本站正在开发中！
+                    p 搜索请使用浏览器自带的查找功能，较为高效！
+
+            .page-root.pager-main
+                +Box-RecentUpdates(Profile.Line.RecentUpdates)
+                .desc-box.--show-link
+                    h2 
+                        a(href="lines/") 已收录线路
+                .desc-box.--show-link
+                    h2 
+                        a(href="stations/") 已收录车站
+
+        +Footer

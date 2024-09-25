@@ -4,4 +4,5 @@ node
 nodejs
 package.json
 package-lock.json
-*TEMPLATE*
+*TEMPLATE
+*TEMPLATE.*

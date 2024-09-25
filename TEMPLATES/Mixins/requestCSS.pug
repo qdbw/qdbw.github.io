@@ -1,0 +1,7 @@
+include /Mixins/getURI.pug
+
+mixin requestCSS(path)
+    link(rel="stylesheet",href=getURI(path))
+
+mixin requireCSS(path)
+    link(rel="stylesheet",href=getURI('lib/style/'+path+'.css'))

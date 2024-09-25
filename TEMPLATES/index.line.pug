@@ -1,0 +1,47 @@
+include /Mixins/requestCSS.pug
+include /Components/Header.pug
+include /Components/Footer.pug
+include /Components/Emblem.FromTo.pug
+include /Components/Box.RecentUpdates.pug
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title 线路总览 - QDB Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/index.css")
+        +requestCSS("lib/style/table.css")
+    
+    body
+        +Header
+
+        main
+            .page-root.pager-1
+                .desc-box.--flex-.-f-center
+                    h1 线路列表
+                    p 共收录 #{Data.Lines.size} 条线路
+                +Box-RecentUpdates(Profile.Line.RecentUpdates)
+            .page-root.pager-main
+                .desc-box.qdbw-index.--list-lines
+                    h2 已收录线路
+                    ul
+                        each lineName in Array.from(Data.Lines.keys())
+                            - let CurrentLine = Data.Lines.get(lineName)
+                            if ! CurrentLine.IsHistoryLine
+                                li
+                                    - let lineData = globalData.lines.get(lineName)
+                                    if results.lines[lineName] === 1
+                                        a.on-hover-root.h-link.--col.--unlock-height(href=lineName)
+                                            b #{CurrentLine.Name}
+                                            .on-hover.--flex-.-col
+                                                b
+                                                    +Emblem-FromTo(CurrentLine.FromTo)
+                                                small
+                                                    != CurrentLine.Companies.map(v => StringFormats.uriDecoder.decodeCompany(v).join("/") ).join(",<br>")
+                                    else if results.lines[lineName] === 2
+                                        a.h-link.--working(href=lineName) #{CurrentLine.Name}
+                                    else
+                                        a.h-link.--error #{CurrentLine.Name}
+        +Footer

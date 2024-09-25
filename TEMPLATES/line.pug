@@ -1,0 +1,82 @@
+include /Mixins/requestCSS.pug
+include /Components/Header.pug
+include /Components/Footer.pug
+include /Components/DepartureTime.pug
+include /Components/StationListWithRoads.pug
+include /Components/StationList.pug
+include /Components/Box.ModelInfo.pug
+include /Components/Box.CTime.pug
+include /Components/Emblem.FromTo.pug
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title #{Current ? Current.Name : NUMBER+'路'} | QDB Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/line.css")
+        +requestCSS("lib/style/model.css")
+        +requestCSS("lib/style/table.css")
+        +requireCSS('StationListWithRoads.css')
+
+    body(name=NUMBER)
+        +Header
+
+        main
+            .page-root.pager-1
+                .desc-box.--flex-.-f-center
+                    h1.title.on-hover-root(ondblclick="navigator.clipboard.writeText(location.href)")
+                        = Current ? Current.Name : NUMBER 
+                        .on-hover.--width-fit
+                            p 双击以复制网页路径到剪切板
+                    if Current
+                        +Emblem-FromTo(Current.FromTo)
+                    else 
+                        p!= FT_ARRAY_TO_STRING(FROM_TO || Current.FromTo,'SYMBOL')
+                    if Current && Current.IsHistoryLine
+                        p 历史页面：#{Current.GlobalId}
+                .desc-box.history
+                    h2 历史页面
+                    if Current && Current.IsHistoryLine
+                        a.h-link(href=getURI("lines/"+Current.GlobalId.split('@')[0]+'/')) 主页面
+                    else if Current && Current.Histories.size > 0
+                        each historyGlobalId in Array.from(Current.Histories.keys())
+                            a.h-link(href=getURI('lines/'+historyGlobalId+'/'))= historyGlobalId.replace(Current.GlobalId+'@','')
+                    else
+                        p 暂无收录的历史页面
+                .desc-box
+                    h2 所属公司
+                    - let companyInfo = Current ? Current.Companies : Companies
+                    each company in companyInfo
+                        - let resolved = StringFormats.uriDecoder.decodeCompany(company);
+                        p
+                            != resolved.map(v => '<span>'+v+'</span>').join('/')
+                +Box-ModelInfo(Current ? Current.Models : Models,Current ? Current.GlobalId : NUMBER)
+            .page-root.pager-main
+                .desc-box.qdbw-line.--line
+                    h2 站点
+                    .--list-root
+                        if Current
+                            each route in Current.Routes
+                                div(name=route.Name)
+                                    h3= route.Name
+                                    details(open=true)
+                                        summary
+                                            span #{route.Distance}公里
+                                            +DepartureTime(route.Times,route.TimeOptions)
+                                        +StationList(route,Current.GlobalId)
+                        else
+                            each route in Routes
+                                div
+                                    - let lineNameText = OBJECT_LINE_NAME(key)[key]
+                                    h3= lineNameText
+                                    details(open=true)
+                                        summary
+                                            if route.Distance
+                                                span #{route.Distance}公里
+                                            +DepartureTime(route.Times,route.TimeOptions)
+                                        +StationListWithRoads(route.data.passedStations,route.Roads)
+            .page-root.pager-3
+                +Box-CTime(Current ? Current.FileTimeRecords : undefined)
+        +Footer

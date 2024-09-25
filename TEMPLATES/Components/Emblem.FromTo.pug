@@ -1,0 +1,8 @@
+mixin Emblem-FromTo(fromTos)
+    .fromToSymbol
+        each fromTo in fromTos
+            if fromTo.type === 'LOOP'
+                span.ft-tips.--loop
+            = fromTo.stops[0]
+            span.--stretch ⇌
+            = fromTo.stops[1]

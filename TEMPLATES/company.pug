@@ -1,0 +1,34 @@
+doctype html
+html
+    head 
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title
+            =data.name + ' | QDB Wiki'
+        link(rel="stylesheet",href="../lib/style/basic.css")
+        link(rel="stylesheet",href="../lib/style/table.css")
+
+    body(name=data.name)
+        header 
+            a(href="../") 首页
+            a(href="../lines/") 线路
+            a(href="../stops/") 车站
+        main
+            .page-root.pager-1 
+                .desc-box.--flex-.-f-center
+                    h1.title
+                        = data.name
+                    p 公交运营公司
+                
+                .desc-box
+                    h2 公司简介
+                    .desc-comp-root
+                        != description.HtmlContent
+            .page-root.pager-main
+                .desc-box
+                    h2 运营线路
+        footer
+            p 2024 QDBw 
+            p 2024 0xarch & 2024 Soloev
+            p 资料主要来源：
+                a(href="//buspedia.top") 巴士派迪
