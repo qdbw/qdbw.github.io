@@ -1,8 +1,6 @@
 BASIC*
 node_modules
-node
-nodejs
-package.json
+nodejs/_/*
 package-lock.json
 *TEMPLATE
 *TEMPLATE.*
