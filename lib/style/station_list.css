@@ -66,7 +66,7 @@
     background: var(--backgroundColor);
     text-wrap: balance;
     text-align: center;
-    border-radius: .5em;
+    border-radius: .45em;
 }
 
 .stationList>.list-root>li>ul>li>a:hover {
@@ -86,6 +86,6 @@
     background-color: var(--backgroundColor);
     width: 1.75em;
     text-align: center;
-    border: 1px solid dodgerblue;
+    /* border: 1px solid dodgerblue; */
     border-radius: 1em;
 }
