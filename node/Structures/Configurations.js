@@ -23,23 +23,10 @@ class GlobalCompany {
     /**
      * @type {string,Company}
      */
-    #Companies = new Map;
+    Regs = new Map;
 
     constructor(companyJson){
         this.All = Array.from(companyJson.All).flat().map(v => v.toString());
-    }
-
-    /**
-     * 
-     * @param {string} name 
-     * @param {Company} company 
-     */
-    setCompany(name,company){
-        this.#Companies.set(name,company);
-    }
-
-    getCompany(name){
-        return this.#Companies.get(name);
     }
 }
 

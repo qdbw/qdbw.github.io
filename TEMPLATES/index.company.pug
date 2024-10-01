@@ -1,0 +1,32 @@
+include /Mixins/requestCSS.pug
+include /Mixins/getURI.pug
+include /Components/Header.pug
+include /Components/Footer.pug
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        title 公司总览 - QDB Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/index.css")
+        +requireCSS('wiki')
+    
+    body
+        +Header
+
+        main
+            .page-root.pager-1
+                .desc-box.--flex-.-f-center
+                    h1 公司列表
+                    p 共收录 #{Data.Lines.size} 家公司
+            .page-root.pager-main
+                .desc-box.WIKI-LISTROOT-COMPANY
+                    h2 已收录公司
+                    ul
+                        each companyName in Array.from(Profile.Company.Regs.keys())
+                            - let Current = Profile.Company.Regs.get(companyName)
+                            li
+                                a(href=getURI('companies/'+Current.Id))= Current.Name
+        +Footer

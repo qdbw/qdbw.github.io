@@ -13,6 +13,7 @@ html(lang='zh')
         +requestCSS("lib/style/stop.css")
         +requestCSS("lib/style/model.css")
         +requireCSS('wiki')
+        +requireCSS('index')
 
     body(name=Current.Name)
         +Header
@@ -28,7 +29,7 @@ html(lang='zh')
                             p 双击以复制网页路径到剪切板
                     p 公交公司
                 if Current.Subcompanies.size > 0
-                    .desc-box.Subcompanies
+                    .desc-box.subcompanies
                         h2 子公司
                         ul
                             each vk in Array.from(Current.Subcompanies.entries())
@@ -41,4 +42,14 @@ html(lang='zh')
                 .desc-box.introduction
                     h2 介绍
                     != Current.Description || '暂无描述或介绍'
+                if Current.Lines.length > 0
+                    .desc-box.lines
+                        h2 管理线路
+                        ul.WIKI-LISTROOT-LINE
+                            each line in Current.Lines
+                                - if(!line) throw new Error('#B 0xC3 '+Current.Lines.join(','))
+                                li
+                                    a.h-link(href=getURI("lines/"+line.GlobalId+"/")) #{line.Name}
+                                        if line.IsHistoryLine
+                                            .route-tips.--history #{line.GlobalId.split("@")[1]}
         +Footer

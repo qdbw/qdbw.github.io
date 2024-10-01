@@ -1,4 +1,5 @@
 include /Mixins/requestCSS.pug
+include /Mixins/getURI.pug
 include /Components/Header.pug
 include /Components/Footer.pug
 include /Components/DepartureTime.pug
@@ -44,12 +45,13 @@ html
                             a.h-link(href=getURI('lines/'+historyGlobalId+'/'))= historyGlobalId.replace(Current.GlobalId+'@','')
                     else
                         p 暂无收录的历史页面
-                .desc-box
+                .desc-box.belongs
                     h2 所属公司
                     - let companyInfo = Current ? Current.Companies : Companies
-                    each company in companyInfo
-                        p
-                            != resolveCompany(company)
+                    ul
+                        each company in companyInfo
+                            li
+                                a(href=getURI('companies/'+company))!= resolveCompany(company)
                 +Box-ModelInfo(Current ? Current.Models : Models,Current ? Current.GlobalId : NUMBER)
             .page-root.pager-main
                 .desc-box.qdbw-line.--line

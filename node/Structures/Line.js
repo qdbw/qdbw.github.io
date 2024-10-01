@@ -2,6 +2,7 @@ import { CTimeRecord } from "#Structures/FileStat";
 import { StationLineRoute } from "#Structures/Station";
 import { buildStationAndRoadReflect } from "#Utils/Stations";
 import requestData from "../Data/Data.js";
+import Company from "#Structures/Company";
 
 const Data = requestData();
 
@@ -44,6 +45,21 @@ class Line {
         this.Companies = Array.from(lineJson.Companies ?? lineJson.COMPANIES ?? []);
         this.TicketOptions = Array.from(lineJson.TicketOptions ?? lineJson.Tickets ?? lineJson.TICKETS ?? []);
         this.Introduction = introduction;
+
+        /**
+         * 
+         * @param {Company} company 
+         */
+        const pushToCompany = (company) => {
+            company.Lines.push(this);
+            if(company.root){
+                pushToCompany(company.root);
+            }
+        }
+
+        this.Companies.forEach(v => {
+            pushToCompany(Data.Companies.get(v));
+        });
 
         for(let [name,json] of Object.entries(models)){
             this.Models.push(new LineModel(name,json));

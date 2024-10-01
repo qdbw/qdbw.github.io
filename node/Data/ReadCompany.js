@@ -12,7 +12,7 @@ function createCompany(company,profilePath){
     let Id = company;
     let Name = company, FullName = company;
     let Subcompanies = new Map;
-    let Description = '';
+    let Description = '', TitleHtml;
     if(existsSync(`${profilePath}/Desc.md`)){
         Description = marked.parse(readFileSync(`${profilePath}/Desc.md`).toString());
     }
@@ -28,6 +28,7 @@ function createCompany(company,profilePath){
         Name = profile.Name ?? company;
         FullName = profile.FullName ?? Name;
         Id = profile.Id ?? company;
+        TitleHtml = profile.TitleHtml ?? undefined;
     }
     Companies.set(Id,new Company({
         Name,
@@ -42,7 +43,7 @@ function createCompany(company,profilePath){
 function ReadCompany(){
     for(let company of Configurations.Company.All){
         let mainProfilePath = `data/Companies/${company}`;
-        createCompany(company,mainProfilePath);
+        Configurations.Company.Regs.set(company,createCompany(company,mainProfilePath));
     }
 }
 
