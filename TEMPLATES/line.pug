@@ -17,8 +17,7 @@ html
         +requestCSS("lib/style/basic.css")
         +requestCSS("lib/style/line.css")
         +requestCSS("lib/style/model.css")
-        +requestCSS("lib/style/table.css")
-        +requireCSS('StationListWithRoads.css')
+        +requireCSS('wiki')
 
     body(name=NUMBER)
         +Header
@@ -49,9 +48,8 @@ html
                     h2 所属公司
                     - let companyInfo = Current ? Current.Companies : Companies
                     each company in companyInfo
-                        - let resolved = StringFormats.uriDecoder.decodeCompany(company);
                         p
-                            != resolved.map(v => '<span>'+v+'</span>').join('/')
+                            != resolveCompany(company)
                 +Box-ModelInfo(Current ? Current.Models : Models,Current ? Current.GlobalId : NUMBER)
             .page-root.pager-main
                 .desc-box.qdbw-line.--line

@@ -39,7 +39,7 @@ html
                                                 b
                                                     +Emblem-FromTo(CurrentLine.FromTo)
                                                 small
-                                                    != CurrentLine.Companies.map(v => StringFormats.uriDecoder.decodeCompany(v).join("/") ).join(",<br>")
+                                                    != CurrentLine.Companies.map(v => resolveCompany(v)).join('<br>')
                                     else if results.lines[lineName] === 2
                                         a.h-link.--working(href=lineName) #{CurrentLine.Name}
                                     else

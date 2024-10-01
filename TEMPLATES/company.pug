@@ -1,34 +1,44 @@
+include /Components/Header.pug
+include /Components/Footer.pug
+include /Mixins/requestCSS.pug
+include /Mixins/getURI.pug
+
 doctype html
-html
-    head 
+html(lang='zh')
+    head
         meta(charset="UTF-8")
         meta(name="viewport",content="width=device-width, initial-scale=1.0")
-        title
-            =data.name + ' | QDB Wiki'
-        link(rel="stylesheet",href="../lib/style/basic.css")
-        link(rel="stylesheet",href="../lib/style/table.css")
+        title #{Current.FullName} | QDB Wiki
+        +requestCSS("lib/style/basic.css")
+        +requestCSS("lib/style/stop.css")
+        +requestCSS("lib/style/model.css")
+        +requireCSS('wiki')
 
-    body(name=data.name)
-        header 
-            a(href="../") 首页
-            a(href="../lines/") 线路
-            a(href="../stops/") 车站
+    body(name=Current.Name)
+        +Header
         main
-            .page-root.pager-1 
+            .page-root.pager-1
                 .desc-box.--flex-.-f-center
-                    h1.title
-                        = data.name
-                    p 公交运营公司
-                
-                .desc-box
-                    h2 公司简介
-                    .desc-comp-root
-                        != description.HtmlContent
+                    h1.on-hover-root.title(ondblclick="navigator.clipboard.writeText(location.href)")
+                        if Current.TitleHtml
+                            != Current.TitleHtml
+                        else
+                                != Current.FullName
+                        .on-hover.--width-fit
+                            p 双击以复制网页路径到剪切板
+                    p 公交公司
+                if Current.Subcompanies.size > 0
+                    .desc-box.Subcompanies
+                        h2 子公司
+                        ul
+                            each vk in Array.from(Current.Subcompanies.entries())
+                                - let [v,k] = vk
+                                - if(!k || !v) throw new Error('#B 0xC1 '+v+' '+k+' in '+Current.Name)
+                                - if(!k.Id) throw new Error('#B 0xC2 '+k.Id+' '+k.Name+' '+k.FullName)
+                                li
+                                    a(href=getURI("companies/"+k.Id))= v
             .page-root.pager-main
-                .desc-box
-                    h2 运营线路
-        footer
-            p 2024 QDBw 
-            p 2024 0xarch & 2024 Soloev
-            p 资料主要来源：
-                a(href="//buspedia.top") 巴士派迪
+                .desc-box.introduction
+                    h2 介绍
+                    != Current.Description || '暂无描述或介绍'
+        +Footer
