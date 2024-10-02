@@ -1,0 +1,25 @@
+.WIKI-CTIME-LIST {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.WIKI-MODEL-INFO .W-LIST-ROOT {
+    list-style: none;
+    padding-left: 0;
+}
+
+.WIKI-MODEL-INFO .W-LIST-ROOT h3 {
+    margin: 4px;
+}
+
+.WIKI-MODEL-INFO .h-link {
+    flex-direction: column;
+    width: fit-content;
+    margin: 4px 2px;
+}
+
+.WIKI-MODEL-INFO .W-PHOTO-LIST {
+    display: flex;
+    flex-wrap: wrap;
+}

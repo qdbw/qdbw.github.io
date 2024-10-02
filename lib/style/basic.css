@@ -165,12 +165,7 @@ li>.h-link {
 
 .block {
     padding: 12px;
-    box-shadow: none;
-    transition: box-shadow .25s ease-in-out;
-}
-
-.block:hover {
-    box-shadow: 0px 8px 6px -2px #0004;
+    display: block;
 }
 
 .--stretch {

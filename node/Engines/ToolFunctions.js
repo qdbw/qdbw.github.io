@@ -1,4 +1,5 @@
 import requestData from "../Data/Data.js";
+import AutoTools from "./AutoTools.js";
 
 const Data = requestData();
 
@@ -62,7 +63,8 @@ function resolveCompany(companyString) {
 const tools = {
     getModelData,
     resolveCompany,
-    makeComfortWrap
+    makeComfortWrap,
+    AutoTools
 }
 
 export default tools;

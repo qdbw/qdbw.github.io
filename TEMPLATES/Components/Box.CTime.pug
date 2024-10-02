@@ -1,12 +1,13 @@
 mixin Box-CTime(fileTimeRecords)
     .desc-box.cTime
         h2 文档信息
-        if Array.isArray(fileTimeRecords)
-            each record in fileTimeRecords
-                small
-                    h3 文件：#{record.fileName}
-                    p 首次创建：#{record.createTimeString}
-                    p 最后修改：#{record.changeTimeString}
-        else
-            p 创建时间：#{createTimeString}
-            p 修改时间：#{changeTimeString}
+        .WIKI-CTIME-LIST
+            if Array.isArray(fileTimeRecords)
+                each record in fileTimeRecords
+                    small
+                        h3 文件：#{record.fileName}
+                        p 首次创建：#{record.createTimeString}
+                        p 最后修改：#{record.changeTimeString}
+            else
+                p 创建时间：#{createTimeString}
+                p 修改时间：#{changeTimeString}

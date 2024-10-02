@@ -1,7 +1,7 @@
 mixin Box-ModelInfo(models,NUMBER)
-    .desc-box.modelInfo.qdbw-line.--model
-        h2 车型
-        ul
+    .desc-box.WIKI-MODEL-INFO
+        h2 常用车型
+        ul.W-LIST-ROOT
             if Array.isArray(models)
                 each model in models
                     - let modelName = model.ModelName
@@ -9,23 +9,25 @@ mixin Box-ModelInfo(models,NUMBER)
                     li.block
                         h3= modelName
                         - let modelData = getModelData(modelName)
-                        if modelJson
-                            .model-name
-                                span.model-brand= modelJson.Brand
-                                - let fuelType = overrideFuelType || modelJson.FuelTypes[0]
-                                span.model-fuel(class="model-fuel --type-"+fuelType)= fuelType 
-                        if Photo.dataByLine
-                            if Photo.dataByLine[NUMBER]
-                                if Photo.dataByLine[NUMBER][modelName]
-                                    each busIdObj,busId in Photo.dataByLine[NUMBER][modelName]
-                                        each yearObj,year in busIdObj
-                                            each monthObj,month in yearObj
-                                                each day in monthObj
-                                                    - let dateStr = year + '/' + month + '/' + day
-                                                    - let cdnUri = "https://cdn.jsdelivr.net/gh/qdbw/bus-images/"+modelName+"/"+busId+"/"+dateStr+"/"+NUMBER+".webp"
-                                                    a.h-link(href=cdnUri) 图：#{busId.replace('_','·')}
-                                                        date= dateStr
+                        .W-MODEL-INFO
+                            span.model-brand= modelData.Brand || AutoTools.inferBrand(modelName)
+                            if overrideFuelType || modelData.FuelTypes
+                                - let fuelType = overrideFuelType || modelData.FuelTypes[0]
+                                span.model-fuel(class="model-fuel --type-"+fuelType)= fuelType
+                        .W-PHOTO-LIST
+                            if Photo.dataByLine
+                                if Photo.dataByLine[NUMBER]
+                                    if Photo.dataByLine[NUMBER][modelName]
+                                        each busIdObj,busId in Photo.dataByLine[NUMBER][modelName]
+                                            each yearObj,year in busIdObj
+                                                each monthObj,month in yearObj
+                                                    each day in monthObj
+                                                        - let dateStr = year + '/' + month + '/' + day
+                                                        - let cdnUri = "https://cdn.jsdelivr.net/gh/qdbw/bus-images/"+modelName+"/"+busId+"/"+dateStr+"/"+NUMBER+".webp"
+                                                        a.h-link(href=cdnUri) 图：#{busId.replace('_','·')}
+                                                            date #{year}.#{month}.#{day}
             else
+                //- Legacy support
                 each modelInfo,modelName in models
                     li.block
                         h3= modelName

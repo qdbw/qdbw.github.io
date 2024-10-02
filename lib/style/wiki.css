@@ -1,3 +1,5 @@
+@import url("wiki.widgets.css");
+
 body>header {
     display: flex;
     align-items: center;
