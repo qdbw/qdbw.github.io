@@ -1,0 +1,24 @@
+{
+    "Name": "4206路",
+    "FromTo": [
+        [
+            "蓝村(云路集团)",
+            "中城路春阳路"
+        ]
+    ],
+    "Companies": [
+        "QINGDAO_JIAOYUN/JIMO"
+    ],
+    "Models": {
+        "ZK6100HNGA9": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}
