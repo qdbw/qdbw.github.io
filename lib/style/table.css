@@ -9,15 +9,16 @@ header {
     border-radius: 0 0 1em 1em;
     background-color: var(--backgroundColorWidget);
     justify-content: center;
+    gap: 12px;
 }
 
-header>a {
+header a {
     text-decoration: none;
     font-size: large;
     font-weight: bold;
 }
 
-header>a:hover {
+header a:hover {
     text-decoration: underline;
 }
 

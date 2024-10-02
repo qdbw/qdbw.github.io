@@ -1,0 +1,62 @@
+html {
+    background: var(--backgroundColor);
+}
+
+body>header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    min-height: 40px;
+    margin: 0;
+    padding: 4px 8px;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body>header::before {
+    content: '';
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+}
+
+body>header .W-NAVIGATION {
+    display: flex;
+    gap: 8px;
+}
+
+body>header .W-NAVIGATION a {
+    text-decoration: none;
+}
+
+body>header .W-NAVIGATION a:hover {
+    text-shadow: 0px 1px 5px 0px #fffa;
+}
+
+main>.P-INFO,
+main>.pager-1 {
+    background: var(--SidebarBackground);
+}
+
+main>.P-MAIN,
+main>.P-FOOT,
+main>.pager-2,
+main>.pager-main,
+main>.pager-3 {
+    background: var(--ContentBackground);
+}
+
+body>footer {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px;
+}
+
+body>footer p+p {
+    margin-top: 0;
+}
