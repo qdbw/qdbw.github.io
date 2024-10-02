@@ -10,7 +10,8 @@ const { Lines } = requestData();
 
 function reads(lineDataRoot){
     let mainJson = jsonc.parse(readFileSync(`${lineDataRoot}/Main.jsonc`).toString());
-    let models = mainJson.Models; // @TODO
+    // let models = mainJson.Models; // @TODO
+    let models = jsonc.parse(readFileSync(`${lineDataRoot}/Models.jsonc`).toString());
     let routes = {};
     mainJson.Routes.forEach(v => {
         routes[v] =
@@ -21,6 +22,10 @@ function reads(lineDataRoot){
     let intro = '';
     if(existsSync(`${lineDataRoot}/Desc.md`)){
         intro = Marked.parse(readFileSync(`${lineDataRoot}/Desc.md`).toString());
+    }
+    if(!models){
+        console.warn(`[Data/ReadLine] detected undefined model at (${mainJson.Name})/Models.jsonc`);
+        models = mainJson.Models ?? {};
     }
     return {
         mainJson,
