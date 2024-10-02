@@ -6,7 +6,7 @@ mixin Box-ModelInfo(models,NUMBER)
                 each model in models
                     - let modelName = model.ModelName
                     - let overrideFuelType = model.FuelType != '' ? model.FuelType : undefined
-                    li.block
+                    li
                         h3= modelName
                         - let modelData = getModelData(modelName)
                         .W-MODEL-INFO
@@ -16,6 +16,8 @@ mixin Box-ModelInfo(models,NUMBER)
                                 span.model-fuel(class="model-fuel --type-"+fuelType)= fuelType
                         .W-PHOTO-LIST
                             if Photo.dataByLine
+                                - let photos = [];
+                                - let i = 0;
                                 if Photo.dataByLine[NUMBER]
                                     if Photo.dataByLine[NUMBER][modelName]
                                         each busIdObj,busId in Photo.dataByLine[NUMBER][modelName]
@@ -24,8 +26,24 @@ mixin Box-ModelInfo(models,NUMBER)
                                                     each day in monthObj
                                                         - let dateStr = year + '/' + month + '/' + day
                                                         - let cdnUri = "https://cdn.jsdelivr.net/gh/qdbw/bus-images/"+modelName+"/"+busId+"/"+dateStr+"/"+NUMBER+".webp"
-                                                        a.h-link(href=cdnUri) 图：#{busId.replace('_','·')}
-                                                            date #{year}.#{month}.#{day}
+                                                        - photos.push({cdnUri,busId,date:`${year}.${month}.${day}`});
+                                                        - i++
+                                details(open=false,style="--i:"+i)
+                                    summary 相册
+                                    each v of photos
+                                        a.h-link(href=v.cdnUri) #{v.busId.replace('_','·')}
+                                            date #{v.date}
+                                    //- if Photo.dataByLine
+                                    //-     if Photo.dataByLine[NUMBER]
+                                    //-         if Photo.dataByLine[NUMBER][modelName]
+                                    //-             each busIdObj,busId in Photo.dataByLine[NUMBER][modelName]
+                                    //-                 each yearObj,year in busIdObj
+                                    //-                     each monthObj,month in yearObj
+                                    //-                         each day in monthObj
+                                    //-                             - let dateStr = year + '/' + month + '/' + day
+                                    //-                             - let cdnUri = "https://cdn.jsdelivr.net/gh/qdbw/bus-images/"+modelName+"/"+busId+"/"+dateStr+"/"+NUMBER+".webp"
+                                    //-                             a.h-link(href=cdnUri) #{busId.replace('_','·')}
+                                    //-                                 date #{year}.#{month}.#{day}
             else
                 //- Legacy support
                 each modelInfo,modelName in models

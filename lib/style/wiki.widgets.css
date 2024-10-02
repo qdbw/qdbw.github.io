@@ -6,20 +6,45 @@
 
 .WIKI-MODEL-INFO .W-LIST-ROOT {
     list-style: none;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .WIKI-MODEL-INFO .W-LIST-ROOT h3 {
-    margin: 4px;
+    margin: 2px 0;
 }
 
 .WIKI-MODEL-INFO .h-link {
-    flex-direction: column;
+    flex-direction: row;
     width: fit-content;
-    margin: 4px 2px;
+    padding: .2lh 0;
+    height: 1.4lh;
+    background: #0000;
+    font-size: small;
 }
 
 .WIKI-MODEL-INFO .W-PHOTO-LIST {
     display: flex;
     flex-wrap: wrap;
+}
+
+.WIKI-MODEL-INFO .W-PHOTO-LIST details {
+    width: 100%;
+    --expand-height: calc(var(--i) * 1.4lh + 1lh);
+    transition: height .1s ease-in-out;
+    height: 1lh;
+}
+
+.WIKI-MODEL-INFO .W-PHOTO-LIST details[open]{
+    height: var(--expand-height);
+}
+
+.WIKI-MODEL-INFO .W-PHOTO-LIST .h-link{
+    height: 0;
+    overflow: hidden;
+    transition: height .1s ease-in-out;
+}
+
+.WIKI-MODEL-INFO .W-PHOTO-LIST details[open] .h-link {
+    height: 1.4lh;
 }

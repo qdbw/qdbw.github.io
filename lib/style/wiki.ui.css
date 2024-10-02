@@ -60,3 +60,28 @@ body>footer {
 body>footer p+p {
     margin-top: 0;
 }
+
+details summary {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    font-weight: 500;
+    --fontColor: var(--Blue);
+    color: var(--fontColor);
+}
+
+details summary::after {
+    position: absolute;
+    content: '';
+    right: .25em;
+    top: calc(50% - .25em);
+    height: .5em;
+    width: .5em;
+    background-color: var(--fontColor);
+    clip-path: polygon(0 6.7%, 50% 93.3%, 100% 6.7%);
+    transition: transform .1s ease-in-out;
+}
+
+details[open] summary::after{
+    transform: rotateZ(180deg);
+}

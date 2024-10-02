@@ -110,8 +110,7 @@ main {
     left: 0;
     right: 0;
     height: .5px;
-    background: var(--fontColor);
-    opacity: .05;
+    background: var(--dividerColor);
 }
 
 .WIKI-LISTROOT-LINE {

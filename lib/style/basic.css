@@ -225,13 +225,13 @@ hr {
 }
 
 .route-tips.--history {
-    --tagColor: #444a;
-    --tagTextColor: #fff;
+    --tagColor: var(--Yellow);
+    --tagTextColor: var(--backgroundColor);
 }
 
 .route-tips.--shutdown {
-    --tagColor: #f00a;
-    --tagTextColor: #fff;
+    --tagColor: var(--Red);
+    --tagTextColor: var(--backgroundColor);
 }
 
 .route-tips+.route-tips {
