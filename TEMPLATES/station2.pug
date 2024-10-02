@@ -1,5 +1,6 @@
 include /Components/Header.pug
 include /Components/Footer.pug
+include /Components/Emblem.TagList.pug
 include /Mixins/requestCSS.pug
 include /Mixins/getURI.pug
 
@@ -12,7 +13,7 @@ html
         +requestCSS("lib/style/basic.css")
         +requestCSS("lib/style/stop.css")
         +requestCSS("lib/style/model.css")
-        +requestCSS("lib/style/table.css")
+        +requireCSS('wiki')
 
     body(name=Current.Name)
         +Header
@@ -62,11 +63,7 @@ html
                             li
                                 h3
                                     a(href=getURI("lines/"+currentLine.GlobalId.replace(/-/,'/')))= currentLine.Name
-                                .tag-list
-                                    if currentLine.Tags.includes('SHUTDOWN')
-                                        span.route-tips.--shutdown 停运
-                                    if currentLine.IsHistoryLine
-                                        span.route-tips.--history @#{currentLine.GlobalId.split('@')[1]}
+                                +Emblem-TagList(currentLine.Tags,currentLine.IsHistoryLine,currentLine.GlobalId)
                                 each route in Array.from(line.Routes.values())
                                     .--list-child
                                         span #{route.Route.Name}

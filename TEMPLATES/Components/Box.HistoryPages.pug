@@ -1,0 +1,10 @@
+mixin Box-HistoryPages(Current)
+    .desc-box.history
+        h2 历史页面
+        if Current && Current.IsHistoryLine
+            a.h-link(href=getURI("lines/"+Current.GlobalId.split('@')[0]+'/')) 主页面
+        else if Current && Current.Histories.size > 0
+            each historyGlobalId in Array.from(Current.Histories.keys())
+                a.h-link(href=getURI('lines/'+historyGlobalId+'/'))= historyGlobalId.replace(Current.GlobalId+'@','')
+        else
+            p 暂无收录的历史页面

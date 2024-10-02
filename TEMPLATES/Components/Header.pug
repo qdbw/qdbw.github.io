@@ -2,7 +2,8 @@ include /Mixins/getURI.pug
 
 mixin Header() 
     header
-        a(href=getURI("")) 首页
-        a(href=getURI("lines/")) 线路
-        a(href=getURI("stations/")) 车站
-        a(href=getURI("companies/")) 公司
+        .W-NAVIGATION
+            a(href=getURI("")) 首页
+            a(href=getURI("lines/")) 线路
+            a(href=getURI("stations/")) 车站
+            a(href=getURI("companies/")) 公司

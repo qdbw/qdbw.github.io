@@ -7,7 +7,9 @@ include /Components/StationListWithRoads.pug
 include /Components/StationList.pug
 include /Components/Box.ModelInfo.pug
 include /Components/Box.CTime.pug
+include /Components/Box.HistoryPages.pug
 include /Components/Emblem.FromTo.pug
+include /Components/Emblem.TagList.pug
 
 doctype html
 html
@@ -24,7 +26,7 @@ html
         +Header
 
         main
-            .page-root.pager-1
+            .page-root.P-INFO
                 .desc-box.--flex-.-f-center
                     h1.title.on-hover-root(ondblclick="navigator.clipboard.writeText(location.href)")
                         = Current ? Current.Name : NUMBER 
@@ -32,19 +34,10 @@ html
                             p 双击以复制网页路径到剪切板
                     if Current
                         +Emblem-FromTo(Current.FromTo)
+                        +Emblem-TagList(Current.Tags,Current.IsHistoryLine,Current.GlobalId)
                     else 
                         p!= FT_ARRAY_TO_STRING(FROM_TO || Current.FromTo,'SYMBOL')
-                    if Current && Current.IsHistoryLine
-                        p 历史页面：#{Current.GlobalId}
-                .desc-box.history
-                    h2 历史页面
-                    if Current && Current.IsHistoryLine
-                        a.h-link(href=getURI("lines/"+Current.GlobalId.split('@')[0]+'/')) 主页面
-                    else if Current && Current.Histories.size > 0
-                        each historyGlobalId in Array.from(Current.Histories.keys())
-                            a.h-link(href=getURI('lines/'+historyGlobalId+'/'))= historyGlobalId.replace(Current.GlobalId+'@','')
-                    else
-                        p 暂无收录的历史页面
+                +Box-HistoryPages(Current)
                 .desc-box.belongs
                     h2 所属公司
                     - let companyInfo = Current ? Current.Companies : Companies
@@ -53,7 +46,7 @@ html
                             li
                                 a(href=getURI('companies/'+company))!= resolveCompany(company)
                 +Box-ModelInfo(Current ? Current.Models : Models,Current ? Current.GlobalId : NUMBER)
-            .page-root.pager-main
+            .page-root.P-MAIN
                 .desc-box.qdbw-line.--line
                     h2 站点
                     .--list-root
@@ -77,6 +70,6 @@ html
                                                 span #{route.Distance}公里
                                             +DepartureTime(route.Times,route.TimeOptions)
                                         +StationListWithRoads(route.data.passedStations,route.Roads)
-            .page-root.pager-3
+            .page-root.P-FOOT
                 +Box-CTime(Current ? Current.FileTimeRecords : undefined)
         +Footer

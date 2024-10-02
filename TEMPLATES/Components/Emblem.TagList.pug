@@ -1,0 +1,6 @@
+mixin Emblem-TagList(Tags,IsHistoryLine,GlobalId)
+    .tag-list
+        if Tags.includes('SHUTDOWN')
+            span.route-tips.--shutdown 停运
+        if IsHistoryLine
+            span.route-tips.--history @#{GlobalId.split('@')[1]}
