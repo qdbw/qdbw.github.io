@@ -2,6 +2,7 @@ import { Line, LineRoute } from "#Structures/Line";
 import { resolveStationString } from "#Utils/Stations";
 
 class Station {
+    GlobalId = '';
     Name = '';
     /**
      * @type {Map<string,StationLine>}
@@ -18,6 +19,7 @@ class Station {
         this.Roads = [];
         this.TitleHtml = json.TitleHtml;
         this.Description = Description;
+        this.GlobalId = json.Id ?? Name;
     }
 
     /**

@@ -36,7 +36,7 @@ html
                                 ul
                                     each station in stations
                                         li
-                                            a.h-link(href=getStationURI(station.Name)) #{station.Name}
+                                            a.h-link(href=getStationURI(station.GlobalId)) #{station.Name}
             .page-root.pager-3
                 .desc-box.navigator
                     .view-all

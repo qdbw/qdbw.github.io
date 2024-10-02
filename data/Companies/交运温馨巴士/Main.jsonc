@@ -1,5 +1,8 @@
 {
     "Id": "QINGDAO_JIAOYUN",
     "Name": "交运温馨巴士",
-    "FullName": "城运控股交运集团有限公司"
+    "FullName": "城运控股交运集团有限公司",
+    "Subcompanies": [
+        "捷达分公司"
+    ]
 }

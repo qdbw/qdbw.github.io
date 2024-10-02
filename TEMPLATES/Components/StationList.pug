@@ -16,12 +16,5 @@ mixin StationList(route,GlobalId)
                                 - let Station = Data.Stations.get(globalName)
                                 - if(Station === undefined) throw new Error(`[Template/Components/StationList] Trying get ${station}, but returns with undefined!`)
                                 - let ref = Station.Lines.get(GlobalId).Routes.get(route.Name)
-                                a.h-link(data-index=globalIndex,href=getStationURI(Station.Name))!= makeComfortWrap(ref.DisplayName)
-                                    //- if ref.DisplayName.length < 6
-                                    //-     = ref.DisplayName
-                                    //- else
-                                    //-     - let c = Math.ceil(ref.DisplayName.length/2)
-                                    //-     = ref.DisplayName.slice(0,c)
-                                    //-     br
-                                    //-     = ref.DisplayName.slice(c)
+                                a.h-link(data-index=globalIndex,href=getStationURI(Station.GlobalId))!= makeComfortWrap(ref.DisplayName)
                                 - globalIndex++

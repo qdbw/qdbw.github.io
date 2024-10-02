@@ -77,7 +77,7 @@ function buildStationPages(basicConf){
     //     })
     // }
     for(let [name,station] of Data.Stations){
-        let buildingPath = `stations/${name}/`;
+        let buildingPath = `stations/${station.GlobalId}/`;
         let $ = {
             htmlFileDepth: 2,
             hmtlPath: buildingPath
@@ -95,7 +95,8 @@ function buildStationPages(basicConf){
         prettier.format(result,{
             parser: "html"
         }).then(value => {
-            mkdir(buildingPath,{recursive: true},()=>{
+            mkdir(buildingPath,{recursive: true},(err)=>{
+                if(err) throw err;
                 readFile(buildingPath+'index.html',(err,raw)=>{
                     if(err || raw.toString() !== value){
                         writeFile(buildingPath + 'index.html', value, (e) => {
