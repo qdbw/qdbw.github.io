@@ -1,37 +1,14 @@
-import { readFileSync, writeFile, mkdir, readFile } from "fs";
-import prettier from "prettier";
+import { readFileSync } from "fs";
 
 import Manager from "../Engines/Pug.js";
 import requestData from "../Data/Data.js";
-import getData from "../../nodejs/data.js";
+import { make } from "#Utils/Automake";
 
 const Data = requestData();
-let data = getData();
-let templateOld = readFileSync('TEMPLATES/station.pug').toString();
 let template = readFileSync('TEMPLATES/station2.pug').toString();
-let modelDescriptionMap = new Map();
+const TEMPLATE_NAME = '@station.js/1';
 
-Manager.set('StationTemplate',templateOld);
-Manager.set('StationTemplate2',template);
-
-function getModelData(typeName) {
-    if (modelDescriptionMap.has(typeName)) {
-        return modelDescriptionMap.get(typeName);
-    }
-    let json;
-    try {
-        json = readFileSync(`data/model/${typeName}.json`).toString();
-        json = JSON.parse(json);
-    } catch(e) {
-        json = {};
-    }
-    modelDescriptionMap.set(typeName, json);
-    return json;
-}
-
-function getLineData(lineName) {
-    return data.lines.get(lineName);
-}
+Manager.set(TEMPLATE_NAME,template);
 
 /**
  * 
@@ -41,41 +18,7 @@ function getLineData(lineName) {
  */
 function buildStationPages(basicConf){
     let results = {};
-    // for (let [target,targetData] of data.stops) {
-    //     let dataSourcePath = `data/stop/${target}.json`, buildingPath = `stations/${target}/`;
-    //     let $ = {
-    //         htmlFileDepth: 2,
-    //         hmtlPath: buildingPath
-    //     };
-    //     let Json;
-    //     try {
-    //         Json = JSON.parse(readFileSync(dataSourcePath).toString());
-    //     } catch(e) {
-    //         if(!basicConf.Options.includes("IgnoreNoDataOfStations")){
-    //             console.warn(`[WARNING] Cannot read data of bus station ${target} in ${dataSourcePath}, use default building of ${buildingPath}!`);
-    //         }
-    //         results[target] = -2;
-    //         Json = {};
-    //     }
-    //     let result = Manager.render('StationTemplate', {
-    //         ...basicConf,
-    //         ...Json,
-    //         ...targetData,
-    //         globalData: data,
-    //         Data,
-    //         getModelData,
-    //         getLineData,
-    //         $
-    //     });
-    //     results[target] = 1;
-    //     if(Json.IS_WORKING || Json.IsStillWorking){
-    //         results[target] = 2;
-    //     }
-
-    //     mkdir(buildingPath,{recursive: true},()=>{
-    //         writeFile(buildingPath+'index.html', result, (e) => { if (e) throw e });
-    //     })
-    // }
+    let promises = [];
     for(let [name,station] of Data.Stations){
         let buildingPath = `stations/${station.GlobalId}/`;
         let $ = {
@@ -86,34 +29,62 @@ function buildStationPages(basicConf){
             ...basicConf,
             Current: station,
             Data,
-            getModelData,
-            getLineData,
             $
         };
         results[name] = 1;
-        let result = Manager.render('StationTemplate2',passVariants);
-        prettier.format(result,{
-            parser: "html"
-        }).then(value => {
-            mkdir(buildingPath,{recursive: true},(err)=>{
-                if(err) throw err;
-                readFile(buildingPath+'index.html',(err,raw)=>{
-                    if(err || raw.toString() !== value){
-                        writeFile(buildingPath + 'index.html', value, (e) => {
-                            if (e) throw e;
-                            else {
-                                console.log(`:: Generated ${buildingPath}index.html`);
-                            }
-                        });
-                    } else {
-                        console.info(`:: Generated ${buildingPath}index.html same with previous build.`);
-                    }
-                })
-                // writeFile(buildingPath+'index.html', value, (e) => { if (e) throw e });
-            });
-        });
+        promises.push(make(TEMPLATE_NAME, passVariants, buildingPath));
     }
+    Promise.all(promises).then((value) => {
+        let success = [], failed = [];
+        let same = [];
+        value.forEach(v => {
+            switch(v.status){
+                case 'success':
+                    success.push(v)
+                    break;
+                case 'failed':
+                    failed.push(v)
+                    break;
+            }
+            switch(v.file){
+                case 'skipped': {
+                        if(v.reason === 'sameWithPrevious'){
+                            same.push(v)
+                        }
+                    };
+                    break;
+            }
+        });
+        console.log(
+`[Generators/Station] All tasks are completed.
+                       Total: ${value.length}
+                       Success: ${success.length}
+                       Failed: ${failed.length}
+                       Same with previous build: ${same.length}`
+        );
+    })
     return results;
 }
+
+// async function make(text,buildingPath){
+//     let result = await prettier.format(text,{
+//         parser: "html"
+//     });
+//     await mkdir(buildingPath,{recursive: true});
+//     let previous_build = (await readFile(buildingPath+'index.html')).toString();
+//     if(previous_build === result){
+//         return {
+//             status: 'success',
+//             file: 'skipped',
+//             reason: 'sameWithPrevious'
+//         }
+//     };
+//     await writeFile(buildingPath + 'index.html', result);
+//     return {
+//         status: 'success',
+//         file: 'wrote',
+//         reason: ''
+//     }
+// }
 
 export default buildStationPages;
