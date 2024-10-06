@@ -1,0 +1,21 @@
+{
+    "Name": "4226路",
+    "FromTo": [
+        [
+            "即墨汽车总站",
+            "城阳毛公山"
+        ]
+    ],
+    "Companies": [
+        "YCSYJT"
+    ],
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}
