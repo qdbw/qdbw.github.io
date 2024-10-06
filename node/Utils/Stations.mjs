@@ -6,7 +6,7 @@ function resolveStationString(stationString) {
     let [name, displayName, option] = stationString.split(" ");
     let options = [''];
     if (displayName === undefined || displayName === '_') {
-        displayName = name;
+        displayName = undefined;
     }
     if (option != undefined) {
         options = option.split(',');

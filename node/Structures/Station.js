@@ -4,6 +4,7 @@ import { resolveStationString } from "#Utils/Stations";
 class Station {
     GlobalId = '';
     Name = '';
+    DisplayName = '';
     /**
      * @type {Map<string,StationLine>}
      */
@@ -15,6 +16,7 @@ class Station {
 
     constructor(Name, json = {}, Description = ''){
         this.Name = Name;
+        this.DisplayName = json.Name ?? json.Station ?? Name;
         this.Alias = [];
         this.Roads = [];
         this.TitleHtml = json.TitleHtml;
@@ -73,8 +75,12 @@ class StationLine {
         this.StationRef = stationRef;
 
         for(let route of line.Routes){
-            if(route.StationStrings.map(v => resolveStationString(v).name).includes(stationRef.Name)){
-                this.Routes.set(route.Name,new StationLineRoute(route,this));
+            let resolvedes = route.StationStrings.map(v => resolveStationString(v));
+            for(let {name} of resolvedes){
+                if(name === stationRef.Name){
+                    this.Routes.set(route.Name,new StationLineRoute(route,this));
+                    break;
+                }
             }
         }
     }
@@ -98,21 +104,24 @@ class StationLineRoute {
     constructor(route,lineRef){
         this.LineRef = lineRef;
         this.Route = route;
-        for(let [i,v] of route.StationStrings.entries()){
-            let resolved = resolveStationString(v);
-            if(resolved.name === lineRef.StationRef.Name){
-                this.Index = i;
-                this.DisplayName = resolved.displayName;
-                break;
-            }
-        }
+        // for(let [i,v] of route.StationStrings.entries()){
+        //     let resolved = resolveStationString(v);
+        //     if(resolved.name === lineRef.StationRef.Name){
+        //         this.Index = i;
+        //         this.DisplayName = resolved.displayName;
+        //         break;
+        //     }
+        // }
 
+        let i = 0;
         for(let obj of Object.values(route.Reflect)){
             let [roadName,stations] = Object.entries(obj)[0];
             for(let {name,displayName} of stations.map((v) => resolveStationString(v))){
+                i++;
                 if(name === lineRef.StationRef.Name){
                     lineRef.StationRef.addRoad(roadName);
-                    this.DisplayName = displayName;
+                    this.Index = i;
+                    this.DisplayName = displayName ?? lineRef.StationRef.DisplayName;
                     break;
                 }
             }

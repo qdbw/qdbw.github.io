@@ -28,6 +28,10 @@ html(lang='zh')
                         .on-hover.--width-fit
                             p 双击以复制网页路径到剪切板
                     p 公交公司
+                if Current.root
+                    .desc-box.rootCompany
+                        h2 母公司
+                        a.w-link(href=getURI("companies/"+Current.root.Id))= Current.root.FullName
                 if Current.Subcompanies.size > 0
                     .desc-box.subcompanies
                         h2 子公司
@@ -37,7 +41,7 @@ html(lang='zh')
                                 - if(!k || !v) throw new Error('#B 0xC1 '+v+' '+k+' in '+Current.Name)
                                 - if(!k.Id) throw new Error('#B 0xC2 '+k.Id+' '+k.Name+' '+k.FullName)
                                 li
-                                    a(href=getURI("companies/"+k.Id))= v
+                                    a.w-link(href=getURI("companies/"+k.Id))= v
             .page-root.pager-main
                 .desc-box.introduction
                     h2 介绍

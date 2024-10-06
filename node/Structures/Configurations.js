@@ -12,7 +12,7 @@ class GlobalLine {
     RecentUpdates = [];
 
     constructor(lineJson){
-        this.All = Array.from(lineJson.All).flat().map(v => v.toString());
+        this.All = Array.from(lineJson.All).flat(Infinity).map(v => v.toString());
         this.LegacyBuilds = Array.from(lineJson.LegacyBuilds).flat().map(v => v.toString());
     }
 }

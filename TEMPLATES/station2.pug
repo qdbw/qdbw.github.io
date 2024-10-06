@@ -24,7 +24,7 @@ html
                         if Current.TitleHtml
                             != Current.TitleHtml
                         else
-                            - let rawName = Current.Name
+                            - let rawName = Current.DisplayName
                             if rawName.length >= 6
                                 if rawName.includes('路')
                                     = rawName.substring(0,rawName.indexOf('路')+1)
@@ -35,7 +35,7 @@ html
                                     br
                                     = rawName.substring(4)
                             else
-                                = Current.Name
+                                = rawName
                         .on-hover.--width-fit
                             p 双击以复制网页路径到剪切板
                     p 公交站
@@ -68,6 +68,6 @@ html
                                     .--list-child
                                         span #{route.Route.Name}
                                         span.s-index #{route.Index+1}
-                                        if Current.Name != route.DisplayName
+                                        if Current.DisplayName != route.DisplayName
                                             span.--alias #{route.DisplayName}
         +Footer
