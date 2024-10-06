@@ -85,3 +85,10 @@ details summary::after {
 details[open] summary::after{
     transform: rotateZ(180deg);
 }
+
+.w-link,
+[data-footnote-ref],
+[data-footnote-backref] {
+    text-decoration: none;
+    color: var(--Blue);
+}

@@ -14,7 +14,12 @@ mixin StationList(route,GlobalId)
                             li
                                 - let globalName = station.split(" ")[0]
                                 - let Station = Data.Stations.get(globalName)
-                                - if(Station === undefined) throw new Error(`[Template/Components/StationList] Trying get ${station}, but returns with undefined!`)
+                                - if(Station === undefined) throw new Error(`[Template/Components/StationList] Trying to get ${station}, but received undefined!`)
+                                -
+                                    let stationLine = Station.Lines.get(GlobalId)
+                                    if(!stationLine.Routes.has(route.Name)){
+                                        throw new Error(`[Template/Components/StationList] Trying to get route(${route.Name}) on line(${GlobalId}), but received undefined! Route keys: ${Array.from(Station.Lines.get(GlobalId).Routes.keys())}`)
+                                    }
                                 - let ref = Station.Lines.get(GlobalId).Routes.get(route.Name)
                                 a.h-link(data-index=globalIndex,href=getStationURI(Station.GlobalId))!= makeComfortWrap(ref.DisplayName)
                                 - globalIndex++
