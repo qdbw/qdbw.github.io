@@ -1,8 +1,8 @@
-import { existsSync, readFileSync, stat } from "fs";
+import { existsSync, readFileSync } from "fs";
 import jsonc from 'jsonc-parser';
-import { marked } from "marked";
 
 import requestData from "./Data.js";
+import Markdown from "#Utils/Markdown";
 import Station from "#Structures/Station";
 import Line from "#Structures/Line";
 import { resolveStationString } from "#Utils/Stations";
@@ -26,7 +26,7 @@ function readStationsOnLine(line){
                     json = jsonc.parse(readFileSync(`data/Stations/${name}/Main.jsonc`).toString());
                 }
                 if(existsSync(`data/Stations/${name}/Desc.md`)){
-                    desc = marked.parse(readFileSync(`data/Stations/${name}/Desc.md`).toString());
+                    desc = Markdown.parse(readFileSync(`data/Stations/${name}/Desc.md`).toString());
                 }
                 Data.Stations.set(name, new Station(name, json, desc));
             }

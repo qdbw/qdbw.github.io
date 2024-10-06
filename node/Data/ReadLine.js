@@ -1,8 +1,8 @@
 import { existsSync, readFileSync } from "fs";
 import jsonc from 'jsonc-parser';
-import { Marked } from "marked";
 
 import Configurations from "../Configuration.js";
+import Markdown from "#Utils/Markdown";
 import requestData from "./Data.js";
 import Line from "#Structures/Line";
 
@@ -21,7 +21,7 @@ function reads(lineDataRoot){
     let trackList = ['Main.jsonc','Models.jsonc',...mainJson.Routes.map(v => 'Route.'+v+'.jsonc'),'Thanks.jsonc'].map(v => lineDataRoot+'/'+v);
     let intro = '';
     if(existsSync(`${lineDataRoot}/Desc.md`)){
-        intro = Marked.parse(readFileSync(`${lineDataRoot}/Desc.md`).toString());
+        intro = Markdown.parse(readFileSync(`${lineDataRoot}/Desc.md`).toString());
     }
     if(!models){
         console.warn(`[Data/ReadLine] detected undefined model at (${mainJson.Name})/Models.jsonc`);

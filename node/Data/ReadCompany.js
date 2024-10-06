@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from "fs";
 import jsonc from 'jsonc-parser';
-import { marked } from "marked";
 
 import Configurations from "../Configuration.js";
 import requestData from "./Data.js";
+import Markdown from "#Utils/Markdown";
 import Company from "#Structures/Company";
 
 const { Companies } = requestData();
@@ -14,7 +14,7 @@ function createCompany(company,profilePath){
     let Subcompanies = new Map;
     let Description = '', TitleHtml;
     if(existsSync(`${profilePath}/Desc.md`)){
-        Description = marked.parse(readFileSync(`${profilePath}/Desc.md`).toString());
+        Description = Markdown.parse(readFileSync(`${profilePath}/Desc.md`).toString());
     }
     if(!existsSync(`${profilePath}/Main.jsonc`)){
         console.warn(`Profile for company ${company} does not exist!`);
