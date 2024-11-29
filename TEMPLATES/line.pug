@@ -14,6 +14,7 @@ include /Components/Emblem.TagList.pug
 doctype html
 html
     head
+        meta(name="darkreader-lock")
         meta(charset="UTF-8")
         meta(name="viewport",content="width=device-width, initial-scale=1.0")
         title #{Current ? Current.Name : NUMBER+'路'} | QDB Wiki
@@ -21,8 +22,9 @@ html
         +requestCSS("lib/style/line.css")
         +requestCSS("lib/style/model.css")
         +requireCSS('wiki')
+        script(src=getURI('lib/script/line.js'))
 
-    body(name=NUMBER)
+    body(name=Current ? Current.GlobalId : NUMBER)
         +Header
 
         main
