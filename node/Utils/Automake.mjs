@@ -9,14 +9,18 @@ async function make(templateName,variants,buildingPath){
         parser: "html"
     });
     await mkdir(buildingPath,{recursive: true});
-    let previous_build = (await readFile(buildingPath+'index.html')).toString();
-    if(previous_build === result){
-        return {
-            status: 'success',
-            file: 'skipped',
-            reason: 'sameWithPrevious'
-        }
-    };
+    try {
+        let previous_build = (await readFile(buildingPath+'index.html')).toString();
+        if(previous_build === result){
+            return {
+                status: 'success',
+                file: 'skipped',
+                reason: 'sameWithPrevious'
+            }
+        };
+    } catch (e) {
+        // do nothing
+    }
     await writeFile(buildingPath + 'index.html', result);
     return {
         status: 'success',
