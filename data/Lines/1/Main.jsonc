@@ -1,20 +1,19 @@
 {
-    "Name": "131路",
+    "Name": "1路",
     "FromTo": [
         [
-            "李村公园",
-            "牟家源福路"
+            "四方宣化路",
+            "安徽路湖北路"
         ]
     ],
     "Companies": [
-        "CHENGYUN_HOLDING/Licang/2"
+        "CHENGYUN_HOLDING/Shinan/1"
     ],
-    "Models": {
-        "WD6815BEVG11": {}
-    },
     "TicketOptions": {
         "Manual": false,
-        "Seasonal": true
+        "Seasonal": true,
+        "Multiprice": false,
+        "Responsive": false
     },
     "Routes": [
         "下行",
