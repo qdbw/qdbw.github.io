@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator/Line/Route</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>Generator/Line/Route</h1>
+        <div>
+            <div class="infos">
+                <div class="distance">
+                    <p>长度</p>
+                    <span>下行</span><input type="text" id="distanceDown">
+                    <span>上行</span><input type="text" id="distanceUp">
+                </div>
+                <br>
+                <div class="times">
+                    <p>时间</p>
+                    <span>下行首</span><input type="text" id="timeDownF">
+                    <span>下行末</span><input type="text" id="timeDownL">
+                    <br>
+                    <span>上行首</span><input type="text" id="timeUpF">
+                    <span>上行末</span><input type="text" id="timeUpL">
+                </div>
+                <br>
+                <div class="route">
+                    <div id="routeMain"></div>
+                    <br>
+                    <button id="addRoad">Add road</button>
+                    <button id="deleteRoad">Delete road</button>
+                    <button id="saveRoad">Save to localStorage</button>
+                </div>
+            </div>
+            <br>
+            <div class="operation">
+                <button id="doGenerate">生成</button>
+            </div>
+            <br>
+            <div class="result">
+                <span>下行</span>
+                <span>上行</span>
+                <textarea name="" id="resultDown"></textarea>
+                <textarea name="" id="resultUp"></textarea>
+            </div>
+        </div>
+    </main>
+</body>
+<style>
+    .result {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .result>textarea{
+        min-height: 35rem;
+    }
+    .road-div {
+        border: 1px solid #888;
+        box-sizing: border-box;
+        padding: .5rem;
+        margin: .5rem;
+    }
+    .road-div::before {
+        content: attr(name);
+    }
+    .station {
+        border: 1px solid #888;
+        padding: .25rem;
+        margin: .25rem;
+    }
+</style>
+<script>
+let resultDown = document.getElementById("resultDown");
+let resultUp = document.getElementById("resultUp");
+let generate = document.getElementById("doGenerate");
+
+// route section
+const LOCAL_ROUTE_ID = "org.qdbw.generator.line.route.data.route";
+let mainRouteJson = JSON.parse(localStorage.getItem(LOCAL_ROUTE_ID) ?? "[]");
+let i = 0;
+let routeDiv = document.getElementById("routeMain");
+
+console.log(mainRouteJson);
+
+function saveToLocal(){
+    Route.refreshData();
+    localStorage.setItem(LOCAL_ROUTE_ID,JSON.stringify(mainRouteJson));
+}
+
+const Route = {
+    createRoad: (name)=>{
+        let roadDiv = document.createElement('div');
+        roadDiv.classList.add('road-div');
+        roadDiv.name = name;
+        roadDiv.dataset.i = i++;
+        roadDiv.innerHTML += `<span>Road name</span>`;
+        let roadNameInput = document.createElement('input');
+        roadNameInput.dataset.symbol = 'name-input';
+        roadDiv.appendChild(roadNameInput);
+        routeDiv.appendChild(roadDiv);
+
+        let stationContainer = document.createElement('ul');
+        stationContainer.classList.add('stations');
+
+        let addButton = document.createElement('button');
+        let deleteButton = document.createElement('button');
+        let operationContainer = document.createElement('div');
+        operationContainer.classList.add('operations');
+        addButton.textContent = 'Add station';
+        deleteButton.textContent = 'Delete station';
+        operationContainer.appendChild(addButton);
+        operationContainer.appendChild(deleteButton);
+
+        addButton.addEventListener("click",()=>{
+            console.log('add-station');
+            Route.addStation(stationContainer,operationContainer);
+            saveToLocal();
+        });
+        deleteButton.addEventListener("click",()=>{
+            console.log('delete-station');
+            stationContainer.childNodes.item(stationContainer.childElementCount-1).remove();
+            saveToLocal();
+        });
+
+        let directionDiv = document.createElement('div');
+        directionDiv.innerHTML = `<span>下行</span><input type=checkbox checked class="road-is-down">
+        <span>上行</span><input type=checkbox checked class="road-is-up">`;
+        operationContainer.appendChild(directionDiv);
+        roadDiv.appendChild(stationContainer);
+        roadDiv.appendChild(operationContainer);
+        return {
+            roadDiv,
+            roadNameInput,
+            addButton,
+            deleteButton,
+            stationContainer,
+            operationContainer
+        }
+    },
+    createRoadFromJson: (v)=>{
+        console.log('Creating',v);
+        let r = Route.createRoad();
+        r.roadNameInput.value = v.name;
+        v.stations.forEach(vl => {
+            Route.createStationFromJson(vl,r.stationContainer,r.operationContainer);
+        });
+        r.roadDiv.querySelector(".road-is-down").checked = v.down;
+        r.roadDiv.querySelector(".road-is-up").checked = v.up;
+    },
+    createStationFromJson: (v,stationContainer,operationContainer) => {
+        let r = Route.addStation(stationContainer,operationContainer);
+        r.stationDiv.querySelector("[data-symbol=station-name-input]").value = v.name;
+        r.stationDiv.querySelector("[data-symbol=station-down]").checked = v.down;
+        r.stationDiv.querySelector("[data-symbol=station-up]").checked = v.up;
+    },
+    refreshData: ()=>{
+        routeDiv.childNodes.forEach(v => {
+            mainRouteJson[v.dataset.i].name =  v.querySelector("[data-symbol=name-input]").value;
+            mainRouteJson[v.dataset.i].stations = Array.from(v.querySelector("ul.stations").childNodes).map(vl=>{
+                return {
+                    name: vl.querySelector("[data-symbol=station-name-input]").value,
+                    down: vl.querySelector("[data-symbol=station-down]").checked,
+                    up: vl.querySelector("[data-symbol=station-up]").checked
+                }
+            });
+            mainRouteJson[v.dataset.i].down = v.querySelector(".road-is-down").checked;
+            mainRouteJson[v.dataset.i].up = v.querySelector(".road-is-up").checked;
+        });
+    },
+    addStation:  (stationContainer,operationContainer)=>{
+        let station = document.createElement('li');
+        station.classList.add('station');
+        station.innerHTML += `<span>Station name</span>`;
+        let input = document.createElement('input');
+        input.dataset.symbol='station-name-input';
+        station.appendChild(input);
+        station.innerHTML += `<br>`;
+        station.innerHTML += `<span>下行</span><input type=checkbox ${operationContainer.querySelector(".road-is-down")?.checked ? "checked " : ""}data-symbol=station-down>`;
+        station.innerHTML += `<span>上行</span><input type=checkbox ${operationContainer.querySelector(".road-is-up")?.checked ? "checked " : ""}data-symbol=station-up>`;
+        stationContainer.appendChild(station);
+        return {
+            stationDiv: station,
+            input
+        }
+    }
+}
+
+for(let v of mainRouteJson){
+    Route.createRoadFromJson(v);
+}
+i = mainRouteJson.length;
+
+document.getElementById("addRoad").addEventListener("click",()=>{
+    Route.refreshData();
+    let r = Route.createRoad();
+    mainRouteJson[r.roadDiv.dataset.i] = {
+        name: "unnamed",
+        stations: [],
+        down: true,
+        up: true
+    };
+    r.addButton.addEventListener("click",()=>{
+        Route.addStation(r.stationContainer);
+    });
+    localStorage.setItem(LOCAL_ROUTE_ID,JSON.stringify(mainRouteJson));
+});
+
+document.getElementById("deleteRoad").addEventListener("click",()=>{
+    i--;
+    Array.from(routeDiv.childNodes)[i].remove();
+    console.log(mainRouteJson.pop());
+    saveToLocal();
+});
+
+document.getElementById("saveRoad").addEventListener("click",()=>{
+    saveToLocal();
+});
+
+let infos = {
+    distanceDown: document.querySelector("#distanceDown"),
+    distanceUp: document.querySelector("#distanceUp"),
+    time: {
+        down: {
+            first: document.querySelector("#timeDownF"),
+            last: document.querySelector("#timeDownL")
+        },
+        up: {
+            first: document.querySelector("#timeUpF"),
+            last: document.querySelector("#timeUpL")
+        }
+    }
+}
+
+generate.addEventListener("click",()=>{
+resultDown.value = '{\n';
+resultUp.value = '{\n';
+resultDown.value += `\t"Distance": ${infos.distanceDown.value || 0},\n`;
+resultUp.value += `\t"Distance": ${infos.distanceUp.value || 0},\n`;
+resultDown.value += `\t"Times": [
+\t\t"${infos.time.down.first.value}",
+\t\t"${infos.time.down.last.value}"
+\t],\n\t"Route": [\n`;
+resultUp.value += `\t"Times": [
+\t\t"${infos.time.up.first.value}",
+\t\t"${infos.time.up.last.value}"
+\t],\n\t"Route": [\n`;
+Route.refreshData();
+for(let [k,v] of Object.entries(mainRouteJson)){
+    let name = v.name;
+    let stations = v.stations;
+    if(v.down){
+        resultDown.value += `\t\t{\n\t\t\t"${name}": [\n`;
+        stations.forEach(r=>{
+            if(r.down){
+                resultDown.value += `\t\t\t\t"${r.name}",\n`;
+            }
+        });
+        resultDown.value += `\t\t\t]\n\t\t},`;
+    }
+}
+for(let [k,v] of Object.entries(mainRouteJson).toReversed()){
+    let name = v.name;
+    let stations = v.stations;
+    if(v.up){
+        resultUp.value += `\t\t{\n\t\t\t"${name}": [\n`;
+        stations.toReversed().forEach(r=>{
+            if(r.up){
+                resultUp.value += `\t\t\t\t"${r.name}",\n`;
+            }
+        });
+        resultUp.value += `\t\t\t]\n\t\t},`;
+    }
+}
+resultDown.value += `\n\t]\n}`;
+resultUp.value += `\n\t]\n}`;
+resultDown.value = resultDown.value.replace(/,(\n\t*)([\]}])/g,'$1$2');
+resultUp.value = resultUp.value.replace(/,(\n\t*)([\]}])/g,'$1$2');
+});
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator/Line/Main</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>Generator/Line/Main</h1>
+        <div>
+            <div class="infos">
+                <div class="name">
+                    <p>Name</p>
+                    <input type="text" id="lineName">
+                </div>
+                <div class="fromto">
+                    <p>From</p>
+                    <input type="text" id="lineMain">
+                    <p>to</p>
+                    <input type="text" id="lineTerm">
+                </div>
+                <div class="companies">
+                    <p>Company Id</p>
+                    <input type="text" id="companyId">
+                </div>
+                <div class="ticketoptions">
+                    <p>Ticket</p>
+                    <span>有人售票</span>
+                    <input type="checkbox" name="to_mnul" id="ticketOptionsManual">
+                    <span>季节性票价</span>
+                    <input type="checkbox" name="to_ssnl" id="ticketOptionsSeasonal">
+                    <span>多级票价</span>
+                    <input type="checkbox" name="to_mlpr" id="ticketOptionsMultiprice">
+                    <span>响应式</span>
+                    <input type="checkbox" name="to_rspv" id="ticketOptionsResponsive">
+                </div>
+            </div>
+            <br>
+            <div class="operation">
+                <button id="doGenerate">生成</button>
+            </div>
+            <br>
+            <div class="result">
+                <textarea name="" id="result"></textarea>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+let id = (v) => document.getElementById(v);
+let result = id("result");
+let generate = id("doGenerate");
+let infos = {
+    name: id("lineName"),
+    from: id("lineMain"),
+    to: id("lineTerm"),
+    company: id("companyId"),
+    to_mnul: id("ticketOptionsManual"),
+    to_ssnl: id("ticketOptionsSeasonal"),
+    to_mlpr: id("ticketOptionsMultiprice"),
+    to_rspv: id("ticketOptionsResponsive")
+}
+generate.addEventListener("click",()=>{
+    result.value = 
+`{
+    "Name": "${infos.name.value}",
+    "FromTo": [
+        [
+            "${infos.from.value}",
+            "${infos.to.value}"
+        ]
+    ],
+    "Companies": [
+        "${infos.company.value}"
+    ],
+    "TicketOptions": {
+        "Manual": ${infos.to_mnul.checked},
+        "Seasonal": ${infos.to_ssnl.checked},
+        "Multiprice": ${infos.to_mlpr.checked},
+        "Responsive": ${infos.to_rspv.checked}
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}`;
+});
+</script>
+</html>
