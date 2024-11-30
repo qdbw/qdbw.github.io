@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/style/basic.css" />
+    <link rel="stylesheet" href="/lib/style/line.css" />
+    <link rel="stylesheet" href="/lib/style/model.css" />
+    <link rel="stylesheet" href="/lib/style/wiki.css" />
+    <script src="/lib/script/line.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="W-NAVIGATION">
+          <a href="../../">首页</a><a href="../../lines/">线路</a
+          ><a href="../../stations/">车站</a><a href="../../companies/">公司</a>
+        </div>
+      </header>
+      <main>
+        <div class="page-root P-INFO">
+          <div class="desc-box --flex- -f-center">
+            <h1
+              class="title on-hover-root"
+              ondblclick="navigator.clipboard.writeText(location.href)"
+            >
+              <span id="r_current_name">?路</span>
+              <div class="on-hover --width-fit">
+                <p>双击以复制网页路径到剪切板</p>
+              </div>
+            </h1>
+            <div class="fromToSymbol">
+              四方宣化路<span class="--stretch">⇌</span>安徽路湖北路
+            </div>
+            <div class="tag-list"></div>
+          </div>
+          <div class="desc-box history">
+            <h2>历史页面</h2>
+            <p>暂无收录的历史页面</p>
+          </div>
+          <div class="desc-box belongs">
+            <h2>所属公司</h2>
+            <ul>
+              <li>
+                <a href="../../companies/CHENGYUN_HOLDING/Shinan/1"
+                  >城运市南一公司</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="desc-box WIKI-MODEL-INFO">
+            <h2>常用车型</h2>
+            <ul class="W-LIST-ROOT">
+              <li>
+                <h3>LCK6108EVGL1</h3>
+                <div class="W-MODEL-INFO">
+                  <span class="model-brand">中通</span>
+                </div>
+                <div class="W-PHOTO-LIST">
+                  <details style="--i: 0"><summary>相册</summary></details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="page-root P-MAIN">
+          <div class="desc-box qdbw-line --line">
+            <h2>站点</h2>
+            <div class="--list-root">
+              <div name="下行">
+                <h3>下行</h3>
+                <details open>
+                  <summary>
+                    <span>9公里</span>
+                    <div class="departure-time">
+                      <p>
+                        <span class="time-sym --first">04:10</span
+                        ><span class="time-sym --last">22:30</span>
+                      </p>
+                    </div>
+                  </summary>
+                  <link
+                    rel="stylesheet"
+                    href="../../lib/style/station_list.css"
+                  />
+                  <div class="stationList --flex-root">
+                    <ul class="list-root"></ul>
+                  </div>
+                </details>
+              </div>
+              <div name="上行">
+                <h3>上行</h3>
+                <details open>
+                  <summary>
+                    <span>9.6公里</span>
+                    <div class="departure-time">
+                      <p>
+                        <span class="time-sym --first">04:40</span
+                        ><span class="time-sym --last">23:05</span>
+                      </p>
+                    </div>
+                  </summary>
+                  <link
+                    rel="stylesheet"
+                    href="../../lib/style/station_list.css"
+                  />
+                  <div class="stationList --flex-root">
+                    <ul class="list-root"></ul>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>2024 QDBw</p>
+        <p>2024 0xarch & 2024 Soloev</p>
+        <p>资料主要来源：<a href="//buspedia.top">巴士派迪</a></p>
+        <p>自豪地使用 Node.js 与 Pug 构建.</p>
+      </footer>
+</body>
+<script>
+    let params = location.search.replace('?','').split("&").reduce((p,c)=>{
+        let [k,v] = c.split("=",2);
+        p[k]=v;
+        return p;
+    },{});
+    document.body.setAttribute('name',params.line ?? 1);
+
+    fetch(`/data/Lines/${params.line}/Main.jsonc`).then((resp)=>{
+        resp.text().then((value)=>{
+            let json = JSON.parse(value);
+            document.getElementById('r_current_name').textContent = json.Name;
+        });
+    })
+</script>
+</html>
