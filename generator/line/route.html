@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>Generator/Line/Route</title>
 </head>
 <body>
@@ -28,15 +29,16 @@
                 <br>
                 <div class="route">
                     <div id="routeMain"></div>
-                    <br>
-                    <button id="addRoad">Add road</button>
-                    <button id="deleteRoad">Delete road</button>
-                    <button id="saveRoad">Save to localStorage</button>
                 </div>
             </div>
             <br>
-            <div class="operation">
+            <div class="main-operations">
+                <button id="addRoad">添加道路</button>
+                <button id="deleteRoad">删除道路</button>
                 <button id="doGenerate">生成</button>
+                <button id="saveRoad">保存至localStorage</button>
+                <button id="clearRoad">清除(刷新恢复)</button>
+                <button id="exportRoad">导出</button>
             </div>
             <br>
             <div class="result">
@@ -49,27 +51,13 @@
     </main>
 </body>
 <style>
-    .result {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .result>textarea{
-        min-height: 35rem;
-    }
-    .road-div {
-        border: 1px solid #888;
-        box-sizing: border-box;
-        padding: .5rem;
-        margin: .5rem;
-    }
-    .road-div::before {
-        content: attr(name);
-    }
-    .station {
-        border: 1px solid #888;
-        padding: .25rem;
-        margin: .25rem;
-    }
+.result {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.result>textarea{
+    min-height: 35rem;
+}
 </style>
 <script>
 let resultDown = document.getElementById("resultDown");
@@ -107,9 +95,11 @@ const Route = {
         let addButton = document.createElement('button');
         let deleteButton = document.createElement('button');
         let operationContainer = document.createElement('div');
-        operationContainer.classList.add('operations');
-        addButton.textContent = 'Add station';
-        deleteButton.textContent = 'Delete station';
+        operationContainer.classList.add('road-operations-div','operations');
+        addButton.classList.add('road-operations','road-add');
+        deleteButton.classList.add('road-operations','road-delete');
+        // addButton.textContent = 'Add station';
+        // deleteButton.textContent = 'Delete station';
         operationContainer.appendChild(addButton);
         operationContainer.appendChild(deleteButton);
 
@@ -216,6 +206,20 @@ document.getElementById("deleteRoad").addEventListener("click",()=>{
 
 document.getElementById("saveRoad").addEventListener("click",()=>{
     saveToLocal();
+});
+
+document.getElementById("clearRoad").addEventListener("click",()=>{
+    let oldData = Object.assign({},mainRouteJson);
+    while(i!=0){
+        i--;
+        Array.from(routeDiv.childNodes)[i].remove();
+        mainRouteJson.pop();
+    }
+    resultUp.value = JSON.stringify(oldData);
+});
+
+document.getElementById("exportRoad").addEventListener("click",()=>{
+    resultDown.value = JSON.stringify(mainRouteJson);
 });
 
 let infos = {
