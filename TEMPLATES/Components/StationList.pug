@@ -5,21 +5,21 @@ mixin StationList(route,GlobalId)
     +requireCSS('station_list')
     .stationList.--flex-root
         ul.list-root
-            //- - let globalIndex = 1
-            //- each reflectObj in route.Reflect
-            //-     - let [roadName, stations] = Object.entries(reflectObj)[0]
-            //-     li(data-road=roadName)
-            //-         ul
-            //-             each station in stations
-            //-                 li
-            //-                     - let globalName = station.split(" ")[0]
-            //-                     - let Station = Data.Stations.get(globalName)
-            //-                     - if(Station === undefined) throw new Error(`[Template/Components/StationList] Trying to get ${station}, but received undefined!`)
-            //-                     -
-            //-                         let stationLine = Station.Lines.get(GlobalId)
-            //-                         if(!stationLine.Routes.has(route.Name)){
-            //-                             throw new Error(`[Template/Components/StationList] Trying to get route(${route.Name}) on line(${GlobalId}), but received undefined! Route keys: ${Array.from(Station.Lines.get(GlobalId).Routes.keys())}`)
-            //-                         }
-            //-                     - let ref = Station.Lines.get(GlobalId).Routes.get(route.Name)
-            //-                     a.h-link(data-index=globalIndex,href=getStationURI(Station.GlobalId))!= makeComfortWrap(ref.DisplayName)
-            //-                     - globalIndex++
+            - let globalIndex = 1
+            each reflectObj in route.Reflect
+                - let [roadName, stations] = Object.entries(reflectObj)[0]
+                li(data-road=roadName)
+                    ul
+                        each station in stations
+                            li
+                                - let globalName = station.split(" ")[0]
+                                - let Station = Data.Stations.get(globalName)
+                                - if(Station === undefined) throw new Error(`[Template/Components/StationList] Trying to get ${station}, but received undefined!`)
+                                -
+                                    let stationLine = Station.Lines.get(GlobalId)
+                                    if(!stationLine.Routes.has(route.Name)){
+                                        throw new Error(`[Template/Components/StationList] Trying to get route(${route.Name}) on line(${GlobalId}), but received undefined! Route keys: ${Array.from(Station.Lines.get(GlobalId).Routes.keys())}`)
+                                    }
+                                - let ref = Station.Lines.get(GlobalId).Routes.get(route.Name)
+                                a.h-link(data-index=globalIndex,href=getStationURI(Station.GlobalId))!= makeComfortWrap(ref.DisplayName)
+                                - globalIndex++
