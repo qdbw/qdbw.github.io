@@ -68,7 +68,7 @@ html
                                 each route in Array.from(line.Routes.values())
                                     .--list-child
                                         span #{route.Route.Name}
-                                        span.s-index #{route.Index+1}
+                                        span.s-index #{route.Index}
                                         if Current.DisplayName != route.DisplayName
                                             span.--alias #{route.DisplayName}
         +Footer

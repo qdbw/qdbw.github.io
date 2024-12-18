@@ -23,7 +23,7 @@ function buildLinePages(basicConf) {
             hmtlPath: buildingPath
         };
         let passVariants = {
-            ...basicConf,
+            // ...basicConf,
             Current: line,
             Data,
             $

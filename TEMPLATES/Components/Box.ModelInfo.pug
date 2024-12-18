@@ -15,6 +15,7 @@ mixin Box-ModelInfo(models,NUMBER)
                                 - let fuelType = overrideFuelType || modelData.FuelTypes[0]
                                 span.model-fuel(class="model-fuel --type-"+fuelType)= fuelType
                         .W-PHOTO-LIST
+                            - const Photo = Data.Photo
                             if Photo.dataByLine
                                 - let photos = [];
                                 - let i = 0;
