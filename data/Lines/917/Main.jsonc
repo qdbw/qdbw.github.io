@@ -1,0 +1,23 @@
+{
+    "Name": "917路",
+    "FromTo": [
+        [
+            "夏庄东方城停车场",
+            "长城路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/7"
+    ],
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": false,
+        "Multiprice": false,
+        "Responsive": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}
