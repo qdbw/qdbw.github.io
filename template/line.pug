@@ -11,13 +11,13 @@ block @aside
     //- h2.bdt-h-model #{local.line.name}
     //- p.bdt-h-status(class=local.bus.status.status_string) #{local.bus.status.status_string}
     //- p.bdt-h-company !{local.line.companies_stringlist.join('<br>')}
+    section.s-introduction
+    p 首末站： #{local.line.from_string} - #{local.line.to_string}
+    //- 首末
+    each route in local.line.routes
+        p #{route.name}首末： #{route.time_details.first}-#{route.time_details.last}
 
 block @article
-    section.s-introduction
-        p 首末站： #{local.line.from_string} - #{local.line.to_string}
-        //- 首末
-        each route in local.line.routes
-            p #{route.name}首末： #{route.time_details.first}-#{route.time_details.last}
     section.s-history
         h2 历史走向
         if local.line.is_history
