@@ -14,6 +14,11 @@
             "date": "2020.12",
             "from": "Tunnel2",
             "to": "Tunnel5"
+        },
+        {
+            "date": "2021.01",
+            "from": "Tunnel5",
+            "to": "@OFFLINE"
         }
     ]
 }

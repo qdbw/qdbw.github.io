@@ -14,6 +14,16 @@
             "date": "2018.06",
             "from": "Tunnel2",
             "to": "Tunnel6"
+        },
+        {
+            "date": "2018.07",
+            "from": "Tunnel6",
+            "to": "Tunnel5"
+        },
+        {
+            "date": "2021.01",
+            "from": "Tunnel5",
+            "to": "@OFFLINE"
         }
     ]
 }
