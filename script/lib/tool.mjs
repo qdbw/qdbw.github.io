@@ -74,7 +74,7 @@ function getFuelText(id) {
     return ({
         [id]: id,
         ...fuelTable
-    });
+    })[id];
 }
 
 export const BuildTools = {
