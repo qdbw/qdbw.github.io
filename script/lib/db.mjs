@@ -338,11 +338,12 @@ export class Database {
         });
 
         let existing_model_infos = {};
+        let model_data_dir = join(this.data_dir,'model');
 
-        for(let obj of await readdir(join(this.data_dir,'model'))){
-            let status = await stat(obj);
+        for(let obj of await readdir(model_data_dir)){
+            let status = await stat(join(model_data_dir,obj));
             if(status.isFile() && extname(obj) == '.yaml') {
-                let obj_path = join(this.data_dir,'model',obj);
+                let obj_path = join(model_data_dir,obj);
                 let content = (await readFile(obj_path)).toString();
                 let config = BUtil.yaml.parse(content);
                 existing_model_infos[config.model] = config;
