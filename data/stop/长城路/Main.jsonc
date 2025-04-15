@@ -1,7 +1,4 @@
 {
-    "Id": "CHANGCHENG_RD@QD&CYH_CY1",
-    "Station": "长城路",
-    "Location": "XX,XXX",
-    "TitleHtml": "长城路",
-    "IsAllRoutesIncluded": false
+    "id": "ChangCheng_Rd@Qingdao",
+    "pretty_name": "长城路"
 }

@@ -1,7 +1,4 @@
 {
-    "Id": "ZHENGYANG-MDL_RD+HUACHENG_RD@QD",
-    "Station": "正阳中路华城路",
-    "Location": "XX,XXX",
-    "TitleHtml": "正阳中路<br>华城路",
-    "IsAllRoutesIncluded": false
+    "id": "Zhengyang_MiddleRd_Huacheng_Rd@Qingdao",
+    "pretty_name": "正阳中路<br>华城路"
 }
