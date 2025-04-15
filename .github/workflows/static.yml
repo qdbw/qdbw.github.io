@@ -40,7 +40,7 @@ jobs:
       - name: Setup node_modules
         exec: pnpm i
       - name: Build website
-        exec: node script/main.mjs
+        exec: "node script/main.mjs"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with: frontend
