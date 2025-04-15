@@ -1,1 +1,14 @@
-{ "model": "", "status": { "line": "", "retired": false }, "history": [] }
+{
+    "model": "SWB6121EV5",
+    "status": {
+        "line": "501",
+        "retired": true
+    },
+    "history": [
+        {
+            "date": "2013",
+            "from": "@NEW",
+            "to": "501"
+        }
+    ]
+}

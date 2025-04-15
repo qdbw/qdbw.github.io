@@ -1,1 +1,14 @@
-{ "model": "", "status": { "line": "", "retired": false }, "history": [] }
+{
+    "model": "FDG6123EVG",
+    "status": {
+        "line": "314",
+        "retired": true
+    },
+    "history": [
+        {
+            "date": "2013",
+            "from": "@NEW",
+            "to": "314"
+        }
+    ]
+}
