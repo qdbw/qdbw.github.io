@@ -104,6 +104,7 @@ export class RouteInfoContainer {
 
 export class BusInfoContainer {
     code = '';
+    code_number = 0;
     model;
     model_string = '';
     shift_records = [];
@@ -127,6 +128,7 @@ export class BusInfoContainer {
 
     constructor(name, config, data_path) {
         this.code = name;
+        this.code_number = Number(name.replace(/[A-z]+/,''));
         this.model_string = config.model;
         this.model_detail = {};
         this.shift_records = [...config.shift_records ?? config.history ?? []];
@@ -286,6 +288,7 @@ export class Database {
                 this.buses.push(obj);
             }
         }
+        this.buses.sort((a,b) => a.code_number > b.code_number ? 1 : -1);
     }
 
     async #collectStops() {
