@@ -339,7 +339,7 @@ export class Database {
 
         let existing_model_infos = {};
 
-        for(let obj of readdir(join(this.data_dir,'model'))){
+        for(let obj of await readdir(join(this.data_dir,'model'))){
             let status = await stat(obj);
             if(status.isFile() && extname(obj) == '.yaml') {
                 let obj_path = join(this.data_dir,'model',obj);
