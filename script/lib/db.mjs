@@ -156,7 +156,7 @@ export class BusInfoContainer {
 export class ModelInfoContainer {
     id = '';
     brand = '';
-    size= {
+    size = {
         length: [],
         width: [],
         height: []
@@ -165,7 +165,7 @@ export class ModelInfoContainer {
     is_hybrid = false;
     hybrid_fuel_types = [];
     buses = [];
-    constructor(id){
+    constructor(id) {
         this.id = id;
     }
 }
@@ -270,7 +270,7 @@ export class Database {
         for (let object of (await readdir(path, { recursive: true }))) {
             let status = await stat(join(path, object));
             if (status.isFile()) {
-                let obj = await BusUtils.createInfoFromPath(basename(object,".json"), join(path, object));
+                let obj = await BusUtils.createInfoFromPath(basename(object, ".json"), join(path, object));
                 this.buses_data_stringlist.push(object);
                 this.buses_stringlist.push(basename(object, ".json"));
                 this.buses.push(obj);
@@ -291,8 +291,8 @@ export class Database {
 
             }
         });
-        console.log(this.stops_stringlist);
-        await Promise.all(this.stops_stringlist.map((stop,index) => (async()=>{
+        // console.log(this.stops_stringlist);
+        await Promise.all(this.stops_stringlist.map((stop, index) => (async () => {
             let config;
             try {
                 config = BUtil.JSON.safeParse((await readFile(join(this.data_dir, "stop", stop, "Main.jsonc"))).toString());
@@ -308,7 +308,7 @@ export class Database {
                 let stops_real = route.stops_stringlist.map(v => v.split(" "));
                 for (let [stop, stop_form_name] of stops_real) {
                     let index = this.stops_stringlist.indexOf(stop);
-                    console.log(stop, index, 'F');
+                    // console.log(stop, index, 'F');
                     let stop_obj = this.stops[index];
                     if (stop_form_name && !stop_obj.form_names.includes(stop_form_name)) {
                         stop_obj.form_names.push(stop_form_name);
@@ -320,14 +320,13 @@ export class Database {
                         stop_obj.passby_lines.push(v);
                     }
                 }
-
             }
         });
     }
 
-    async #collectModels(){
+    async #collectModels() {
         this.buses.forEach(v => {
-            if(!this.models_stringlist.includes(v.model_string)) {
+            if (!this.models_stringlist.includes(v.model_string)) {
                 this.models_stringlist.push(v.model_string);
                 this.models.push(new ModelInfoContainer(v.model_string));
             }
@@ -338,27 +337,29 @@ export class Database {
         });
 
         let existing_model_infos = {};
-        let model_data_dir = join(this.data_dir,'model');
+        let model_data_dir = join(this.data_dir, 'model');
 
-        for(let obj of await readdir(model_data_dir)){
-            let status = await stat(join(model_data_dir,obj));
-            if(status.isFile() && extname(obj) == '.yaml') {
-                let obj_path = join(model_data_dir,obj);
+        for (let obj of await readdir(model_data_dir, { recursive: true })) {
+            let status = await stat(join(model_data_dir, obj));
+            if (status.isFile() && extname(obj) == '.yaml') {
+                let obj_path = join(model_data_dir, obj);
                 let content = (await readFile(obj_path)).toString();
                 let config = BUtil.yaml.parse(content);
                 existing_model_infos[config.model] = config;
             }
         }
 
-        this.models_stringlist.forEach((model_string,index) => {
-            if(existing_model_infos[model_string]){
+        // console.log(existing_model_infos);
+
+        this.models_stringlist.forEach((model_string, index) => {
+            if (existing_model_infos[model_string]) {
                 let obj_ref = this.models[index];
                 let existing = existing_model_infos[model_string];
                 obj_ref.brand = existing.brand;
                 obj_ref.fuel = existing.fuel;
                 obj_ref.hybrid_fuel_types = existing.hybrid_fuel_types ?? [];
                 obj_ref.is_hybrid = existing.is_hybrid ?? false;
-                if(existing.size){
+                if (existing.size) {
                     obj_ref.size = existing.size;
                 }
             } else {

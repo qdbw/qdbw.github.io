@@ -20,8 +20,6 @@ await stopPageBuilder.buildSpecifiedObjectList(database.stops);
 await writeFile("frontend/404.html",compileFile("template/404.pug")());
 await writeFile("frontend/index.html",compileFile("template/index.pug")());
 
-console.log(database.buses);
-
 // build bdt_manifest.json
 let bdt_manifest = {
     buses: [],
