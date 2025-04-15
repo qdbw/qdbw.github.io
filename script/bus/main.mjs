@@ -87,8 +87,8 @@ export class BusPageBuilder {
 
     async buildSpecifiedObjectList(buses) {
         await Promise.all([...buses].map(v => (async (v) => {
-            console.log(`[LOG] Building ${v.name}`);
-            await this.buildFromObject(v.name, v);
+            console.log(`[LOG] Building ${v.code}`);
+            await this.buildFromObject(v.code, v);
         })(v)));
     }
 
