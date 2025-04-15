@@ -5,6 +5,15 @@
     --bdt-c-header: #000a;
 }
 
+@media(prefers-color-scheme:light){
+    :root {
+        --bdt-c-body: #f8f8f8;
+        --bdt-c-body-text: #222;
+        --bdt-c-sp: #888;
+        --bdt-c-header: #fff;
+    }
+}
+
 body {
     margin: 0;
     background-color: var(--bdt-c-body);
