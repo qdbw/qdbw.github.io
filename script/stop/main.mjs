@@ -3,6 +3,7 @@ import { BUtil } from "../lib/util.mjs";
 import { readFile, readdir, stat, mkdir, writeFile } from "fs/promises";
 import { basename, join } from "path";
 import { compile } from "pug";
+import { BuildTools } from "../lib/tool.mjs";
 
 export class StopPageBuilder {
     data_dir;
@@ -22,7 +23,8 @@ export class StopPageBuilder {
     async buildFromObject(object) {
         let objs = {
             local: {
-                stop: object
+                stop: object,
+                tool: BuildTools
             }
         };
         let target_directory = join(this.public_dir, "stop");

@@ -3,6 +3,7 @@ import { basename, join } from "path";
 import { compile } from "pug";
 import { BusInfoContainer } from "../lib/db.mjs";
 import { BUtil } from "../lib/util.mjs";
+import { BuildTools } from "../lib/tool.mjs";
 
 export const BusUtils = {
     async createInfoFromConfig(name,config) {
@@ -42,7 +43,8 @@ export class BusPageBuilder {
         let bus_info = await BusUtils.createInfoFromPath(name, path);
         let objs = {
             local: {
-                bus: bus_info
+                bus: bus_info,
+                tool: BuildTools
             }
         };
         let target_directory = join(this.public_dir,"bus");

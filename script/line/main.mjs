@@ -1,8 +1,9 @@
 import { LineInfoContainer, RouteInfoContainer } from "../lib/db.mjs";
 import { BUtil } from "../lib/util.mjs";
-import { readFile, readdir, stat, mkdir, writeFile } from "fs/promises";
+import { readFile, mkdir, writeFile } from "fs/promises";
 import { basename, join } from "path";
 import { compile } from "pug";
+import { BuildTools } from "../lib/tool.mjs";
 
 export const LineUtils = {
     generateHistoryLineName(current_line_name, history_tag) {
@@ -70,21 +71,16 @@ export class LinePageBuilder {
     #template_compiled;
 
     async build({ name, path } = {}) {
-        // let path = join(this.data_dir,"bus",`${name}.json`);
         path = join(this.data_dir, "line", path);
         let line_info = await LineUtils.createInfoFromPath(name, path);
         await this.buildFromObject(name, line_info);
-        // if (line_info.histories.length != 0) {
-        //     for (let history_object of line_info.histories) {
-        //         await this.buildFromObject(history_object.name, history_object);
-        //     }
-        // }
     }
 
     async buildFromObject(name, object) {
         let objs = {
             local: {
-                line: object
+                line: object,
+                tool: BuildTools
             }
         };
         let target_directory = join(this.public_dir, "line");
