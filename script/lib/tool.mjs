@@ -45,15 +45,24 @@ const brandIdTable = {
     ZK: '宇通',
 }
 
-function inferBrand(id){
+const fuelTable = {
+    fuel: '汽油',
+    diesel: '柴油',
+    lng: '液化天然气',
+    cng: '压缩天然气',
+    electric: '电',
+    mount: '电网',
+}
+
+function inferBrand(id) {
     let letters = id.toUpperCase(), i = 0;
-    for(;i<letters.length;i++){
+    for (; i < letters.length; i++) {
         const code = letters.charCodeAt(i);
-        if(!(code >= 65 && code <= 90)){
+        if (!(code >= 65 && code <= 90)) {
             break;
         }
     }
-    let brandId = letters.slice(0,i);
+    let brandId = letters.slice(0, i);
     return ({
         [brandId]: brandId,
         ...brandIdTable
@@ -61,6 +70,14 @@ function inferBrand(id){
 
 }
 
+function getFuelText(id) {
+    return ({
+        [id]: id,
+        ...fuelTable
+    });
+}
+
 export const BuildTools = {
-    inferBrand
+    inferBrand,
+    getFuelText
 }
