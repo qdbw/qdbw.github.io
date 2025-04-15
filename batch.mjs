@@ -9,15 +9,20 @@ function range(from,to){
     return result
 }
 
-const type = 'KT';
+const type = '';
 const data_type = 'yaml';
-const source_num = 101;
-const end_num = 126;
-let start_num;
+const source_num = 1342
+const end_num = 1481
+let start_num
 start_num ??= source_num+1;
 
-const source = `data/bus/${type}/${type}${Math.floor(source_num / 100)}00-${type}${Math.floor(source_num / 100)}99/${type}${String(source_num).padStart(3,'0')}.${data_type}`;
-const targets = [ ...range(start_num,end_num+1).map(v => `data/bus/${type}/${type}${Math.floor(v / 100)}00-${type}${Math.floor(v / 100)}99/${type}${String(v).padStart(3,'0')}.${data_type}`)];
+let pad_count = 3;
+if(type == 'BS' || type == 'CY') {
+    pad_count = 4;
+}
+
+const source = `data/bus/${type||'_plain'}/${type}${String(Math.floor(source_num / 100)).padStart(pad_count-2,'0')}00-${type}${String(Math.floor(source_num / 100)).padStart(pad_count-2,'0')}99/${type}${String(source_num).padStart(pad_count,'0')}.${data_type}`;
+const targets = [ ...range(start_num,end_num+1).map(v => `data/bus/${type||'_plain'}/${type}${String(Math.floor(v / 100)).padStart(pad_count-2,'0')}00-${type}${String(Math.floor(v / 100)).padStart(pad_count-2,'0')}99/${type}${String(v).padStart(pad_count,'0')}.${data_type}`)];
 
 let source_content = (await readFile(source)).toString();
 
