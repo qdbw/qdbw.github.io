@@ -1,4 +1,5 @@
 import { parse as jsonc_parse } from "jsonc-parser";
+import { parse as yaml_parse } from "yaml";
 
 export const BUtil = {
     JSON: {
@@ -13,5 +14,8 @@ export const BUtil = {
                 return e;
             }
         }
+    },
+    yaml: {
+        parse: yaml_parse
     }
 }

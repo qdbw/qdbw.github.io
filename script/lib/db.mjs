@@ -1,8 +1,9 @@
 import { readFile, readdir, stat } from "fs/promises";
 import { BUtil } from "./util.mjs";
-import { join, basename } from "path";
+import { join, basename, extname } from "path";
 import { LineUtils } from "../line/main.mjs";
 import { BusUtils } from "../bus/main.mjs";
+import { BuildTools } from "./tool.mjs";
 
 export class LineInfoContainer {
     name = '';
@@ -126,7 +127,7 @@ export class BusInfoContainer {
 
     constructor(name, config, data_path) {
         this.code = name;
-        this.model = config.model;
+        this.model_string = config.model;
         this.model_detail = {};
         this.shift_records = [...config.shift_records ?? config.history ?? []];
         this.current.line_string = config.status?.current?.line;
@@ -163,6 +164,7 @@ export class ModelInfoContainer {
     fuel = '';
     is_hybrid = false;
     hybrid_fuel_types = [];
+    buses = [];
     constructor(id){
         this.id = id;
     }
@@ -192,6 +194,9 @@ export class Database {
      * @type {LineInfoContainer[]}
      */
     lines = [];
+    /**
+     * @type {ModelInfoContainer[]}
+     */
     models = [];
     /**
      * @type {StopInfoContainer[]}
@@ -202,6 +207,7 @@ export class Database {
     stops_stringlist = [];
     lines_stringlist = [];
     companies_stringlist = [];
+    models_stringlist = [];
 
     config_company;
     config_line;
@@ -229,6 +235,7 @@ export class Database {
         this.config_model = config_model;
 
         await this.#collectBuses();
+        await this.#collectModels();
         await this.#collectLines();
         await this.#collectStops();
     }
@@ -319,6 +326,41 @@ export class Database {
     }
 
     async #collectModels(){
-        this.buses
+        this.buses.forEach(v => {
+            if(!this.models_stringlist.includes(v.model_string)) {
+                this.models_stringlist.push(v.model_string);
+                this.models.push(new ModelInfoContainer(v.model_string));
+            }
+
+            let index = this.models_stringlist.indexOf(v.model_string);
+            this.models[index].buses.push(v);
+            v.model = this.models[index];
+        });
+
+        let existing_model_infos = {};
+
+        for(let obj of readdir(join(this.data_dir,'model'))){
+            let status = await stat(obj);
+            if(status.isFile() && extname(obj) == '.yaml') {
+                let obj_path = join(this.data_dir,'model',obj);
+                let content = (await readFile(obj_path)).toString();
+                let config = BUtil.yaml.parse(content);
+                existing_model_infos[config.model] = config;
+            }
+        }
+
+        this.models_stringlist.forEach((model_string,index) => {
+            if(existing_model_infos[model_string]){
+                let obj_ref = this.models[index];
+                let existing = existing_model_infos[model_string];
+                obj_ref.brand = existing.brand ?? BuildTools.inferBrand(model_string);
+                obj_ref.fuel = existing.fuel;
+                obj_ref.hybrid_fuel_types = existing.hybrid_fuel_types ?? [];
+                obj_ref.is_hybrid = existing.is_hybrid ?? false;
+                if(existing.size){
+                    obj_ref.size = existing.size;
+                }
+            }
+        });
     }
 }
