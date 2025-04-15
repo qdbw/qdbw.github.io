@@ -54,6 +54,20 @@ export class BusPageBuilder {
         console.log(`[LOG] Built ${name}`);
     }
 
+    async buildFromObject(name, object) {
+        let objs = {
+            local: {
+                bus: object,
+                tool: BuildTools
+            }
+        };
+        let target_directory = join(this.public_dir, "bus");
+        let target_path = join(target_directory, `${name}.html`);
+        await mkdir(target_directory, { recursive: true });
+        await writeFile(target_path, await this.toHtml(objs));
+        console.log(`[LOG] Built ${name}`);
+    }
+
     async buildAll(){
         let path = join(this.data_dir,"bus");
         for(let object of (await readdir(path, { recursive: true}))){
@@ -68,6 +82,13 @@ export class BusPageBuilder {
         await Promise.all([...buses].map(v => (async (v) => {
             console.log(`[LOG] Building ${v}`);
             await this.build({ name: basename(v, '.json'), path: v });
+        })(v)));
+    }
+
+    async buildSpecifiedObjectList(buses) {
+        await Promise.all([...buses].map(v => (async (v) => {
+            console.log(`[LOG] Building ${v.name}`);
+            await this.buildFromObject(v.name, v);
         })(v)));
     }
 

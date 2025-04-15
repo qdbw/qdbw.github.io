@@ -2,6 +2,7 @@ import { readFile, readdir, stat } from "fs/promises";
 import { BUtil } from "./util.mjs";
 import { join, basename } from "path";
 import { LineUtils } from "../line/main.mjs";
+import { BusUtils } from "../bus/main.mjs";
 
 export class LineInfoContainer {
     name = '';
@@ -151,6 +152,22 @@ export class BusInfoContainer {
     }
 }
 
+export class ModelInfoContainer {
+    id = '';
+    brand = '';
+    size= {
+        length: [],
+        width: [],
+        height: []
+    };
+    fuel = '';
+    is_hybrid = false;
+    hybrid_fuel_types = [];
+    constructor(id){
+        this.id = id;
+    }
+}
+
 export class StopInfoContainer {
     id = '';
     name = '';
@@ -246,8 +263,10 @@ export class Database {
         for (let object of (await readdir(path, { recursive: true }))) {
             let status = await stat(join(path, object));
             if (status.isFile()) {
+                let obj = await BusUtils.createInfoFromPath(basename(object,".json"), join(path, object));
                 this.buses_data_stringlist.push(object);
                 this.buses_stringlist.push(basename(object, ".json"));
+                this.buses.push(obj);
             }
         }
     }
@@ -297,5 +316,9 @@ export class Database {
 
             }
         });
+    }
+
+    async #collectModels(){
+        this.buses
     }
 }

@@ -14,11 +14,13 @@ let linePageBuilder = new LinePageBuilder("data","frontend/public");
 let stopPageBuilder = new StopPageBuilder("data","frontend/public");
 
 await linePageBuilder.buildSpecifiedObjectList(database.lines);
-await busPageBuilder.buildSpecifiedList(database.buses_data_stringlist);
+await busPageBuilder.buildSpecifiedObjectList(database.buses);
 await stopPageBuilder.buildSpecifiedObjectList(database.stops);
 
 await writeFile("frontend/404.html",compileFile("template/404.pug")());
 await writeFile("frontend/index.html",compileFile("template/index.pug")());
+
+console.log(database.buses);
 
 // build bdt_manifest.json
 let bdt_manifest = {
