@@ -66,3 +66,24 @@ if(document.getElementById("STOP_SEARCH_INPUT")){
     trigger.onclick = ev;
     input.onkeydown = (e) => e.key == 'Enter' ? ev() : void 0;
 }
+
+if(document.getElementById("MODEL_SEARCH_INPUT")){
+    let input = document.getElementById('MODEL_SEARCH_INPUT');
+    let trigger = document.getElementById('MODEL_SEARCH_ID');
+    let result_container = document.getElementById('MODEL_SEARCH_RESULTS');
+    let result_tip = document.getElementById('MODEL_SEARCH_TIP');
+
+    const ev = () => {
+        let value = input.value;
+        let results = querier.queryModel(value);
+        result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/model/${v}">${v}</a>`).join('');
+        if(results.length > 50){
+            result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
+        } else {
+            result_tip.innerHTML = '';
+        }
+    }
+
+    trigger.onclick = ev;
+    input.onkeydown = (e) => e.key == 'Enter' ? ev() : void 0;
+}

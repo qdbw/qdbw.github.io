@@ -4,7 +4,7 @@ append @head
     link(rel="stylesheet",href="/css/stop.css")
 
 block @title
-    title #{local.stop.name} - BDT 
+    title #{local.stop.name} - QDB WIKI 
 
 block @aside
     h1.bdt-h-name !{local.stop.name_pretty}
@@ -24,11 +24,6 @@ block @article
                             each obj in route.data_stringobject
                                 -
                                     let [k,s] = Object.entries(obj)[0];
-                                    //- s = s.map(n => {
-                                    //-     let con = n.split(" ");
-                                    //-     if(con.length == 1) return con[0];
-                                    //-     else return con[1];
-                                    //- })
                                     s = s.map(n=>n.split(" ").slice(0,2)).flat(Infinity)
                                 if s.includes(local.stop.name)
                                     p.s-pb.detail #{route.name} 经#{k}

@@ -4,13 +4,10 @@ append @head
     link(rel="stylesheet",href="/css/line.css")
 
 block @title
-    title #{local.line.name_pretty} - BDT 
+    title #{local.line.name_pretty} - QDB WIKI 
 
 block @aside
     h1.bdt-h-name #{local.line.name_pretty}
-    //- h2.bdt-h-model #{local.line.name}
-    //- p.bdt-h-status(class=local.bus.status.status_string) #{local.bus.status.status_string}
-    //- p.bdt-h-company !{local.line.companies_stringlist.join('<br>')}
     section.s-introduction
     p 首末站： #{local.line.from_string} - #{local.line.to_string}
     //- 首末

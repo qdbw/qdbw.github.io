@@ -32,9 +32,10 @@ export class BDTQuerier {
     }
 
     queryLine(string){
+        string = string.toUpperCase();
         let result = [];
         this.manifest.lines.forEach(v => {
-            if(!v.startsWith('H~') && v.includes(string)){
+            if(!v.startsWith('H~') && v.toUpperCase().includes(string)){
                 result.push(v);
             }
         })
@@ -42,9 +43,10 @@ export class BDTQuerier {
     }
 
     queryModel(string){
+        string = string.toUpperCase();
         let result = [];
         this.manifest.models.forEach(v => {
-            if(v.includes(string)){
+            if(v.toUpperCase().includes(string)){
                 result.push(v);
             }
         })

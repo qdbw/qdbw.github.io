@@ -1,0 +1,32 @@
+extends ./global.pug
+
+append @head
+    link(rel="stylesheet",href="/css/model.css")
+
+block @title
+    title #{local.model.id} - BDT 
+
+block @aside
+    h1.bdt-h-name #{local.model.id}
+    p.bdt-h-model-detail #{local.model.brand} #{local.tool.getFuelText(local.model.fuel)}
+
+block @article
+    -
+        let on_count = 0, off_count = 0
+        local.model.buses.forEach(v => {
+            if(v.status.retired || v.status.retire_pending) {
+                off_count += 1;
+            } else {
+                on_count += 1;
+            }
+        });
+    section.s-overview
+        h2 车型概况
+        p 在线数量： #{on_count}
+        p 下线数量： #{off_count}
+    section.s-buses-list
+        h2 车辆总览
+        ul.s-buses-ul
+            each bus in local.model.buses
+                li.s-buses-li(class=bus.status.retired?'retired':'normal')
+                    a(href="/public/bus/"+bus.code) #{bus.code}
