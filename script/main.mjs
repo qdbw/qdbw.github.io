@@ -13,8 +13,8 @@ let busPageBuilder = new BusPageBuilder("data","frontend/public");
 let linePageBuilder = new LinePageBuilder("data","frontend/public");
 let stopPageBuilder = new StopPageBuilder("data","frontend/public");
 
-// await linePageBuilder.buildSpecifiedObjectList(database.lines);
-// await busPageBuilder.buildSpecifiedList(database.buses_data_stringlist);
+await linePageBuilder.buildSpecifiedObjectList(database.lines);
+await busPageBuilder.buildSpecifiedList(database.buses_data_stringlist);
 await stopPageBuilder.buildSpecifiedObjectList(database.stops);
 
 await writeFile("frontend/404.html",compileFile("template/404.pug")());

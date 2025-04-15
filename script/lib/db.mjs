@@ -253,26 +253,34 @@ export class Database {
     }
 
     async #collectStops() {
+        // collect information
         this.lines.forEach(async v => {
             for (let route of v.routes) {
                 let stops_real = route.stops_stringlist.map(v => v.split(" "));
-                for (let [stop, stop_form_name] of stops_real) {
-                    let { promise, resolve } = Promise.withResolvers();
+                for (let [stop] of stops_real) {
                     if (!this.stops_stringlist.includes(stop)) {
                         this.stops_stringlist.push(stop);
-                        let index = this.stops_stringlist.indexOf(stop);
-                        let config;
-                        try {
-                            config = BUtil.JSON.safeParse((await readFile(join(this.data_dir, "stop", stop, "Main.jsonc"))).toString());
-                        } catch (e) {
-                            config = {};
-                        }
-                        console.log(stop, index);
-                        this.stops[index] = new StopInfoContainer(stop, config);
-                        resolve();
                     }
+                }
 
-                    await promise;
+            }
+        });
+        console.log(this.stops_stringlist);
+        await Promise.all(this.stops_stringlist.map((stop,index) => (async()=>{
+            let config;
+            try {
+                config = BUtil.JSON.safeParse((await readFile(join(this.data_dir, "stop", stop, "Main.jsonc"))).toString());
+            } catch (e) {
+                config = {};
+            }
+            this.stops[index] = new StopInfoContainer(stop, config);
+        })()));
+
+        // merge route to stop
+        this.lines.forEach(v => {
+            for (let route of v.routes) {
+                let stops_real = route.stops_stringlist.map(v => v.split(" "));
+                for (let [stop, stop_form_name] of stops_real) {
                     let index = this.stops_stringlist.indexOf(stop);
                     console.log(stop, index, 'F');
                     let stop_obj = this.stops[index];
