@@ -14,8 +14,26 @@ block @aside
 block @article
     section.s-introduction
         p 上线时间： #{local.bus.time.on}
-        p 下线时间： #{local.bus.time.off}
-        p 当前运营线路： #{local.bus.current.line_string}
+        if ! local.bus.status.retired
+            p
+                |当前运营线路：
+                -
+                    let current_line = local.bus.current_line_string
+                    let is_known = true
+                    if(!current_line){
+                        if(local.bus.shift_records.length){
+                            current_line = local.bus.shift_records[local.bus.shift_records.length-1];
+                        } else {
+                            is_known = false
+                        }
+                    }
+
+                if is_known 
+                    a(href="/public/line/"+current_line.name) #{current_line.name_pretty}
+                else
+                    span 未知
+        else
+            p 下线时间： #{local.bus.time.off}
     section.s-history
         h2 调动记录
         ul.s-his-ul
