@@ -1,1 +1,18 @@
-{"Name":"116路","FromTo":[["沧口公园","盛世美域西"]],"Companies":["CHENGYUN_HOLDING/Licang/5"],"Models":{"LCK6103GC":{"Images":["T980","T990"]},"CA6100URBEV26":{"Images":["DD1737"]}},"TicketOptions":{},"Routes":["下行","上行"],"Histories":[]}
+{
+    "Name": "116路",
+    "FromTo": [
+        [
+            "沧口公园",
+            "盛世美域西"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Licang/5"
+    ],
+    "TicketOptions": {},
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}
