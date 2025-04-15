@@ -1,1 +1,14 @@
-{ "model": "", "status": { "line": "", "retired": false }, "history": [] }
+{
+    "model": "LCK6122EVG2",
+    "status": {
+        "line": "",
+        "retired": false
+    },
+    "history": [
+        {
+            "date": "2016",
+            "from": "@NEW",
+            "to": ""
+        }
+    ]
+}

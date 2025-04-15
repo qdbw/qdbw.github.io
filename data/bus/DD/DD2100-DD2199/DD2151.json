@@ -1,0 +1,14 @@
+{
+    "model": "BYD6701B2EV1",
+    "status": {
+        "line": "",
+        "retired": false
+    },
+    "history": [
+        {
+            "date": "2025.01",
+            "from": "@NEW",
+            "to": "4"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "model": "LCK6108EVGL1",
+    "status": {
+        "line": "",
+        "retired": false
+    },
+    "history": [
+        {
+            "date": "2018.01",
+            "from": "@NEW",
+            "to": "4"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "model": "TEG6825BEV01",
+    "status": {
+        "line": "",
+        "retired": false
+    },
+    "history": [
+            {
+                "date": "2025.01",
+                "from": "@NEW",
+                "to": "4"
+            }
+    ]
+}

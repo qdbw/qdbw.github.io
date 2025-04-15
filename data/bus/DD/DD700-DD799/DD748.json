@@ -1,1 +1,14 @@
-{ "model": "", "status": { "line": "", "retired": false }, "history": [] }
+{
+    "model": "BYD6121LGEV4",
+    "status": {
+        "line": "",
+        "retired": false
+    },
+    "history": [
+        {
+            "date": "2018",
+            "from": "@NEW",
+            "to": ""
+        }
+    ]
+}
