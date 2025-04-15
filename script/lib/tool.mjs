@@ -53,7 +53,7 @@ function inferBrand(id){
             break;
         }
     }
-    let brandId = letters.slice(0,i+1);
+    let brandId = letters.slice(0,i);
     return ({
         [brandId]: brandId,
         ...brandIdTable
