@@ -10,7 +10,7 @@ if(document.getElementById("BUS_SEARCH_INPUT")){
     let result_container = document.getElementById('BUS_SEARCH_RESULTS');
     let result_tip = document.getElementById('BUS_SEARCH_TIP');
 
-    trigger.onclick = () => {
+    const ev = () => {
         let value = input.value;
         let results = querier.queryBus(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/bus/${v}">${v}</a>`).join('');
@@ -20,6 +20,9 @@ if(document.getElementById("BUS_SEARCH_INPUT")){
             result_tip.innerHTML = '';
         }
     }
+
+    trigger.onclick = ev;
+    input.onkeydown = (e) => e.key == 'Enter' ? ev() : void 0;
 }
 
 if(document.getElementById("LINE_SEARCH_INPUT")){
@@ -28,7 +31,7 @@ if(document.getElementById("LINE_SEARCH_INPUT")){
     let result_container = document.getElementById('LINE_SEARCH_RESULTS');
     let result_tip = document.getElementById('LINE_SEARCH_TIP');
 
-    trigger.onclick = () => {
+    const ev = () => {
         let value = input.value;
         let results = querier.queryLine(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/line/${v}">${v}</a>`).join('');
@@ -38,6 +41,9 @@ if(document.getElementById("LINE_SEARCH_INPUT")){
             result_tip.innerHTML = '';
         }
     }
+
+    trigger.onclick = ev;
+    input.onkeydown = (e) => e.key == 'Enter' ? ev() : void 0;
 }
 
 if(document.getElementById("STOP_SEARCH_INPUT")){
@@ -46,7 +52,7 @@ if(document.getElementById("STOP_SEARCH_INPUT")){
     let result_container = document.getElementById('STOP_SEARCH_RESULTS');
     let result_tip = document.getElementById('STOP_SEARCH_TIP');
 
-    trigger.onclick = () => {
+    const ev = () => {
         let value = input.value;
         let results = querier.queryStop(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/stop/${v}">${v}</a>`).join('');
@@ -56,4 +62,7 @@ if(document.getElementById("STOP_SEARCH_INPUT")){
             result_tip.innerHTML = '';
         }
     }
+
+    trigger.onclick = ev;
+    input.onkeydown = (e) => e.key == 'Enter' ? ev() : void 0;
 }
