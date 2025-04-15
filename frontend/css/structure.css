@@ -83,4 +83,16 @@ a {
     .bdt-s-left, .bdt-s-article {
         min-height: 80vh;
     }
+    .bdt-s-left {
+        max-width: 22rem;
+    }
+}
+
+@media(aspect-ratio: 1 / 1) {
+    .bdt-s-left, .bdt-s-article {
+        min-height: 80vh;
+    }
+    .bdt-s-left {
+        max-width: 22rem;
+    }
 }

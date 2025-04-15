@@ -9,13 +9,15 @@ function range(from,to){
     return result
 }
 
-const source_num = 2195;
-const end_num = 2212;
+const type = 'KT';
+const data_type = 'yaml';
+const source_num = 101;
+const end_num = 126;
 let start_num;
 start_num ??= source_num+1;
 
-const source = `data/bus/DD/DD${Math.floor(source_num / 100)}00-DD${Math.floor(source_num / 100)}99/DD${String(source_num).padStart(3,'0')}.json`;
-const targets = [ ...range(start_num,end_num+1).map(v => `data/bus/DD/DD${Math.floor(v / 100)}00-DD${Math.floor(v / 100)}99/DD${String(v).padStart(3,'0')}.json`)];
+const source = `data/bus/${type}/${type}${Math.floor(source_num / 100)}00-${type}${Math.floor(source_num / 100)}99/${type}${String(source_num).padStart(3,'0')}.${data_type}`;
+const targets = [ ...range(start_num,end_num+1).map(v => `data/bus/${type}/${type}${Math.floor(v / 100)}00-${type}${Math.floor(v / 100)}99/${type}${String(v).padStart(3,'0')}.${data_type}`)];
 
 let source_content = (await readFile(source)).toString();
 
