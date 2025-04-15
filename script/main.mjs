@@ -13,8 +13,8 @@ let busPageBuilder = new BusPageBuilder("data","frontend/public");
 let linePageBuilder = new LinePageBuilder("data","frontend/public");
 let stopPageBuilder = new StopPageBuilder("data","frontend/public");
 
-await linePageBuilder.buildSpecifiedObjectList(database.lines);
-await busPageBuilder.buildSpecifiedList(database.buses_data_stringlist);
+// await linePageBuilder.buildSpecifiedObjectList(database.lines);
+// await busPageBuilder.buildSpecifiedList(database.buses_data_stringlist);
 await stopPageBuilder.buildSpecifiedObjectList(database.stops);
 
 await writeFile("frontend/404.html",compileFile("template/404.pug")());
@@ -31,6 +31,6 @@ let bdt_manifest = {
 bdt_manifest.buses = database.buses_stringlist.map(v => String(v));
 bdt_manifest.lines = database.lines_stringlist.map(v => String(v));
 bdt_manifest.models; // **TODO** need impl
-bdt_manifest.stops = database.stops.map(v => [v.name,[...new Set([...v.form_names, v.id])].filter(d => d!=v.name)]);
+bdt_manifest.stops = database.stops.map(v => [v.id,v.name,v.form_names]);
 
 await writeFile("frontend/bdt_manifest.json",JSON.stringify(bdt_manifest));

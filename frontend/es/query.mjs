@@ -52,14 +52,14 @@ export class BDTQuerier {
     }
 
     queryStop(string){
+        string = string.toLowerCase();
         let result = [];
         this.manifest.stops.forEach(v => {
-            if(v[0].includes(string)){
-                result.push(v[0]);
-            } else if (v[1].some(e => e?.includes(string))){
-                result.push(v[0]);
+            if(v.flat(Infinity).map(v => v.toLowerCase()).some(e => e.includes(string))){
+                result.push([v[0],v[1]]);
             }
         })
+        console.log(result);
         return result;
     }
 }

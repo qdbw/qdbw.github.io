@@ -55,7 +55,7 @@ if(document.getElementById("STOP_SEARCH_INPUT")){
     const ev = () => {
         let value = input.value;
         let results = querier.queryStop(value);
-        result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/stop/${v}">${v}</a>`).join('');
+        result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/stop/${v[0]}">${v[1]}</a>`).join('');
         if(results.length > 50){
             result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
         } else {
