@@ -8,6 +8,8 @@ block @title
 
 block @aside
     h2 QDB - 青岛公交字典
+    p 本站仍在开发中, 目前托管于 Github Pages.
+    p.s-build-time 上次构建：#{local.tool.build_time}
 
 block @article
     h1 欢迎访问青岛公交字典！
@@ -29,4 +31,11 @@ block @article
         button#STOP_SEARCH_ID 查询
         #STOP_SEARCH_RESULTS.s-index-searchresults
         #STOP_SEARCH_TIP.s-index-searchtips
+    section.s-model
+        h2 查询型号(未实现)
+        input#MODEL_SEARCH_INPUT(placeholder="车型")
+        button#MODEL_SEARCH_ID 查询
+        #MODEL_SEARCH_RESULTS.s-index-searchresults
+        #MODEL_SEARCH_TIP.s-index-searchtips
+
 

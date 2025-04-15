@@ -4,6 +4,7 @@ import { Database } from "./lib/db.mjs";
 import { LinePageBuilder } from "./line/main.mjs";
 import { writeFile } from "fs/promises";
 import { StopPageBuilder } from "./stop/main.mjs";
+import { BuildTools } from "./lib/tool.mjs";
 
 let database = new Database("data");
 
@@ -17,8 +18,8 @@ await linePageBuilder.buildSpecifiedObjectList(database.lines);
 await busPageBuilder.buildSpecifiedObjectList(database.buses);
 await stopPageBuilder.buildSpecifiedObjectList(database.stops);
 
-await writeFile("frontend/404.html",compileFile("template/404.pug")());
-await writeFile("frontend/index.html",compileFile("template/index.pug")());
+await writeFile("frontend/404.html",compileFile("template/404.pug")({local: {tool: BuildTools}}));
+await writeFile("frontend/index.html",compileFile("template/index.pug")({local: {tool: BuildTools}}));
 
 // build bdt_manifest.json
 let bdt_manifest = {

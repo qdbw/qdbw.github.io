@@ -54,6 +54,8 @@ const fuelTable = {
     mount: '电网',
 }
 
+const build_time = new Date();
+
 function inferBrand(id) {
     let letters = id.toUpperCase(), i = 0;
     for (; i < letters.length; i++) {
@@ -79,5 +81,6 @@ function getFuelText(id) {
 
 export const BuildTools = {
     inferBrand,
-    getFuelText
+    getFuelText,
+    build_time
 }

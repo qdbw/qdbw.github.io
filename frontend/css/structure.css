@@ -78,3 +78,9 @@ a {
         border-bottom: .05rem solid var(--bdt-c-sp);
     }
 }
+
+@media(min-aspect-ratio: 1 / 1) {
+    .bdt-s-left, .bdt-s-article {
+        min-height: 80vh;
+    }
+}
