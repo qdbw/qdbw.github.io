@@ -7,7 +7,8 @@ block @title
     title #{local.stop.name} - BDT 
 
 block @aside
-    h1.bdt-h-name #{local.stop.name}
+    h1.bdt-h-name !{local.stop.name_pretty}
+    h2.bdt-h-model !{local.stop.id}
 
 block @article
     section.s-introduction

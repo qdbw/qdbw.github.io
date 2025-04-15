@@ -152,12 +152,16 @@ export class BusInfoContainer {
 }
 
 export class StopInfoContainer {
+    id = '';
     name = '';
+    name_pretty = '';
     form_names = [];
     passbys = [];
     passby_lines = [];
-    constructor(name) {
+    constructor(name, config) {
         this.name = name;
+        this.id = config?.id ?? config?.Id ?? name;
+        this.name_pretty = config?.pretty_name ?? config?.TitleHtml ?? name;
     }
 }
 
@@ -227,9 +231,9 @@ export class Database {
             this.lines_data_stringlist.push(object);
             this.lines_stringlist.push(basename(object));
             this.lines.push(obj);
-            if(obj.histories.length != 0){
-                for(let history of obj.histories){
-                    this.lines_data_stringlist.push(join(object,'Histories',history.history_tag));
+            if (obj.histories.length != 0) {
+                for (let history of obj.histories) {
+                    this.lines_data_stringlist.push(join(object, 'Histories', history.history_tag));
                     this.lines_stringlist.push(basename(history.name));
                     this.lines.push(history);
                 }
@@ -249,21 +253,33 @@ export class Database {
     }
 
     async #collectStops() {
-        this.lines.forEach(v => {
+        this.lines.forEach(async v => {
             for (let route of v.routes) {
                 let stops_real = route.stops_stringlist.map(v => v.split(" "));
-                for (let [stop,stop_form_name] of stops_real) {
+                for (let [stop, stop_form_name] of stops_real) {
+                    let { promise, resolve } = Promise.withResolvers();
                     if (!this.stops_stringlist.includes(stop)) {
                         this.stops_stringlist.push(stop);
-                        this.stops.push(new StopInfoContainer(stop));
+                        let index = this.stops_stringlist.indexOf(stop);
+                        let config;
+                        try {
+                            config = BUtil.JSON.safeParse((await readFile(join(this.data_dir, "stop", stop, "Main.jsonc"))).toString());
+                        } catch (e) {
+                            config = {};
+                        }
+                        console.log(stop, index);
+                        this.stops[index] = new StopInfoContainer(stop, config);
+                        resolve();
                     }
 
+                    await promise;
                     let index = this.stops_stringlist.indexOf(stop);
+                    console.log(stop, index, 'F');
                     let stop_obj = this.stops[index];
-                    if(!stop_obj.form_names.includes(stop_form_name)){
+                    if (stop_form_name && !stop_obj.form_names.includes(stop_form_name)) {
                         stop_obj.form_names.push(stop_form_name);
                     }
-                    if(!stop_obj.passby_lines.includes(v)){
+                    if (!stop_obj.passby_lines.includes(v)) {
                         stop_obj.passbys.push({
                             line: v
                         });

@@ -31,6 +31,6 @@ let bdt_manifest = {
 bdt_manifest.buses = database.buses_stringlist.map(v => String(v));
 bdt_manifest.lines = database.lines_stringlist.map(v => String(v));
 bdt_manifest.models; // **TODO** need impl
-bdt_manifest.stops = database.stops.map(v => [v.name,v.form_names]);
+bdt_manifest.stops = database.stops.map(v => [v.name,[...new Set([...v.form_names, v.id])].filter(d => d!=v.name)]);
 
 await writeFile("frontend/bdt_manifest.json",JSON.stringify(bdt_manifest));
