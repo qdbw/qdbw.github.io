@@ -1,0 +1,11 @@
+model: LCK6140HGC
+status:
+    line: 502
+    retired: true
+history:
+    -   date: 2011
+        from: "@NEW"
+        to: 502
+    -   date: 2023.08
+        from: 502
+        to: "@OFFLINE"
