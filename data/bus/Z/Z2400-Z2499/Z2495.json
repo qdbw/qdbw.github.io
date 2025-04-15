@@ -1,0 +1,29 @@
+{
+    "model": "SWB6106MG1",
+    "status": {
+        "line": "",
+        "retired": true
+    },
+    "history": [
+        {
+            "date": "2016.04",
+            "from": "16",
+            "to": "7"
+        },
+        {
+            "date": "2016.04",
+            "from": "7",
+            "to": "1"
+        },
+        {
+            "date": "2018.02",
+            "from": "1",
+            "to": "11"
+        },
+        {
+            "date": "2018.04",
+            "from": "11",
+            "to": "@OFFLINE"
+        }
+    ]
+}

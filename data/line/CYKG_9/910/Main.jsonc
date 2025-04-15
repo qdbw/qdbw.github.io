@@ -1,0 +1,26 @@
+{
+    "Name": "910路",
+    "FromTo": [
+        [
+            "夏庄东方城停车场",
+            "长城路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/7"
+    ],
+    "Models": {
+        "BYD6121LGEV4": {
+            "Images": [
+                "DD702",
+                "DD712"
+            ]
+        }
+    },
+    "TicketOptions": {},
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

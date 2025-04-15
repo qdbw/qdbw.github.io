@@ -1,0 +1,23 @@
+{
+    "Name": "1路",
+    "FromTo": [
+        [
+            "四方宣化路",
+            "安徽路湖北路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Shinan/1"
+    ],
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true,
+        "Stepping": false,
+        "Responsive": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

@@ -1,0 +1,59 @@
+extends ./global.pug
+
+append @head
+    link(rel="stylesheet",href="/css/line.css")
+
+block @title
+    title #{local.line.name_pretty} - BDT 
+
+block @aside
+    h1.bdt-h-name #{local.line.name_pretty}
+    //- h2.bdt-h-model #{local.line.name}
+    //- p.bdt-h-status(class=local.bus.status.status_string) #{local.bus.status.status_string}
+    //- p.bdt-h-company !{local.line.companies_stringlist.join('<br>')}
+
+block @article
+    section.s-introduction
+        p 首末站： #{local.line.from_string} - #{local.line.to_string}
+        //- 首末
+        each route in local.line.routes
+            p #{route.name}首末： #{route.time_details.first}-#{route.time_details.last}
+    section.s-history
+        h2 历史走向
+        if local.line.is_history
+            p.s-history-tip
+                |此页面为
+                a(href=local.line.current_reference.name+".html") #{local.line.current_reference.name_pretty}
+                |的历史走向。
+            h3 原线路的历史走向：
+            ul-s-history-ul
+                each history in local.line.current_reference.histories
+                    li-s-history-li
+                        a(href=history.name+".html") #{history.name_pretty} (#{history.history_tag}) #{history == local.line ? "(当前)" : ""}
+        else
+            if local.line.histories.length == 0
+                p.s-history-tip 此线路暂未收录历史走向。
+            else
+                ul.s-history-ul
+                    each history in local.line.histories
+                        li.s-history-li
+                            a(href=history.name) #{history.name_pretty} (#{history.history_tag}) #{history == local.line ? "(当前)" : ""}
+    section.s-route
+        h2 线路走向
+        ul.s-route-ul
+            each route in local.line.routes
+                li.s-route-li
+                    h3.s-route-name #{route.name}
+                    ul.s-route-detail-ul
+                        each rf in route.data_stringobject
+                            li.s-route-detail-li
+                                h3 #{Object.keys(rf)[0]}
+                                .s-route-detail-lists
+                                    each stop in Array.from(Object.values(rf)).flat(Infinity)
+                                        - let r = stop.split(" ")
+                                        if r.length >= 2
+                                            a(href="/public/stop/"+r[0]+".html").s-rd-name
+                                                |#{r[1]}
+                                                span.s-rd-current-name #{r[0]}
+                                        else 
+                                            a(href="/public/stop/"+r[0]+".html").s-rd-name #{r[0]}

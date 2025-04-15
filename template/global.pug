@@ -1,0 +1,21 @@
+doctype html 
+html 
+    head
+        block @head
+            link(rel="stylesheet",href="/css/header.css")
+            link(rel="stylesheet",href="/css/structure.css")
+            script(src="/es/main.mjs",type="module")
+        block @title
+            title #{local.bus.model} #{local.bus.code} - BDT 
+    body.bdt-t-bus
+        header
+            block @header
+                a(href="/").bdt-h-homepage BUSDICT
+        main
+            aside.bdt-s-left
+                block @aside
+            article.bdt-s-article
+                block @article
+        footer
+            block @footer
+                p 2024-2025 QDBw, 0xarch ALL RIGHTS RESERVED

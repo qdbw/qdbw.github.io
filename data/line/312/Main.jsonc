@@ -1,0 +1,29 @@
+{
+    "Name": "312路",
+    "FromTo": [
+        [
+            "汽车东站停车场",
+            "市政府南通路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Laoshan/3"
+    ],
+    "Models": {
+        "BYD6121LGEV4": {},
+        "SWB6117Q8": {},
+        "SWB6115Q7-3": {},
+        "SWB6107Q6": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": [
+        "2018"
+    ]
+}

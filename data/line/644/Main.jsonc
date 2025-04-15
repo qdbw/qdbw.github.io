@@ -1,0 +1,23 @@
+{
+    "Name": "644路",
+    "FromTo": [
+        [
+            "铁路城阳站",
+            "青岛三十九中"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/5"
+    ],
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true,
+        "Multiprice": false,
+        "Responsive": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

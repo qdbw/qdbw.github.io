@@ -1,0 +1,82 @@
+.bdt-h-name {
+    font-weight: 330;
+}
+
+.s-route-ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    width: 100%;
+    padding:0;
+}
+
+.s-route-li {
+    width: 15rem;
+}
+
+.s-route-detail-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.s-route-detail-li {
+    display: flex;
+    border-bottom: .05rem solid var(--bdt-c-sp);
+
+    &:first-child{
+        border-top: .05rem solid var(--bdt-c-sp);
+    }
+
+    &>h3 {
+        margin: 0;
+        border-right: .05rem solid var(--bdt-c-sp);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.2rem;
+        padding: 1rem 0;
+        writing-mode: vertical-rl;
+        font-family: 'MiSans Thin', 'Noto Sans CJK SC', 'Segoe UI';
+    }
+}
+
+.s-route-detail-lists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 100%;
+
+    &:empty::before {
+        content: '无设站';
+    }
+}
+
+.s-rd-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    min-height: 3rem;
+    margin: 0;
+    flex: 1;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.s-rd-current-name {
+    font-size: .85rem;
+    opacity: .75;
+    &::before{
+        content: '(';
+    }
+    &::after {
+        content: ')';
+    }
+}

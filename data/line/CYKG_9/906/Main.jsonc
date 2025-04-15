@@ -1,0 +1,24 @@
+{
+    "Name": "906路",
+    "FROM_TO": [
+        [
+            "夏庄东方城停车场",
+            "长城路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/7"
+    ],
+    "Models": {
+        "BYD6121LGEV4": {},
+        "SWB6121EV6": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ]
+}

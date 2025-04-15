@@ -1,0 +1,21 @@
+{
+    "Name": "640路",
+    "FromTo": [
+        [
+            "世博园停车场",
+            "汽车北站"
+        ]
+    ],
+    "Companies": [
+        "QINGDAO_JIAOYUN/Jieda"
+    ],
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

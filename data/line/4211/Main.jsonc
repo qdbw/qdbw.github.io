@@ -1,0 +1,23 @@
+{
+    "Name": "4211路",
+    "FromTo": [
+        [
+            "下疃",
+            "汽车北站"
+        ]
+    ],
+    "Companies": [
+        "YCSYJT"
+    ],
+    "TicketOptions": {
+        "Manual": true,
+        "Seasonal": false,
+        "Multiprice": false,
+        "Responsive": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

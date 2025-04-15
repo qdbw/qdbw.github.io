@@ -1,0 +1,26 @@
+{
+    "Name": "117路",
+    "FromTo": [
+        [
+            "长城路",
+            "兴华路永平路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/1"
+    ],
+    "Models": {
+        "BYD6121LGEV4": {},
+        "SWB6115Q7-3": {},
+        "CA6100URBEV26": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

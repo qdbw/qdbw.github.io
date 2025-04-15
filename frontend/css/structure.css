@@ -1,0 +1,55 @@
+:root {
+    --bdt-c-body: #222;
+    --bdt-c-body-text: #fff;
+    --bdt-c-sp: #888;
+    --bdt-c-header: #000a;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bdt-c-body);
+    color: var(--bdt-c-body-text);
+    font-family: 'MiSans';
+}
+
+body>header {
+    background-color: var(--bdt-c-header);
+    height: 4rem;
+    width: 100vw;
+    border-bottom: .05rem solid var(--bdt-c-sp);
+    display: flex;
+    align-items: center;
+
+    & a.bdt-h-homepage {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+
+body>main {
+    display: flex;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.bdt-s-left {
+    width: 33%;
+    border-right: .05rem solid var(--bdt-c-sp);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.bdt-s-article {
+    width: 67%;
+    padding: 1rem;
+}
+
+body>footer {
+    width: 100vw;
+    border-top: .05rem solid var(--bdt-c-sp);
+}
+
+a {
+    color: #3273d2;
+    font-weight: bold;
+}

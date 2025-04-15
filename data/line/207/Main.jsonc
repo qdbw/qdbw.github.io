@@ -1,0 +1,23 @@
+{
+    "Name": "207路",
+    "FromTo": [
+        [
+            "铁路青岛北站东广场",
+            "青岛五十八中"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Licang/8"
+    ],
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true,
+        "Multiprice": false,
+        "Responsive": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

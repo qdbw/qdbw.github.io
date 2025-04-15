@@ -1,0 +1,26 @@
+{
+    "Name": "414路",
+    "FromTo": [
+        [
+            "长城路",
+            "向阳小区"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/1"
+    ],
+    "Models": {
+        "XML6700JEVD0C": {
+            "IMAGE": "[HIDE]"
+        }
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

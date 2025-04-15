@@ -1,0 +1,28 @@
+{
+    "Name": "770路",
+    "Tags": [
+        "SHUTDOWN"
+    ],
+    "FromTo": [
+        [
+            "新韵路",
+            "高新嘉园",
+            "新韵路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/11"
+    ],
+    "Models": {
+        "JS6851H1": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

@@ -1,0 +1,24 @@
+{
+    "Name": "131路",
+    "FromTo": [
+        [
+            "李村公园",
+            "牟家源福路"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Licang/2"
+    ],
+    "Models": {
+        "WD6815BEVG11": {}
+    },
+    "TicketOptions": {
+        "Manual": false,
+        "Seasonal": true
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": []
+}

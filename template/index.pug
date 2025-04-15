@@ -1,0 +1,32 @@
+extends ./global.pug
+
+append @head
+    link(rel="stylesheet",href="/css/index.css")
+
+block @title
+    title BusDict
+
+block @aside
+    h2 QDB - 青岛公交字典
+
+block @article
+    h1 欢迎访问青岛公交字典！
+    section.s-bus
+        h2 查询车辆
+        input#BUS_SEARCH_INPUT(placeholder="自编号")
+        button#BUS_SEARCH_ID 查询
+        #BUS_SEARCH_RESULTS.s-index-searchresults
+        #BUS_SEARCH_TIP.s-index-searchtips
+    section.s-line
+        h2 查询线路
+        input#LINE_SEARCH_INPUT(placeholder="线路名")
+        button#LINE_SEARCH_ID 查询
+        #LINE_SEARCH_RESULTS.s-index-searchresults
+        #LINE_SEARCH_TIP.s-index-searchtips
+    section.s-stop
+        h2 查询站点
+        input#STOP_SEARCH_INPUT(placeholder="站点名")
+        button#STOP_SEARCH_ID 查询
+        #STOP_SEARCH_RESULTS.s-index-searchresults
+        #STOP_SEARCH_TIP.s-index-searchtips
+

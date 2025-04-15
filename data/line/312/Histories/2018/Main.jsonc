@@ -1,0 +1,26 @@
+{
+    "Name": "312路",
+    "Tags": [
+        "SHUTDOWN"
+    ],
+    "FromTo": [
+        [
+            "轮渡",
+            "仰口"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Shutdown"
+    ],
+    "Models": {
+        "JS6116GHCJ": {}
+    },
+    "TicketOptions": {
+        "Manual": true,
+        "Seasonal": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "model": "LCK6108EVGL1",
+    "status": {
+        "current": {
+            "line": "3"
+        },
+        "retired": false
+    },
+    "shift_records": [
+        {
+            "date": "2018.01",
+            "from": "NEW",
+            "to": "3"
+        },
+        {
+            "date": "2024.12",
+            "from": "3",
+            "to": "24"
+        },
+        {
+            "date": "2025.01",
+            "from": "24",
+            "to": "3"
+        }
+    ]
+}

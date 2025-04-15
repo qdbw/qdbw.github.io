@@ -1,0 +1,60 @@
+.bdt-h-name {
+    font-weight: 330;
+}
+
+.bdt-h-status {
+    width: fit-content;
+    box-sizing: border-box;
+    padding: .5rem;
+    border-radius: 1rem;
+
+    &.报废 {
+        color: white;
+        background-color: red;
+    }
+
+    &.停驶 {
+        color: white;
+        background-color: orange;
+    }
+
+    &.营运 {
+        color: black;
+        background-color: greenyellow;
+    }
+}
+
+section.s-history {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & .s-his-ul {
+        width: 100%;
+    }
+
+    & .s-his-li {
+        display: grid;
+        grid-template-areas:
+            "d d d"
+            "b b b";
+        width: 100%;
+    }
+
+    & .s-his-detail {
+        grid-area: b;
+        display: flex;
+    }
+
+    & h3 {
+        grid-area: d;
+    }
+
+    & .s-his-fake-arrow {
+        display: inline-block;
+        width: 10rem;
+        height: 0px;
+        grid-area: b;
+        text-align: center;
+    }
+}

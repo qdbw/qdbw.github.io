@@ -1,0 +1,22 @@
+{
+    "Name": "946路",
+    "FromTo": [
+        [
+            "后金",
+            "洛东小区"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Chengyang/3"
+    ],
+    "Models": {
+        "BYD6121LGEV4": {}
+    },
+    "TicketOptions": {},
+    "Routes": [
+        "下行",
+        "上行",
+        "区间上行"
+    ],
+    "Histories": []
+}
