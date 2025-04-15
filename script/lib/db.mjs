@@ -54,11 +54,11 @@ export class LineInfoContainer {
     constructor(name, config, data_path, is_history = false, history_tag, current_reference) {
         config ??= {};
         this.name = name;
-        this.name_pretty = config.PrettyName ?? config.Name ?? name;
+        this.name_pretty = config.pretty_name ?? config.PrettyName ?? config.Name ?? name;
         this.from;
-        this.from_string = config.From ?? config.FromTo?.[0]?.[0];
+        this.from_string = config.from ?? config.From ?? config.FromTo?.[0]?.[0];
         this.to;
-        this.to_string = config.To ?? config.FromTo?.[0]?.[1];
+        this.to_string = config.to ?? config.To ?? config.FromTo?.[0]?.[1];
         this.companies;
         this.companies_stringlist = [...config.Companies ?? []];
         this.current_models = config.Models ? Object.keys(config.Models) : [];

@@ -1,7 +1,7 @@
 {
     "Name": "371路",
-    "from": "康宁路",
-    "to": "李村",
+    "From": "康宁路",
+    "To": "银河路王沙路",
     "Companies": [
         "CHENGYUN_HOLDING/Shinan/2"
     ],
@@ -12,7 +12,5 @@
         "下行",
         "上行"
     ],
-    "Histories": [
-        "2025"
-    ]
+    "Histories": []
 }
