@@ -11,9 +11,12 @@ export const BusUtils = {
         return info;
         
     },
-    async createInfoFromPath(name, data_path) {
+    async createInfoFromPath(name, data_path,is_yaml=false) {
         let content = (await readFile(data_path)).toString();
         let json = BUtil.JSON.safeParse(content);
+        if(is_yaml){
+            json = BUtil.yaml.parse(content);
+        }
         if(json instanceof Error) {
             return new BusInfoContainer(name, undefined, data_path);
         }

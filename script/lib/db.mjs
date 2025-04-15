@@ -270,9 +270,19 @@ export class Database {
         for (let object of (await readdir(path, { recursive: true }))) {
             let status = await stat(join(path, object));
             if (status.isFile()) {
-                let obj = await BusUtils.createInfoFromPath(basename(object, ".json"), join(path, object));
+                let obj_basename;
+                let is_yaml = false;
+                if(object.endsWith(".json")){
+                    obj_basename = basename(object,".json");
+                } else if (object.endsWith(".yaml")) {
+                    obj_basename = basename(object,".yaml");
+                    is_yaml = true;
+                } else {
+                    obj_basename = basename(object,".jsonc");
+                }
+                let obj = await BusUtils.createInfoFromPath(obj_basename, join(path, object), is_yaml);
                 this.buses_data_stringlist.push(object);
-                this.buses_stringlist.push(basename(object, ".json"));
+                this.buses_stringlist.push(obj_basename);
                 this.buses.push(obj);
             }
         }
