@@ -288,7 +288,7 @@ export class Database {
                 this.buses.push(obj);
             }
         }
-        this.buses.sort((a,b) => a.code_number > b.code_number ? 1 : -1);
+        this.buses.sort((a,b) => a.code.replace(''+a.code_number,'') == b.code.replace(''+b.code_number,'') ? a.code_number > b.code_number ? 1 : -1 : a.code.replace(''+a.code_number,'') > b.code.replace(''+b.code_number,'') ? 1 : -1);
     }
 
     async #collectStops() {
