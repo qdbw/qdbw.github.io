@@ -37,8 +37,9 @@ jobs:
         uses: actions/setup-node@v4
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-      - name: Setup node_modules
-        run: pnpm i
+        with:
+          version: 10
+          run_install: true
       - name: Build website
         run: "node script/main.mjs"
       - name: Upload artifact
