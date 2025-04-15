@@ -25,4 +25,4 @@ block @article
                     .s-his-detail
                         .s-his-from #{record.from}
                         .s-his-fake-arrow(aria-hidden="true") 调往
-                        .s-his-to #{record.to}
+                        .s-his-to #{record.to == '@STANDBY' ? '机动' : record.to}
