@@ -53,3 +53,12 @@ a {
     color: #3273d2;
     font-weight: bold;
 }
+
+@media(max-aspect-ratio: 1 / 1) {
+    body>main {
+        flex-direction: column;
+    }
+    .bdt-s-left, .bdt-s-article {
+        width: 100%;
+    }
+}
