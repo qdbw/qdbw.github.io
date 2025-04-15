@@ -354,13 +354,22 @@ export class Database {
             if(existing_model_infos[model_string]){
                 let obj_ref = this.models[index];
                 let existing = existing_model_infos[model_string];
-                obj_ref.brand = existing.brand ?? BuildTools.inferBrand(model_string);
+                obj_ref.brand = existing.brand;
                 obj_ref.fuel = existing.fuel;
                 obj_ref.hybrid_fuel_types = existing.hybrid_fuel_types ?? [];
                 obj_ref.is_hybrid = existing.is_hybrid ?? false;
                 if(existing.size){
                     obj_ref.size = existing.size;
                 }
+            } else {
+                let obj_ref = this.models[index];
+                obj_ref.brand = BuildTools.inferBrand(model_string);
+                // obj_ref.fuel = '未知';
+                // obj_ref.hybrid_fuel_types = existing.hybrid_fuel_types ?? [];
+                // obj_ref.is_hybrid = existing.is_hybrid ?? false;
+                // if(existing.size){
+                //     obj_ref.size = existing.size;
+                // }
             }
         });
     }
