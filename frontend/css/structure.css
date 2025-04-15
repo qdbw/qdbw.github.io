@@ -19,6 +19,7 @@ body>header {
     border-bottom: .05rem solid var(--bdt-c-sp);
     display: flex;
     align-items: center;
+    padding: 0 1rem;
 
     & a.bdt-h-homepage {
         font-size: 2rem;
@@ -42,6 +43,7 @@ body>main {
 .bdt-s-article {
     width: 67%;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 body>footer {
@@ -60,5 +62,10 @@ a {
     }
     .bdt-s-left, .bdt-s-article {
         width: 100%;
+    }
+
+    .bdt-s-left {
+        border-right: none;
+        border-bottom: .05rem solid var(--bdt-c-sp);
     }
 }
