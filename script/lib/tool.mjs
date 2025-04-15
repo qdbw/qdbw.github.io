@@ -46,7 +46,7 @@ const brandIdTable = {
 }
 
 function inferBrand(id){
-    let letters = id.toUpperCase().split(""), i = 0;
+    let letters = id.toUpperCase(), i = 0;
     for(;i<letters.length;i++){
         const code = letters.charCodeAt(i);
         if(!(code >= 65 && code <= 90)){
