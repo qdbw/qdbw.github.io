@@ -1,0 +1,13 @@
+model: SWB6106MG1
+brand: 申沃
+fuel: diesel
+size:
+    length:
+        - 10490
+        - 10475
+    width:
+        - 2500
+    height:
+        - 3000
+        - 3150
+        - 3430
