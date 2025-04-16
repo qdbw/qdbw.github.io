@@ -14,7 +14,8 @@ block @aside
                 |(原
                 b #{local.bus.code}
                 |)
-    h2.bdt-h-model #{local.bus.model_string}
+    h2.bdt-h-model
+        a(href="/public/model/"+local.bus.model_string) #{local.bus.model_string}
     p.bdt-h-model-detail #{local.bus.model.brand} #{local.tool.getFuelText(local.bus.model.fuel)}
     p.bdt-h-status(class=local.bus.status_string) #{local.bus.status_string}
 
