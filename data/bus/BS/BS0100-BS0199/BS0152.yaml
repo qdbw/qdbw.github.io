@@ -1,11 +1,8 @@
-model: SWB6106MG
+model: SWB6105HDP10-3
 status:
     line: ""
     retired: true
 history:
-    -   date: 2007
+    -   date: 2004
         from: "@NEW"
-        to: 26
-    -   date: 2024.12
-        from: 26
-        to: "@OFFLINE"
+        to: "@STANDBY"
