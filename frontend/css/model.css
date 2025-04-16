@@ -28,5 +28,9 @@
         &.retired {
             border: .05rem solid #ff4444;
         }
+
+        &.pending {
+            border: .05rem solid #ff8800;
+        }
     }
 }

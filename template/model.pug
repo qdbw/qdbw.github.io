@@ -28,5 +28,5 @@ block @article
         h2 车辆总览
         ul.s-buses-ul
             each bus in local.model.buses
-                li.s-buses-li(class=bus.status.retired?'retired':'normal')
+                li.s-buses-li(class=bus.status.retired?'retired':bus.status.retire_pending?'pending':'normal')
                     a(href="/public/bus/"+bus.code) #{bus.code}
