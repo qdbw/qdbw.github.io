@@ -1,8 +1,0 @@
-model: SWB6105HDP10-3
-status:
-    line: ""
-    retired: true
-history:
-    -   date: 2004
-        from: "@NEW"
-        to: "@STANDBY"

@@ -1,0 +1,10 @@
+model: YTK6110G
+status:
+    retired: true
+history:
+    -   date: 2010
+        from: "@NEW"
+        to: "@STANDBY"
+    -   date: 2019
+        from: "@STANDBY"
+        to: "@OFFLINE"

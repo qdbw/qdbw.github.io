@@ -1,8 +1,10 @@
-model: SWB6105HDP10-3
+model: XMQ6119G4
 status:
-    line: ""
     retired: true
 history:
-    -   date: 2004
+    -   date: 2013
         from: "@NEW"
         to: "@STANDBY"
+    -   date: 2022
+        from: "@STANDBY"
+        to: "@OFFLINE"

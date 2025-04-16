@@ -1,11 +1,10 @@
-model: SWB6106MG
+model: BJ6112C6MHB
 status:
-    line: ""
-    retired: true
-history:
-    -   date: 2007
-        from: "@NEW"
-        to: 26
-    -   date: 2024.12
-        from: 26
-        to: "@OFFLINE"
+  retired: true
+shift_records:
+  - date: 2009
+    from: "@NEW"
+    to: "@STANDBY"
+  - date: 2020
+    from: "@STANDBY"
+    to: "@OFFLINE"

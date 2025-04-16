@@ -1,0 +1,10 @@
+model: LCK6112G-3
+status:
+    retired: true
+history:
+    -   date: 2010
+        from: "@NEW"
+        to: "@STANDBY"
+    -   date: 2020
+        from: "@STANDBY"
+        to: "@OFFLINE"

@@ -1,8 +1,10 @@
-model: SWB6105HDP10-3
+model: BJ6112C6MHB
 status:
-    line: ""
-    retired: true
-history:
-    -   date: 2004
-        from: "@NEW"
-        to: "@STANDBY"
+  retired: true
+shift_records:
+  - date: 2009
+    from: "@NEW"
+    to: "@STANDBY"
+  - date: 2020
+    from: "@STANDBY"
+    to: "@OFFLINE"

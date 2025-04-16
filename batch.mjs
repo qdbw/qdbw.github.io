@@ -9,15 +9,15 @@ function range(from,to){
     return result
 }
 
-const type = 'BS';
+const type = '';
 const data_type = 'yaml';
-const source_num = 1075
-const end_num = 1084
-let start_num
+const source_num = 459
+const end_num = 473
+let start_num = 470
 start_num ??= source_num+1;
 
 let pad_count = 3;
-if(type == 'BS' || type == 'CY') {
+if(type == 'BS' || type == 'CY' || type == '') {
     pad_count = 4;
 }
 

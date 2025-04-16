@@ -1,0 +1,7 @@
+model: SWB6106HDP-3
+status:
+    retired: true
+history:
+    -   date: 2003
+        from: "@NEW"
+        to: "@STANDBY"

@@ -1,11 +1,10 @@
-model: SWB6106MG
+model: LCK6103GC
 status:
-    line: ""
     retired: true
 history:
-    -   date: 2007
+    -   date: 2011
         from: "@NEW"
-        to: 26
-    -   date: 2024.12
-        from: 26
+        to: "@STANDBY"
+    -   date: 2021
+        from: "@STANDBY"
         to: "@OFFLINE"

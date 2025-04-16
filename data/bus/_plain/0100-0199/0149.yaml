@@ -1,0 +1,7 @@
+model: SWB6105HDP10-3
+status:
+  retired: true
+shift_records:
+  - date: 2004
+    from: "@NEW"
+    to: "@STANDBY"

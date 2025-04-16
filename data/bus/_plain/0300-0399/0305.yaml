@@ -1,0 +1,10 @@
+model: CJ6100G1Q
+status:
+    retired: true
+history:
+    -   date: 2000
+        from: "@NEW"
+        to: "@STANDBY"
+    -   date: 2010
+        from: "@STANDBY"
+        to: "@OFFLINE"

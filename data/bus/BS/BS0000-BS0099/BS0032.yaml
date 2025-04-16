@@ -1,10 +1,10 @@
-model: CJ6800G1Q
+model: BJ6920C5MGB
 status:
   retired: true
 shift_records:
-  - date: 2000
+  - date: 2006
     from: "@NEW"
     to: "@STANDBY"
-  - date: 2010
+  - date: 2016
     from: "@STANDBY"
     to: "@OFFLINE"

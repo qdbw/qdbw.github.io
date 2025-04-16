@@ -1,10 +1,7 @@
-model: CJ6800G1Q
+model: ZK6105CHEVNPG4
 status:
-  retired: true
+  retired: false
 shift_records:
-  - date: 2000
+  - date: 2014
     from: "@NEW"
     to: "@STANDBY"
-  - date: 2010
-    from: "@STANDBY"
-    to: "@OFFLINE"

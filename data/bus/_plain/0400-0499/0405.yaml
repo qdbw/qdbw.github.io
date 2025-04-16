@@ -1,0 +1,10 @@
+model: CJ6800G1CHK
+status:
+  retired: true
+shift_records:
+  - date: 2000
+    from: "@NEW"
+    to: "@STANDBY"
+  - date: 2010
+    from: "@STANDBY"
+    to: "@OFFLINE"

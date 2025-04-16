@@ -1,0 +1,10 @@
+model: ZK6126HG
+status:
+    retired: true
+history:
+    -   date: 2010
+        from: "@NEW"
+        to: "@STANDBY"
+    -   date: 2023
+        from: "@STANDBY"
+        to: "@OFFLINE"
