@@ -5,7 +5,16 @@ current_id: XHA0154
 history:
     -   date: 2012
         from: "@NEW"
-        to: "@STANDBY"
+        to: HD503
+    -   date: 2022.01
+        from: HD503
+        to: HD510
+    -   date: 2022.03
+        from: HD510
+        to: unknown
+    -   date: 2024.01
+        from: "班车"
+        to: HD102
     # -   date: 2022
     #     from: "@STANDBY"
     #     to: "@OFFLINE"

@@ -6,7 +6,7 @@ current_id: XHA0146
 history:
     -   date: 2012
         from: "@NEW"
-        to: "@STANDBY"
-    -   date: 2022
-        from: "@STANDBY"
+        to: HD102
+    -   date: 2023.12
+        from: HD102
         to: "@OFFLINE"
