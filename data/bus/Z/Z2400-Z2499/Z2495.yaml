@@ -5,7 +5,13 @@ status:
 history:
     -   date: 2007
         from: "@NEW"
-        to: 26
-    -   date: 2024.12
-        from: 26
+        to: 219
+    -   date: 2016.04
+        from: 16
+        to: 7
+    -   date: 2018.02
+        from: 1
+        to: 11
+    -   date: 2018.04
+        from: 11
         to: "@OFFLINE"
