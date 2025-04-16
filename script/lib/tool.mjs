@@ -13,6 +13,7 @@ const brandIdTable = {
     FSQ: '佛山飞驰',
     GTQ: '广通',
     HFF: '安凯',
+    HFX: '星凯龙',
     HK: '合客',
     JK: '豪沃',
     JLY: '金陵',
