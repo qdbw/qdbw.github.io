@@ -1,10 +1,11 @@
 model: XMQ6119G4
 status:
-    retired: true
+    retired: false
+current_id: XHA0142
 history:
-    -   date: 2013
+    -   date: 2012
         from: "@NEW"
         to: "@STANDBY"
-    -   date: 2022
-        from: "@STANDBY"
-        to: "@OFFLINE"
+    # -   date: 2022
+    #     from: "@STANDBY"
+    #     to: "@OFFLINE"
