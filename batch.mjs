@@ -9,10 +9,10 @@ function range(from,to){
     return result
 }
 
-const type = 'KZ';
+const type = 'DD';
 const data_type = 'yaml';
-const source_num = 1
-const end_num = 133
+const source_num = 1784
+const end_num = 1846
 let start_num
 start_num ??= source_num+1;
 
