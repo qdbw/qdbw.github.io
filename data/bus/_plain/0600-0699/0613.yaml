@@ -1,0 +1,10 @@
+model: JS6130SHA
+status:
+    retired: true
+shift_records:
+    -   date: 2011
+        from: "@NEW"
+        to: Travel
+    -   date: 2021.05
+        from: Travel
+        to: "@OFFLINE"
