@@ -57,4 +57,4 @@ block @article
         ul.s-buses-ul
             each bus in local.model.buses
                 li.s-buses-li(class=bus.status.retired?'retired':bus.status.retire_pending?'pending':'normal')
-                    a(href="/public/bus/"+bus.code) #{bus.code}
+                    a(href="/public/bus/"+bus.code) #{bus.current_code}

@@ -105,6 +105,7 @@ export class RouteInfoContainer {
 export class BusInfoContainer {
     code = '';
     code_number = 0;
+    current_code = '';
     model;
     model_string = '';
     shift_records = [];
@@ -129,6 +130,7 @@ export class BusInfoContainer {
     constructor(name, config, data_path) {
         this.code = name;
         this.code_number = Number(name.replace(/[A-z]+/, ''));
+        this.current_code = config.current_code ?? config.current_id ?? this.code;
         this.model_string = config.model;
         this.model_detail = {};
         this.shift_records = [...config.shift_records ?? config.history ?? []];
