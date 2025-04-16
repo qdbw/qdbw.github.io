@@ -5,6 +5,7 @@ const brandIdTable = {
     CA: '解放',
     CCQ: '安凯',
     CFC: '福莱西宝',
+    CJ: '长江',
     CK: '比亚迪',
     DD: '黄海',
     DNC: '远程',
