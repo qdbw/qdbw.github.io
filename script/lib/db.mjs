@@ -128,11 +128,11 @@ export class BusInfoContainer {
 
     constructor(name, config, data_path) {
         this.code = name;
-        this.code_number = Number(name.replace(/[A-z]+/,''));
+        this.code_number = Number(name.replace(/[A-z]+/, ''));
         this.model_string = config.model;
         this.model_detail = {};
         this.shift_records = [...config.shift_records ?? config.history ?? []];
-        this.current.line_string = config.status?.current?.line;
+        this.current.line_string = config.status?.line ?? config.status?.current?.line;
         this.status.retired = !!config.status?.retired;
         this.status.retire_pending = !!config.status?.retire_pending;
         this.status.normal = !config.status?.retired && !config.status?.retire_pending;
@@ -143,14 +143,36 @@ export class BusInfoContainer {
         this.shift_records.forEach(v => {
             if (v.from == '@NEW') {
                 this.time.on = v.date;
-                v.from = '新车';
+                v.from_string = '新车';
+            } else if (v.from == '@STANDBY') {
+                v.from_string = '机动';
+            } else {
+                v.from_string = String(v.from);
             }
             if (v.to == '@OFFLINE') {
                 this.time.off = v.date;
-                v.to = '下线';
+                v.to_string = '下线';
+            } else if (v.to == '@STANDBY') {
+                v.to_string = '机动';
+            } else {
+                v.to_string = String(v.to);
             }
         });
-        this.current.line ??= this.shift_records.length && this.shift_records[this.shift_records.length - 1].to;
+        this.shift_records.forEach(v => {
+            let h_line_from = String(v.from), h_line_to = String(v.to);
+            if (!this.history_lines_stringlist.includes(v.from_string) && !h_line_from.startsWith('@') && h_line_from != 'unknown') {
+                this.history_lines_stringlist.push(v.from_string);
+            }
+            if (!this.history_lines_stringlist.includes(v.to_string) && !h_line_to.startsWith('@') && h_line_to != 'unknown') {
+                this.history_lines_stringlist.push(v.to_string);
+            }
+        });
+        if(this.shift_records.length != 0) {
+            let last_record = this.shift_records[this.shift_records.length - 1];
+            if(!last_record.to.startsWith('@')){
+                this.current.line_string = last_record.to_string;
+            }
+        }
         this.data_path = data_path;
     }
 }
@@ -274,13 +296,13 @@ export class Database {
             if (status.isFile()) {
                 let obj_basename;
                 let is_yaml = false;
-                if(object.endsWith(".json")){
-                    obj_basename = basename(object,".json");
+                if (object.endsWith(".json")) {
+                    obj_basename = basename(object, ".json");
                 } else if (object.endsWith(".yaml")) {
-                    obj_basename = basename(object,".yaml");
+                    obj_basename = basename(object, ".yaml");
                     is_yaml = true;
                 } else {
-                    obj_basename = basename(object,".jsonc");
+                    obj_basename = basename(object, ".jsonc");
                 }
                 let obj = await BusUtils.createInfoFromPath(obj_basename, join(path, object), is_yaml);
                 this.buses_data_stringlist.push(object);
@@ -288,7 +310,7 @@ export class Database {
                 this.buses.push(obj);
             }
         }
-        this.buses.sort((a,b) => a.code.replace(''+a.code_number,'') == b.code.replace(''+b.code_number,'') ? a.code_number > b.code_number ? 1 : -1 : a.code.replace(''+a.code_number,'') > b.code.replace(''+b.code_number,'') ? 1 : -1);
+        this.buses.sort((a, b) => a.code.replace('' + a.code_number, '') == b.code.replace('' + b.code_number, '') ? a.code_number > b.code_number ? 1 : -1 : a.code.replace('' + a.code_number, '') > b.code.replace('' + b.code_number, '') ? 1 : -1);
     }
 
     async #collectStops() {

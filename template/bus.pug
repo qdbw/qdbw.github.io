@@ -42,6 +42,6 @@ block @article
                 li.s-his-li
                     h3.s-his-date #{record.date}
                     .s-his-detail
-                        .s-his-from #{record.from == '@STANDBY' ? '机动' : record.from}
+                        .s-his-from #{record.from_string}
                         .s-his-fake-arrow 调往
-                        .s-his-to #{record.to == '@STANDBY' ? '机动' : record.to}
+                        .s-his-to #{record.to_string}

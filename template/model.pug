@@ -24,6 +24,34 @@ block @article
         h2 车型概况
         p 在线数量： #{on_count}
         p 下线数量： #{off_count}
+    section.s-line
+        -
+            let current_lines = [], previous_lines = [];
+            local.model.buses.forEach(v => {
+                let c = v.current.line_string;
+                if(c !== undefined && !current_lines.includes(c)) {
+                    current_lines.push(c);
+                }
+                v.history_lines_stringlist.forEach(p => {
+                    if(p !== undefined && !previous_lines.includes(p)) {
+                        previous_lines.push(p);
+                    }
+                });
+            })
+            current_lines.sort();
+            previous_lines.sort();
+            previous_lines = previous_lines.filter(v => !current_lines.includes(v));
+        h2 运营线路
+        h3 当前运营线路
+        ul.s-line-ul
+            each c in current_lines
+                li.s-line-li
+                    a(href="/public/line/"+c) #{c}
+        h3 历史运营线路
+        ul.s-line-ul
+            each c in previous_lines
+                li.s-line-li
+                    a(href="/public/line/"+c) #{c}
     section.s-buses-list
         h2 车辆总览
         ul.s-buses-ul
