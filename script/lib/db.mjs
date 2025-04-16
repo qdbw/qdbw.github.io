@@ -173,6 +173,11 @@ export class BusInfoContainer {
                 this.current.line_string = last_record.to_string;
             }
         }
+        if(this.status.retire_pending || this.status.retired) {
+            this.history_lines_stringlist.push(this.current.line_string);
+            this.current.line_string = undefined;
+            this.current.line = undefined;
+        }
         this.data_path = data_path;
     }
 }
