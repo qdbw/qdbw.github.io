@@ -1,0 +1,7 @@
+model: CA6110URN80
+status:
+    retired: false
+shift_records:
+    -   date: 2012
+        from: "@NEW"
+        to: unknown
