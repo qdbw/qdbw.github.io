@@ -1,0 +1,7 @@
+model: JS6116GHCJ
+status:
+    retired: false
+shift_records:
+    -   date: 2012
+        from: "@NEW"
+        to: unknown
