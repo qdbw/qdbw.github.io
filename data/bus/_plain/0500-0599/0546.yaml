@@ -1,0 +1,10 @@
+model: JS6761GHA
+status:
+    retired: true
+history:
+    -   date: 2011
+        from: "@NEW"
+        to: "@STANDBY"
+    -   date: 2019
+        from: "@STANDBY"
+        to: "@OFFLINE"
