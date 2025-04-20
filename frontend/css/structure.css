@@ -3,6 +3,7 @@
     --bdt-c-body-text: #fff;
     --bdt-c-sp: #888;
     --bdt-c-header: #000a;
+    --bdt-c-accent: #3273d2;
 }
 
 @media(prefers-color-scheme:light){

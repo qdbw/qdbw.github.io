@@ -106,6 +106,7 @@ export class BusInfoContainer {
     code = '';
     code_number = 0;
     current_code = '';
+    short_name = '';
     model;
     model_string = '';
     shift_records = [];
@@ -181,6 +182,10 @@ export class BusInfoContainer {
             this.current.line = undefined;
         }
         this.data_path = data_path;
+        let last_indentifier_index = this.code.lastIndexOf('-');
+        let second_indentifier_index = this.code.replace(/.*\-/,'').indexOf('-');
+        this.short_name = this.code.slice(last_indentifier_index+1);
+        this.group = this.code.slice(second_indentifier_index+1,last_indentifier_index);
     }
 }
 

@@ -8,12 +8,13 @@ block @title
 
 block @aside
     h1.bdt-h-name
-        |#{local.bus.current_code}
+        |#{local.bus.short_name}
         if local.bus.current_code != local.bus.code
             small
                 |(原
                 b #{local.bus.code}
                 |)
+    p.bdt-h-company #{local.tool.getGroupText(local.bus.group)[0]}
     h2.bdt-h-model
         a(href="/public/model/"+local.bus.model_string) #{local.bus.model_string}
     p.bdt-h-model-detail #{local.bus.model.brand} #{local.tool.getFuelText(local.bus.model.fuel)}

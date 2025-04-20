@@ -1,0 +1,11 @@
+model: XMQ6119G4
+status:
+    retired: false
+    retire_pending: true
+history:
+    -   date: 2012
+        from: "@NEW"
+        to: HD503
+    -   date: 2023.12
+        from: HD503
+        to: "@OFFLINE"

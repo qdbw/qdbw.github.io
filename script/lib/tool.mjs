@@ -56,6 +56,14 @@ const fuelTable = {
     mount: '电网',
 }
 
+const nameTable = {
+    'Qingdao-QingdaoBus-QingdaoBus': ['青岛公交集团','青岛公交集团'],
+    'Qingdao-JiaoyunGroup-WenxinBus': ['青岛交运集团温馨巴士有限公司','交运温馨巴士'],
+    'Qingdao-JiaoyunGroup-JiaoyunTransportation': ['青岛交运集团','交运集团'],
+    'Qingdao-JiaoyunGroup-WestCoach': ['青岛交运集团西海岸温馨巴士有限公司','交运西海岸'],
+    'Qingdao-ChengyunHolding-ChengyunWestCoach': ['城运控股西海岸交通发展集团','西海岸交发']
+}
+
 const build_time = new Date();
 
 function inferBrand(id) {
@@ -74,6 +82,13 @@ function inferBrand(id) {
 
 }
 
+function getGroupText(id){
+    return ({
+        [id]: [id,id],
+        ...nameTable
+    })[id];
+}
+
 function getFuelText(id) {
     return ({
         [id]: id,
@@ -84,5 +99,6 @@ function getFuelText(id) {
 export const BuildTools = {
     inferBrand,
     getFuelText,
+    getGroupText,
     build_time
 }

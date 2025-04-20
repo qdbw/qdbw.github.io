@@ -20,25 +20,32 @@ export class BDTQuerier {
     }
 
     queryBus(string){
-        console.log("[QUERIER] requested bus quering <" + string + ">");
         let result = [];
         string = string.toLowerCase();
-        this.manifest.buses.forEach(v => {
-            if(v.toLowerCase().includes(string)){
+        for(let v of this.manifest.buses){
+            if(v[0].toLowerCase().includes(string)){
+                result.push(v);
+            } else if (v[1].toLowerCase().includes(string)){
                 result.push(v);
             }
-        })
+            if(result.length >= 50){
+                break;
+            }
+        }
         return result;
     }
 
     queryLine(string){
         string = string.toUpperCase();
         let result = [];
-        this.manifest.lines.forEach(v => {
+        for(let v of this.manifest.lines){
             if(!v.startsWith('H~') && v.toUpperCase().includes(string)){
                 result.push(v);
             }
-        })
+            if(result.length >= 50){
+                break;
+            }
+        }
         return result;
     }
 
@@ -56,12 +63,14 @@ export class BDTQuerier {
     queryStop(string){
         string = string.toLowerCase();
         let result = [];
-        this.manifest.stops.forEach(v => {
+        for(let v of this.manifest.stops){
             if(v.flat(Infinity).map(v => v.toLowerCase()).some(e => e.includes(string))){
                 result.push([v[0],v[1]]);
             }
-        })
-        console.log(result);
+            if(result.length >= 50){
+                break;
+            }
+        }
         return result;
     }
 }

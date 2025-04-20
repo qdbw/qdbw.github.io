@@ -13,7 +13,7 @@ if(document.getElementById("BUS_SEARCH_INPUT")){
     const ev = () => {
         let value = input.value;
         let results = querier.queryBus(value);
-        result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/bus/${v}">${v}</a>`).join('');
+        result_container.innerHTML = results.map(v => `<a class="bdt-s-bus-button" href="/public/bus/${v[0]}"><b>${v[2]}</b><small>${v[4][1]}</small></a>`).join('');
         if(results.length > 50){
             result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
         } else {
