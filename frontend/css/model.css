@@ -8,29 +8,8 @@
     gap: .5rem;
 
     & .s-buses-li{
-        border-radius: 1rem;
-        padding: .5rem;
-        background-color: var(--bdt-c-header);
-        text-decoration: none;
-
         &:hover {
             box-shadow: 0px 0px 1rem var(--bdt-c-header);
-        }
-
-        & a {
-            text-decoration: none;
-        }
-
-        &.normal {
-            border: .05rem solid #44ff44;
-        }
-
-        &.retired {
-            border: .05rem solid #ff4444;
-        }
-
-        &.pending {
-            border: .05rem solid #ff8800;
         }
     }
 }
