@@ -1,9 +1,11 @@
 .bdt-s-bus-button {
-    border-radius: .5rem;
+    border-radius: 1rem;
     border: .05rem solid var(--bdt-c-accent);
     background-color: var(--bdt-c-header);
     text-align: start;
     display: block;
+    text-decoration: none;
+    padding: .5rem;
 
     &>b {
         font-size: 1.15rem;

@@ -22,6 +22,7 @@ export class BDTQuerier {
     queryBus(string){
         let result = [];
         string = string.toLowerCase();
+        let much = false;
         for(let v of this.manifest.buses){
             if(v[0].toLowerCase().includes(string)){
                 result.push(v);
@@ -29,48 +30,58 @@ export class BDTQuerier {
                 result.push(v);
             }
             if(result.length >= 50){
+                much = true;
                 break;
             }
         }
-        return result;
+        return [result,true];
     }
 
     queryLine(string){
         string = string.toUpperCase();
         let result = [];
+        let much = false;
         for(let v of this.manifest.lines){
             if(!v.startsWith('H~') && v.toUpperCase().includes(string)){
                 result.push(v);
             }
             if(result.length >= 50){
+                much = true;
                 break;
             }
         }
-        return result;
+        return [result,true];
     }
 
     queryModel(string){
         string = string.toUpperCase();
         let result = [];
-        this.manifest.models.forEach(v => {
+        let much = false;
+        for(let v of this.manifest.models){
             if(v.toUpperCase().includes(string)){
                 result.push(v);
             }
-        })
-        return result;
+            if(result.length >= 50){
+                much = true;
+                break;
+            }
+        }
+        return [result,much];
     }
 
     queryStop(string){
         string = string.toLowerCase();
         let result = [];
+        let much = false;
         for(let v of this.manifest.stops){
             if(v.flat(Infinity).map(v => v.toLowerCase()).some(e => e.includes(string))){
                 result.push([v[0],v[1]]);
             }
             if(result.length >= 50){
+                much = true;
                 break;
             }
         }
-        return result;
+        return [result,much];
     }
 }

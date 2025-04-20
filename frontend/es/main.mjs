@@ -12,10 +12,10 @@ if(document.getElementById("BUS_SEARCH_INPUT")){
 
     const ev = () => {
         let value = input.value;
-        let results = querier.queryBus(value);
+        let [results,much] = querier.queryBus(value);
         result_container.innerHTML = results.map(v => `<a class="bdt-s-bus-button" href="/public/bus/${v[0]}"><b>${v[2]}</b><small>${v[4][1]}</small></a>`).join('');
-        if(results.length > 50){
-            result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
+        if(much){
+            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
         } else {
             result_tip.innerHTML = '';
         }
@@ -33,10 +33,10 @@ if(document.getElementById("LINE_SEARCH_INPUT")){
 
     const ev = () => {
         let value = input.value;
-        let results = querier.queryLine(value);
+        let [results,much] = querier.queryLine(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/line/${v}">${v}</a>`).join('');
-        if(results.length > 50){
-            result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
+        if(much){
+            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
         } else {
             result_tip.innerHTML = '';
         }
@@ -54,10 +54,10 @@ if(document.getElementById("STOP_SEARCH_INPUT")){
 
     const ev = () => {
         let value = input.value;
-        let results = querier.queryStop(value);
+        let [results,much] = querier.queryStop(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/stop/${v[0]}">${v[1]}</a>`).join('');
-        if(results.length > 50){
-            result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
+        if(much){
+            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
         } else {
             result_tip.innerHTML = '';
         }
@@ -75,10 +75,10 @@ if(document.getElementById("MODEL_SEARCH_INPUT")){
 
     const ev = () => {
         let value = input.value;
-        let results = querier.queryModel(value);
+        let [results,much] = querier.queryModel(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/model/${v}">${v}</a>`).join('');
-        if(results.length > 50){
-            result_tip.innerHTML = `发现超过50条结果，请尝试精确查询对象。`;
+        if(much){
+            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
         } else {
             result_tip.innerHTML = '';
         }
