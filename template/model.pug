@@ -57,6 +57,6 @@ block @article
         ul.s-buses-ul
             each bus in local.model.buses
                 li.s-buses-li(class=bus.status.retired?'retired':bus.status.retire_pending?'pending':'normal')
-                    a(href="/public/bus/"+bus.code)
+                    a.bdt-s-bus-button(href="/public/bus/"+bus.code)
                         b #{bus.short_name}
                         small #{local.tool.getGroupText(bus.group)[1]}
