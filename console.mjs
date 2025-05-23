@@ -1,3 +1,14 @@
+/**
+ * UTIL CONSOLE MODIFIER
+ * PATTERN: node console.mjs *OPERATION *LOCATION *COMPANY *SUBCOMPANY **SELECTOR** **OPERATIONS**
+ * **SELECTOR**: 
+ *  1. Select single one: `single *ID`
+ *  2. Select multiples: `from *ID_START to *ID_END` the FRONTLETTER must be the same e.g. from Z2495 to Z2496
+ * **OPERATIONS**:
+ *  1. change model: `model *MODEL`
+ *  2. change history: `history *DATE *FROM *TO`
+ */
+
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { parse, stringify} from "yaml";
