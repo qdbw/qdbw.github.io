@@ -85,7 +85,7 @@ if(operation === 'modify') {
         let model_type = process.argv[operation_detail_begin+1];
         objective_bypath.forEach(v => {
             let raw_content = readFileSync(v).toString();
-            let yaml_content = parse(raw_content);
+            let yaml_content = parse(raw_content) ?? {};
             yaml_content.model = model_type;
             writeFileSync(v, stringify(yaml_content));
         });
@@ -97,7 +97,7 @@ if(operation === 'modify') {
         console.log(`MODIFY History: From ${from} to ${to} in ${date}`);
         objective_bypath.forEach(v => {
             let raw_content = readFileSync(v).toString();
-            let yaml_content = parse(raw_content);
+            let yaml_content = parse(raw_content) ?? {};
             if(yaml_content.history) yaml_content.history = undefined;
             yaml_content.shift_records ??= [];
             for(let record of yaml_content.shift_records){
@@ -109,8 +109,8 @@ if(operation === 'modify') {
                 date, from, to
             });
             yaml_content.shift_records.sort((a,b) => {
-                let [ya,ma,da] = a.split('.');
-                let [yb,mb,db] = b.split('.');
+                let [ya,ma,da] = String(a).split('.');
+                let [yb,mb,db] = String(b).split('.');
                 // Compare by year, month, day (with optional MM and DD)
                 ya = Number(ya);
                 yb = Number(yb);
