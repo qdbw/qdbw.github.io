@@ -1,0 +1,5 @@
+model: LCK6108EVGL1
+shift_records:
+  - date: "2018.01"
+    from: "@NEW"
+    to: "1"
