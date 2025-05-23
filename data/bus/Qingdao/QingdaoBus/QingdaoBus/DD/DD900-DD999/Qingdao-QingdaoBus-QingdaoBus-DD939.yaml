@@ -3,3 +3,6 @@ shift_records:
   - date: "2018.01"
     from: "@NEW"
     to: "1"
+  - date: "2018.04"
+    from: "1"
+    to: "25"

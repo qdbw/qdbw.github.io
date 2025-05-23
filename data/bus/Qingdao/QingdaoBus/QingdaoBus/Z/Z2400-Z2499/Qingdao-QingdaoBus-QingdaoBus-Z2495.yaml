@@ -6,3 +6,6 @@ shift_records:
   - date: "2016.04"
     from: "7"
     to: "1"
+  - date: "2018.02"
+    from: "1"
+    to: "11"
