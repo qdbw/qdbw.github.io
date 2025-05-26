@@ -1,0 +1,7 @@
+shift_records:
+  - date: "2017.05"
+    from: "366"
+    to: "2"
+  - date: "2018.02"
+    from: "2"
+    to: "5"

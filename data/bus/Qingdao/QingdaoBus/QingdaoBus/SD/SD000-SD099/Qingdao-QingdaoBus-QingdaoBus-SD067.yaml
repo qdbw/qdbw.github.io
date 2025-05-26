@@ -1,0 +1,5 @@
+shift_records:
+  - date: "2021.01"
+    from: "@NEW"
+    to: "2"
+model: ZK5105C

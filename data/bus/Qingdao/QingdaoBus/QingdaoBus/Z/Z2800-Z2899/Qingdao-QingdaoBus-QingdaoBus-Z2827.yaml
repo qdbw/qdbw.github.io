@@ -1,1 +1,5 @@
 model: LCK6103G-5
+shift_records:
+  - date: "2021.01"
+    from: "2"
+    to: "11"
