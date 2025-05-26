@@ -1,11 +1,11 @@
 model: SWB6106MG
 status:
-    line: ""
-    retired: true
+  line: ""
+  retired: true
 history:
-    -   date: 2008
-        from: "@NEW"
-        to: "@STANDBY"
-    -   date: 2018
-        from: "@STANDBY"
-        to: "@OFFLINE"
+  - date: 2008
+    from: "@NEW"
+    to: "@STANDBY"
+  - date: 2018
+    from: "@STANDBY"
+    to: "@OFFLINE"
