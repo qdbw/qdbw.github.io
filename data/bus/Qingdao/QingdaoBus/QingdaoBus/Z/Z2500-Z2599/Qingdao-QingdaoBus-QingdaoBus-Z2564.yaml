@@ -1,7 +1,3 @@
-model: SWB6116MG
-status:
-  line: ""
-  retired: true
 shift_records:
   - date: "2018.05"
     from: "125"
