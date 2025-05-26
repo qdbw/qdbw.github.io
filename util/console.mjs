@@ -81,8 +81,8 @@ switch (first_selector) {
                     objectives.push(`${prefix}${i}`);
                 }
             }
-            operation_detail_begin = 8;
         });
+        operation_detail_begin = 8;
         break;
     default:
         throw new Error(`Unknown selector: ${first_selector}`);
