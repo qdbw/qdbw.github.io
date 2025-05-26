@@ -1,10 +1,7 @@
 model: BJ6852C6MFB-1
 status:
-    retired: false
+  retired: false
 shift_records:
-    -   date: 2012
-        from: "@NEW"
-        to: unknown
-    # -   date: 2025.04
-    #     from: unknown
-    #     to: "@OFFLINE"
+  - date: 2012
+    from: "@NEW"
+    to: unknown

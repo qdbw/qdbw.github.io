@@ -1,10 +1,10 @@
 model: LCK6115HGC
 status:
-    retired: true
+  retired: true
 shift_records:
-    -   date: 2011
-        from: "@NEW"
-        to: "@STANDBY"
-    -   date: 2024
-        from: "@STANDBY"
-        to: "@OFFLINE"
+  - date: 2011
+    from: "@NEW"
+    to: "@STANDBY"
+  - date: 2024
+    from: "@STANDBY"
+    to: "@OFFLINE"
