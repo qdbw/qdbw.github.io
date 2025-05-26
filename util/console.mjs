@@ -84,6 +84,8 @@ switch (first_selector) {
             operation_detail_begin = 8;
         });
         break;
+    default:
+        throw new Error(`Unknown selector: ${first_selector}`);
 }
 
 // console.log(`ObjectivePrefix:`, `${location}/${company}/${subcompany}`);
@@ -145,5 +147,7 @@ if(operation === 'modify') {
             });
             writeFileSync(v, stringify(yaml_content));
         });
+    } else {
+        throw new Error(`Unknown modify type: ${modify_type}`);
     }
 }
