@@ -64,6 +64,7 @@ switch (first_selector) {
         let to = Number(String(process.argv[9]).replace(prefix, ''));
         for (let i = from; i <= to; i++) {
             if (prefix == '') i = String(i).padStart(4, '0');
+            else i = String(i).padStart(3,'0');
             objectives.push(`${prefix}${i}`);
         }
         break;
@@ -82,6 +83,7 @@ switch (first_selector) {
                 let to = Number(String(v_to).replace(prefix, ''));
                 for (let i = from; i <= to; i++) {
                     if (prefix == '') i = String(i).padStart(4, '0');
+                    else i = String(i).padStart(3,'0');
                     objectives.push(`${prefix}${i}`);
                 }
             }
