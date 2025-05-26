@@ -1,7 +1,7 @@
 model: DNC6101BEVG22
 status:
-    retired: false
+  retired: false
 shift_records:
-    -   date: 2022
-        from: "@NEW"
-        to: "@STANDBY"
+  - date: 2022
+    from: "@NEW"
+    to: "@STANDBY"
