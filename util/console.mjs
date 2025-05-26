@@ -63,10 +63,30 @@ switch (first_selector) {
         for (let i = from; i <= to; i++) {
             objectives.push(`${prefix}${i}`);
         }
+        break;
+    case 'range':
+        let range_content = process.argv[7].split(",");
+        console.log(range_content);
+        range_content.forEach(v => {
+            if(v.match(/^[A-Z]*?[0-9]+$/)){
+                objectives.push(v);
+                return;
+            }
+            if(v.split("-",2).every(v => v.match(/^[A-Z]*?[0-9]+$/))) {
+                let [v_from,v_to] = v.split("-",2);
+                let prefix = String(v_from).replace(/[0-9]*/g, '');
+                let from = Number(String(v_from).replace(prefix, ''));
+                let to = Number(String(v_to).replace(prefix, ''));
+                for (let i = from; i <= to; i++) {
+                    objectives.push(`${prefix}${i}`);
+                }
+            }
+            operation_detail_begin = 8;
+        });
+        break;
 }
 
 // console.log(`ObjectivePrefix:`, `${location}/${company}/${subcompany}`);
-// console.log(`Objectives:`, objectives);
 
 let objective_bypath = objectives.map(v => 'data/bus/' + getObjectFilePath(location, company, subcompany, v));
 
@@ -81,6 +101,7 @@ objective_bypath.forEach(v => {
 
 if(operation === 'modify') {
     let modify_type = process.argv[operation_detail_begin];
+    console.log('Modify type:', modify_type);
     if(modify_type === 'model'){
         let model_type = process.argv[operation_detail_begin+1];
         objective_bypath.forEach(v => {
