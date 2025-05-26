@@ -4,6 +4,8 @@ let querier = await BDTQuerier.createQuerier();
 
 globalThis.querier = querier;
 
+const MORETHAN_50 = `发现可能超过50条结果，请尝试精确查询对象。`;
+
 if(document.getElementById("BUS_SEARCH_INPUT")){
     let input = document.getElementById('BUS_SEARCH_INPUT');
     let trigger = document.getElementById('BUS_SEARCH_ID');
@@ -15,7 +17,7 @@ if(document.getElementById("BUS_SEARCH_INPUT")){
         let [results,much] = querier.queryBus(value);
         result_container.innerHTML = results.map(v => `<a class="bdt-s-bus-button" href="/public/bus/${v[0]}"><b>${v[2]}</b><small>${v[4][1]}</small></a>`).join('');
         if(much){
-            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
+            result_tip.innerHTML = MORETHAN_50;
         } else {
             result_tip.innerHTML = '';
         }
@@ -36,7 +38,7 @@ if(document.getElementById("LINE_SEARCH_INPUT")){
         let [results,much] = querier.queryLine(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/line/${v}">${v}</a>`).join('');
         if(much){
-            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
+            result_tip.innerHTML = MORETHAN_50;
         } else {
             result_tip.innerHTML = '';
         }
@@ -57,7 +59,7 @@ if(document.getElementById("STOP_SEARCH_INPUT")){
         let [results,much] = querier.queryStop(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/stop/${v[0]}">${v[1]}</a>`).join('');
         if(much){
-            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
+            result_tip.innerHTML = MORETHAN_50;
         } else {
             result_tip.innerHTML = '';
         }
@@ -78,7 +80,7 @@ if(document.getElementById("MODEL_SEARCH_INPUT")){
         let [results,much] = querier.queryModel(value);
         result_container.innerHTML = results.slice(0,50).map(v => `<a href="/public/model/${v}">${v}</a>`).join('');
         if(much){
-            result_tip.innerHTML = `发现可能超过50条结果，请尝试精确查询对象。`;
+            result_tip.innerHTML = MORETHAN_50;
         } else {
             result_tip.innerHTML = '';
         }

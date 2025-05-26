@@ -34,7 +34,7 @@ export class BDTQuerier {
                 break;
             }
         }
-        return [result,true];
+        return [result,much];
     }
 
     queryLine(string){
@@ -50,7 +50,7 @@ export class BDTQuerier {
                 break;
             }
         }
-        return [result,true];
+        return [result,much];
     }
 
     queryModel(string){
