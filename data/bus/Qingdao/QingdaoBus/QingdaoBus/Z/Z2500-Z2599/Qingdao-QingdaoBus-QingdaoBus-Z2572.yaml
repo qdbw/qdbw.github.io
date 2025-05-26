@@ -2,3 +2,6 @@ shift_records:
   - date: "2018.05"
     from: "110"
     to: "1"
+  - date: "2018.06"
+    from: "1"
+    to: "110"
