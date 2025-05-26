@@ -1,13 +1,13 @@
 model: SWB6121EV2
 status:
-    retired: true
+  retired: true
 shift_records:
-    -   date: 2011
-        from: "@NEW"
-        to: Tunnel2
-    -   date: 2020.12
-        from: Tunnel2
-        to: Tunnel5
-    -   date: 2021.01
-        from: Tunnel5
-        to: "@OFFLINE"
+  - date: 2011
+    from: "@NEW"
+    to: Tunnel2
+  - date: 2020.12
+    from: Tunnel2
+    to: Tunnel5
+  - date: 2021.01
+    from: Tunnel5
+    to: "@OFFLINE"

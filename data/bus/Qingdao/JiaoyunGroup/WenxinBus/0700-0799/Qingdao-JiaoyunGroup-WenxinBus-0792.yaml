@@ -1,10 +1,10 @@
 model: SWB6107Q
 status:
-    retired: true
+  retired: true
 shift_records:
-    -   date: 2012
-        from: "@NEW"
-        to: 608
-    -   date: 2025.04
-        from: 608
-        to: "@OFFLINE"
+  - date: 2012
+    from: "@NEW"
+    to: 608
+  - date: 2025.04
+    from: 608
+    to: "@OFFLINE"

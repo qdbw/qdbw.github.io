@@ -1,11 +1,11 @@
 model: SWB6121EV5
 status:
-    retired: true
+  retired: true
 current_code: BS0760
 shift_records:
-    -   date: 2012
-        from: "@NEW"
-        to: Tunnel4
-    -   date: 2021.05
-        from: Tunnel4
-        to: "@OFFLINE"
+  - date: 2012
+    from: "@NEW"
+    to: Tunnel4
+  - date: 2021.05
+    from: Tunnel4
+    to: "@OFFLINE"
