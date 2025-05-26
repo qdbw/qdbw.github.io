@@ -3,3 +3,4 @@ frontend/public/
 frontend/*.html
 frontend/bdt_manifest.json
 node_modules
+job.*
