@@ -1,7 +1,7 @@
 model: SWB6105HDP-3
 status:
-    retired: true
+  retired: true
 history:
-    -   date: 2003
-        from: "@NEW"
-        to: "@STANDBY"
+  - date: 2003
+    from: "@NEW"
+    to: "@STANDBY"
