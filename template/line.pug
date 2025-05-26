@@ -54,3 +54,28 @@ block @article
                                                 span.s-rd-current-name #{r[0]}
                                         else 
                                             a(href="/public/stop/"+r[0]+".html").s-rd-name #{r[0]}
+    section.s-buses
+        h2 车辆
+        section.s-buses-cu
+            h3 当前车辆
+            ul.s-bc-ul
+                - let map = {}
+                each bus in local.line.current_buses
+                    if !map[bus.model_string]
+                        - map[bus.model_string] = []
+                    - map[bus.model_string].push({ 0: bus.code, 1: bus.short_name })
+                each v,k in map
+                    li.s-bc-li
+                        h4 #{k}
+                        ul.s-bc-d-ul
+                            each c in v
+                                li
+                                    a(href="/public/bus/"+c[0])= c[1]
+        section.s-buses-hl
+            h3 历史车型
+            ul.s-bh-ul
+                each model in local.line.history_models_stringlist
+                    li
+                        a(href="/public/model/"+model)= model
+    section.s-bus-history
+        h2 调动记录

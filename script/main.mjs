@@ -11,6 +11,8 @@ let database = new Database("data");
 
 await database.doInitialization();
 
+// process.exit();
+
 let busPageBuilder = new BusPageBuilder("data","frontend/public");
 let linePageBuilder = new LinePageBuilder("data","frontend/public");
 let stopPageBuilder = new StopPageBuilder("data","frontend/public");

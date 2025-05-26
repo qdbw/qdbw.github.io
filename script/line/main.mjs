@@ -1,4 +1,4 @@
-import { LineInfoContainer, RouteInfoContainer } from "../lib/db.mjs";
+import { LineInfoContainer, RouteInfoContainer } from "../lib/db/mod.mjs";
 import { BUtil } from "../lib/util.mjs";
 import { readFile, mkdir, writeFile } from "fs/promises";
 import { basename, join } from "path";
@@ -52,6 +52,9 @@ export const LineUtils = {
             LineUtils.assignRoute(result)
         ]);
         return result;
+    },
+    createUnknown(name) {
+        return new LineInfoContainer(name, undefined, 'unknown://line');
     }
 }
 

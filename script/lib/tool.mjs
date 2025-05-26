@@ -67,6 +67,7 @@ const nameTable = {
 const build_time = new Date();
 
 function inferBrand(id) {
+    if(!id) return '未知';
     let letters = id.toUpperCase(), i = 0;
     for (; i < letters.length; i++) {
         const code = letters.charCodeAt(i);

@@ -1,7 +1,7 @@
 import { mkdir, readFile, readdir, stat, writeFile } from "fs/promises";
 import { basename, join } from "path";
 import { compile } from "pug";
-import { BusInfoContainer } from "../lib/db.mjs";
+import { BusInfoContainer } from "../lib/db/mod.mjs";
 import { BUtil } from "../lib/util.mjs";
 import { BuildTools } from "../lib/tool.mjs";
 
