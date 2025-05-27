@@ -1,1 +1,8 @@
 model: SWB6107Q6
+shift_records:
+  - date: "2021.02"
+    from: "321"
+    to: "119"
+  - date: "2022.04"
+    from: "119"
+    to: "@OFFLINE"

@@ -1,1 +1,8 @@
 model: SWB6107Q6
+shift_records:
+  - date: "2018.05"
+    from: "369"
+    to: "119"
+  - date: "2018.05"
+    from: "119"
+    to: "371"

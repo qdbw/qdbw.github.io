@@ -5,4 +5,10 @@ shift_records:
   - date: "2018.06"
     from: "1"
     to: "125"
+  - date: "2020.05"
+    from: "125"
+    to: "119"
+  - date: "2020.06"
+    from: "119"
+    to: "125"
 model: BJ6112C6MHB
