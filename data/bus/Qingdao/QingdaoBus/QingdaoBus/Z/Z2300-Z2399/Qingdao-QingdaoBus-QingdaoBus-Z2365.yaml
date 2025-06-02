@@ -2,10 +2,10 @@ model: SWB6116MG
 status:
   line: ""
   retired: true
-history:
-  - date: 2007
-    from: "@NEW"
-    to: 26
-  - date: 2024.12
-    from: 26
+shift_records:
+  - date: "2017.09"
+    from: "210"
+    to: "110"
+  - date: "2018.03"
+    from: "110"
     to: "@OFFLINE"

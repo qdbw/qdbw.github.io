@@ -1,1 +1,8 @@
 model: BJ6112C6MHB
+shift_records:
+  - date: "2018.03"
+    from: "371"
+    to: "110"
+  - date: "2018.05"
+    from: "110"
+    to: "11"
