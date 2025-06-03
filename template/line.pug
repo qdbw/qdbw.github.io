@@ -42,18 +42,22 @@ block @article
                 li.s-route-li
                     h3.s-route-name #{route.name}
                     ul.s-route-detail-ul
-                        each rf in route.data_stringobject
+                        each rf,_rf_index in route.data_stringobject
                             li.s-route-detail-li
-                                h3 #{Object.keys(rf)[0]}
+                                - let road = Object.keys(rf)[0]
+                                h3 #{road}
                                 .s-route-detail-lists
-                                    each stop in Array.from(Object.values(rf)).flat(Infinity)
+                                    each stop, _st_index in rf[road]
                                         - let r = stop.split(" ")
+                                        - let p1 = route.data[_rf_index]
+                                        - let p2 = p1[road]
+                                        - let pointer = p2[_st_index]
                                         if r.length >= 2
-                                            a(href="/public/stop/"+r[0]+".html").s-rd-name
+                                            a(href="/public/stop/"+pointer.id+".html").s-rd-name
                                                 |#{r[1]}
                                                 span.s-rd-current-name #{r[0]}
                                         else 
-                                            a(href="/public/stop/"+r[0]+".html").s-rd-name #{r[0]}
+                                            a(href="/public/stop/"+pointer.id+".html").s-rd-name #{r[0]}
     section.s-buses
         h2 车辆
         section.s-buses-cu

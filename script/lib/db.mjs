@@ -59,6 +59,11 @@ export class Database {
     companies_data_stringlist = [];
     buses_data_stringlist = [];
 
+    stop_reflect = {
+        byId: {},
+        byName: {}
+    };
+
     constructor(data_dir) {
         this.data_dir = data_dir;
     }
@@ -79,14 +84,16 @@ export class Database {
         await this.#collectLines();
         await this.#collectStops();
         await this.#collectBusLineReflect();
+
+        // console.log(this.lines.filter(v => v.name == "1")[0].routes[0]);
     }
 
     async #collectBusLineReflect() {
         this.buses.forEach((v) => {
             v.history_lines_stringlist.map(hl_name => {
-                if(!hl_name) return;
+                if (!hl_name) return;
                 hl_name = String(hl_name);
-                if(!this.lines_stringlist.includes(hl_name)){
+                if (!this.lines_stringlist.includes(hl_name)) {
                     let hl_object = LineUtils.createUnknown(hl_name);
                     this.lines_stringlist.push(hl_name);
                     this.lines.push(hl_object);
@@ -94,13 +101,13 @@ export class Database {
                     hl_object.history_buses.push(v);
                 } else {
                     let hl_object;
-                    for(let line of this.lines){
-                        if(line.name == hl_name){
+                    for (let line of this.lines) {
+                        if (line.name == hl_name) {
                             hl_object = line;
                             break;
                         }
                     }
-                    if(!hl_object){
+                    if (!hl_object) {
                         throw new Error(`Unexpected undefined in bus query!`);
                     }
                     v.history_lines.push(hl_object);
@@ -114,19 +121,19 @@ export class Database {
         this.buses.forEach((bus) => {
             let model = bus.model;
             let model_name = model.id;
-            bus.history_lines.forEach( hl => {
-                if(!hl.history_models_stringlist.includes(model_name)){
+            bus.history_lines.forEach(hl => {
+                if (!hl.history_models_stringlist.includes(model_name)) {
                     hl.history_models_stringlist.push(model_name);
                 }
             });
             let belong_string = bus.current.line_string, belong;
-            for(let line of this.lines){
-                if(line.name === belong_string){
+            for (let line of this.lines) {
+                if (line.name === belong_string) {
                     belong = line;
                     break;
                 }
             }
-            if(belong){
+            if (belong) {
                 bus.current.line = belong;
                 belong.current_buses.push(bus);
                 belong.current_buses_stringlist.push(bus.code);
@@ -147,7 +154,7 @@ export class Database {
                 continue;
             }
             let sub = await readdir(join(path, object));
-            if (!sub.includes('Main.jsonc')) {
+            if (!sub.includes('Main.jsonc') && !sub.includes('Main.yaml')) {
                 continue;
             }
             let obj = await LineUtils.createInfoFromPath(basename(object), join(path, object));
@@ -212,9 +219,16 @@ export class Database {
             this.stops[index] = new StopInfoContainer(stop, config);
         })()));
 
+        // build reflect
+        this.stops.forEach(v => {
+            this.stop_reflect.byId[v.id] = v;
+            this.stop_reflect.byName[v.name] = v;
+        });
+
         // merge route to stop
         this.lines.forEach(v => {
             for (let route of v.routes) {
+                // passby lines
                 let stops_real = route.stops_stringlist.map(v => v.split(" "));
                 for (let [stop, stop_form_name] of stops_real) {
                     let index = this.stops_stringlist.indexOf(stop);
@@ -230,8 +244,26 @@ export class Database {
                         stop_obj.passby_lines.push(v);
                     }
                 }
+
+                // mount object pointer
+                route.data = [];
+                for (let route_raw_data of route.data_stringobject) {
+                    for (let [road, stops] of Object.entries(route_raw_data)) {
+                        let stop_objects = stops.map(v => {
+                            v = v.split(" ")[0];
+                            if (this.stop_reflect.byId[v]) return this.stop_reflect.byId[v];
+                            if (this.stop_reflect.byName[v]) return this.stop_reflect.byName[v];
+                            throw new Error(`Unexpected Error while mounting object pointer.`);
+                        });
+                        let result = {
+                            [road]: stop_objects
+                        };
+                        route.data.push(result);
+                    }
+                }
             }
         });
+
     }
 
     async #collectModels() {
