@@ -77,7 +77,7 @@ let bdt_manifest = {
 };
 
 bdt_manifest.buses = database.buses.map(v => [v.code, v.current_code, v.short_name, v.group, BuildTools.getGroupText(v.group)]);
-bdt_manifest.lines = database.lines_stringlist.map(v => String(v));
+bdt_manifest.lines = database.lines.map(v => [v.name, v.name_pretty]);
 bdt_manifest.models = database.models_stringlist.map(v => String(v));
 bdt_manifest.stops = database.stops.map(v => [v.id, v.name, v.form_names]);
 

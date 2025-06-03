@@ -39,7 +39,7 @@ if (document.getElementById("LINE_SEARCH_INPUT")) {
     const ev = () => {
         let value = input.value;
         let [results, much] = querier.queryLine(value);
-        result_container.innerHTML = results.slice(0, 50).map(v => `<a href="/public/line/${v}">${v}</a>`).join('');
+        result_container.innerHTML = results.map(v => `<a href="/public/line/${v[0]}">${v[1]}</a>`).join('');
         if (much) {
             result_tip.innerHTML = MORETHAN_50;
         } else {
