@@ -1,0 +1,23 @@
+{
+    "Name": "304路",
+    "FromTo": [
+        [
+            "观城路停车场",
+            "流清河"
+        ]
+    ],
+    "Companies": [
+        "CHENGYUN_HOLDING/Tunnel/5"
+    ],
+    "TicketOptions": {
+        "Manual": true,
+        "Seasonal": false
+    },
+    "Routes": [
+        "下行",
+        "上行"
+    ],
+    "Histories": [
+        // "2018"
+    ]
+}
