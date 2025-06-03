@@ -13,17 +13,22 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { parse, stringify } from "yaml";
 
+let digitOverrides = {
+    'Qingdao/ChengyunHolding/ChengyangBus/CY/': 4,
+    'Qingdao/ZhenqingBus/ZhenqingBus/DD/': 4,
+};
+
 function getObjectFilePath(location, company, subcompany, id) {
     let prefix = String(id).replace(/[0-9]*/g, '');
-    let result = `${location}/${company}/${subcompany}/`;
+    let result = `${location}/${company}/${subcompany}/${prefix}/`;
     let num_id = Number(String(id).replace(prefix, ''));
     let p_from = Math.floor(num_id / 100);
-    if (prefix != '') {
-        result += `${prefix}/`;
-    } else {
-        p_from = String(p_from).padStart(2, '0');
-    }
-    result += `${prefix}${p_from}00-${prefix}${p_from}99/${location}-${company}-${subcompany}-${id}.yaml`;
+    let digit = {
+        result: prefix ? 3 : 4,
+        ...digitOverrides
+    }[result];
+    p_from = String(p_from).padStart(digit - 2, '0');
+    result += `${prefix}${p_from}00-${prefix}${p_from}99/${location}-${company}-${subcompany}-${prefix}${String(num_id).padStart(digit,'0')}.yaml`;
     return result;
 }
 
@@ -64,7 +69,7 @@ switch (first_selector) {
         let to = Number(String(process.argv[9]).replace(prefix, ''));
         for (let i = from; i <= to; i++) {
             if (prefix == '') i = String(i).padStart(4, '0');
-            else i = String(i).padStart(3,'0');
+            else i = String(i).padStart(3, '0');
             objectives.push(`${prefix}${i}`);
         }
         break;
@@ -83,7 +88,7 @@ switch (first_selector) {
                 let to = Number(String(v_to).replace(prefix, ''));
                 for (let i = from; i <= to; i++) {
                     if (prefix == '') i = String(i).padStart(4, '0');
-                    else i = String(i).padStart(3,'0');
+                    else i = String(i).padStart(3, '0');
                     objectives.push(`${prefix}${i}`);
                 }
             }
