@@ -33,16 +33,29 @@ export const LineUtils = {
         let tasks = [];
         for (let route_tag of current_line.routes_stringlist) {
             tasks.push((async () => {
-                let route_data_path = join(current_line.data_path, `Route.${route_tag}.jsonc`);
-                let route_data = BUtil.JSON.safeParse((await readFile(route_data_path)).toString());
+                let route_data;
+                try {
+                    let route_data_path = join(current_line.data_path, `Route.${route_tag}.jsonc`);
+                    route_data = BUtil.JSON.safeParse((await readFile(route_data_path)).toString());
+                } catch (e) {
+                    let route_data_path = join(current_line.data_path, `Route.${route_tag}.yaml`);
+                    route_data = BUtil.yaml.parse((await readFile(route_data_path)).toString());
+                }
                 current_line.routes[current_line.routes_stringlist.indexOf(route_tag)] = new RouteInfoContainer(route_tag, route_data);
             })());
         }
         await Promise.all(tasks);
     },
     async createInfoFromPath(name, data_path, ...rest) {
-        let content = (await readFile(join(data_path, 'Main.jsonc'))).toString();
-        let json = BUtil.JSON.safeParse(content);
+        let content, json;
+        try {
+            content = (await readFile(join(data_path, 'Main.jsonc'))).toString();
+            json = BUtil.JSON.safeParse(content);
+        }
+        catch (e) {
+            content = (await readFile(join(data_path, 'Main.yaml'))).toString();
+            json = BUtil.yaml.parse(content);
+        }
         if (json instanceof Error) {
             return new LineInfoContainer(name, undefined, data_path);
         }
