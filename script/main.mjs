@@ -13,18 +13,60 @@ await database.doInitialization();
 
 // process.exit();
 
-let busPageBuilder = new BusPageBuilder("data","frontend/public");
-let linePageBuilder = new LinePageBuilder("data","frontend/public");
-let stopPageBuilder = new StopPageBuilder("data","frontend/public");
-let modelPageBuilder = new ModelPageBuilder("data","frontend/public");
+let busPageBuilder = new BusPageBuilder("data", "frontend/public");
+let linePageBuilder = new LinePageBuilder("data", "frontend/public");
+let stopPageBuilder = new StopPageBuilder("data", "frontend/public");
+let modelPageBuilder = new ModelPageBuilder("data", "frontend/public");
 
-await linePageBuilder.buildSpecifiedObjectList(database.lines);
-// await busPageBuilder.buildSpecifiedObjectList(database.buses);
-// await stopPageBuilder.buildSpecifiedObjectList(database.stops);
-// await modelPageBuilder.buildSpecifiedObjectList(database.models);
+let options = {
+    buildpage: true,
+    buildbus: true,
+    buildmodel: true,
+    buildstop: true
+};
+if (process.env.QDBFLAG) {
+    let _opt = process.env.QDBFLAG.split(" ");
+    _opt.forEach(v => {
+        switch (v) {
+            case "PAGE":
+                options.buildpage = true;
+                break;
+            case "!PAGE":
+                options.buildpage = false;
+                break;
+            case "BUS":
+                options.buildbus = true;
+                break;
+            case "!BUS":
+                options.buildbus = false;
+                break;
+            case "MODEL":
+                options.buildmodel = true;
+                break;
+            case "!MODEL":
+                options.buildmodel = false;
+                break;
+            case "STOP":
+                options.buildstop = true;
+                break;
+            case "!STOP":
+                options.buildstop = false;
+                break;
+        }
+    });
+}
 
-await writeFile("frontend/404.html",compileFile("template/404.pug")({local: {tool: BuildTools}}));
-await writeFile("frontend/index.html",compileFile("template/index.pug")({local: {tool: BuildTools}}));
+if (options.buildpage)
+    await linePageBuilder.buildSpecifiedObjectList(database.lines);
+if (options.buildbus)
+    await busPageBuilder.buildSpecifiedObjectList(database.buses);
+if (options.buildmodel)
+    await modelPageBuilder.buildSpecifiedObjectList(database.models);
+if (options.buildstop)
+    await stopPageBuilder.buildSpecifiedObjectList(database.stops);
+
+await writeFile("frontend/404.html", compileFile("template/404.pug")({ local: { tool: BuildTools } }));
+await writeFile("frontend/index.html", compileFile("template/index.pug")({ local: { tool: BuildTools } }));
 
 // build bdt_manifest.json
 let bdt_manifest = {
@@ -34,9 +76,9 @@ let bdt_manifest = {
     stops: []
 };
 
-bdt_manifest.buses = database.buses.map(v => [v.code,v.current_code,v.short_name,v.group,BuildTools.getGroupText(v.group)]);
+bdt_manifest.buses = database.buses.map(v => [v.code, v.current_code, v.short_name, v.group, BuildTools.getGroupText(v.group)]);
 bdt_manifest.lines = database.lines_stringlist.map(v => String(v));
 bdt_manifest.models = database.models_stringlist.map(v => String(v));
-bdt_manifest.stops = database.stops.map(v => [v.id,v.name,v.form_names]);
+bdt_manifest.stops = database.stops.map(v => [v.id, v.name, v.form_names]);
 
-await writeFile("frontend/bdt_manifest.json",JSON.stringify(bdt_manifest));
+await writeFile("frontend/bdt_manifest.json", JSON.stringify(bdt_manifest));
