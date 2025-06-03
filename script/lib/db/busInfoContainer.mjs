@@ -59,6 +59,8 @@ export class BusInfoContainer {
                 v.from_string = '新车';
             } else if (v.from == '@STANDBY') {
                 v.from_string = '机动';
+            } else if (v.from == '@OFFLINE') {
+                v.from_string = '重启';
             } else {
                 v.from_string = String(v.from);
             }

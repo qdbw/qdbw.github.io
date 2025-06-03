@@ -144,6 +144,21 @@ export class Database {
             v.bus_shift_records = LineUtils.generateShiftRecords(v);
             v.bus_shift_records_by_date = LineUtils.sortShiftRecordByDate(v.bus_shift_records);
         });
+
+        this.buses.forEach(bus => {
+            bus.shift_records.forEach(record => {
+                record.from_line = this.lines.filter(v => v.name === String(record.from))[0];
+                record.to_line = this.lines.filter(v => v.name === String(record.to))[0];
+                if(!String(record.from).startsWith('@') && record.to != 'unknown' && !record.from_line){
+                    console.log(bus, record);
+                    throw new Error(`Unexpected undefined in record collect!`);
+                }
+                if(!String(record.to).startsWith('@') && record.to != 'unknown' && !record.to_line){
+                    console.log(bus, record);
+                    throw new Error(`Unexpected undefined in record collect!`);
+                }
+            });
+        });
     }
 
     async #collectLines() {

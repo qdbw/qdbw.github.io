@@ -50,6 +50,22 @@ block @article
                 li.s-his-li
                     h3.s-his-date #{record.date}
                     .s-his-detail
-                        .s-his-from #{record.from_string}
-                        .s-his-fake-arrow 调往
-                        .s-his-to #{record.to_string}
+                        if record.from == '@OFFLINE'
+                            a.s-his-from 重启
+                        else if record.from == '@NEW'
+                            a.s-his-from 新车
+                        else if record.from == '@STANDBY'
+                            a.s-his-from 机动
+                        else if record.from == 'unknown'
+                            a.s-his-from 未知
+                        else
+                            a.s-his-from(href="/public/line/"+ record.from_line.name) #{record.from_line.name_pretty}
+                        .s-his-fake-arrow →
+                        if record.to == '@OFFLINE'
+                            a.s-his-to 下线
+                        else if record.to == '@STANDBY'
+                            a.s-his-to 机动
+                        else if record.to == 'unknown'
+                            a.s-his-to 未知
+                        else 
+                            a.s-his-to(href="/public/line/"+ record.to_line.name) #{record.to_line.name_pretty}
