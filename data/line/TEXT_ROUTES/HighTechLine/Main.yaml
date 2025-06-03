@@ -1,7 +1,7 @@
 Name: 高新快线
 FromTo:
-    -   - 观城路停车场
-        - 流清河
+    -   - 劲松一路
+        - 广博路岙东路
 Companies:
     - CHENGYUN_HOLDING/Laoshan/4
 TicketOptions:
