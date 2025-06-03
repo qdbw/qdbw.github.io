@@ -1,1 +1,5 @@
 model: SWB6115Q7-3
+shift_records:
+  - date: "2021.01"
+    from: HighTechLine
+    to: "308"
