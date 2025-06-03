@@ -1,3 +1,5 @@
+import { BusInfoContainer } from "./busInfoContainer.mjs";
+
 export class LineInfoContainer {
     name = '';
     name_pretty = '';
@@ -23,6 +25,14 @@ export class LineInfoContainer {
     current_models_stringlist = [];
     history_models = [];
     history_models_stringlist = [];
+    /**
+     * @type {BusInfoContainer[]}
+     */
+    history_buses = [];
+    history_buses_stringlist = [];
+    /**
+     * @type {BusInfoContainer[]}
+     */
     current_buses = [];
     current_buses_stringlist = [];
     is_responsive = false;
@@ -41,6 +51,8 @@ export class LineInfoContainer {
     is_history = false;
     history_tag;
     current_reference;
+    bus_shift_records = { in: {}, out: {} };
+    bus_shift_records_by_date = {};
 
     data_path = '';
 

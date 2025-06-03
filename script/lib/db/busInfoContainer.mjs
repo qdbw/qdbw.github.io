@@ -1,4 +1,5 @@
 import { ModelInfoContainer } from "../db.mjs";
+import { BuildTools } from "../tool.mjs";
 import { LineInfoContainer } from "./lineInfoContainer.mjs";
 
 export class BusInfoContainer {
@@ -6,6 +7,7 @@ export class BusInfoContainer {
     code_number = 0;
     current_code = '';
     short_name = '';
+    group = '';
     /**
      * @type {ModelInfoContainer}
      */

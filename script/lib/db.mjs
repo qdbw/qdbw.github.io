@@ -78,7 +78,10 @@ export class Database {
         await this.#collectModels();
         await this.#collectLines();
         await this.#collectStops();
+        await this.#collectBusLineReflect();
+    }
 
+    async #collectBusLineReflect() {
         this.buses.forEach((v) => {
             v.history_lines_stringlist.map(hl_name => {
                 if(!hl_name) return;
@@ -88,6 +91,7 @@ export class Database {
                     this.lines_stringlist.push(hl_name);
                     this.lines.push(hl_object);
                     v.history_lines.push(hl_object);
+                    hl_object.history_buses.push(v);
                 } else {
                     let hl_object;
                     for(let line of this.lines){
@@ -100,6 +104,7 @@ export class Database {
                         throw new Error(`Unexpected undefined in bus query!`);
                     }
                     v.history_lines.push(hl_object);
+                    hl_object.history_buses.push(v);
                 }
             })
         });
@@ -126,6 +131,11 @@ export class Database {
                 belong.current_buses.push(bus);
                 belong.current_buses_stringlist.push(bus.code);
             }
+        });
+
+        this.lines.forEach(v => {
+            v.bus_shift_records = LineUtils.generateShiftRecords(v);
+            v.bus_shift_records_by_date = LineUtils.sortShiftRecordByDate(v.bus_shift_records);
         });
     }
 

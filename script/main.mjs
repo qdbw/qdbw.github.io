@@ -19,9 +19,9 @@ let stopPageBuilder = new StopPageBuilder("data","frontend/public");
 let modelPageBuilder = new ModelPageBuilder("data","frontend/public");
 
 await linePageBuilder.buildSpecifiedObjectList(database.lines);
-await busPageBuilder.buildSpecifiedObjectList(database.buses);
-await stopPageBuilder.buildSpecifiedObjectList(database.stops);
-await modelPageBuilder.buildSpecifiedObjectList(database.models);
+// await busPageBuilder.buildSpecifiedObjectList(database.buses);
+// await stopPageBuilder.buildSpecifiedObjectList(database.stops);
+// await modelPageBuilder.buildSpecifiedObjectList(database.models);
 
 await writeFile("frontend/404.html",compileFile("template/404.pug")({local: {tool: BuildTools}}));
 await writeFile("frontend/index.html",compileFile("template/index.pug")({local: {tool: BuildTools}}));

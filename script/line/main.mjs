@@ -1,4 +1,4 @@
-import { LineInfoContainer, RouteInfoContainer } from "../lib/db/mod.mjs";
+import { BusInfoContainer, LineInfoContainer, RouteInfoContainer } from "../lib/db/mod.mjs";
 import { BUtil } from "../lib/util.mjs";
 import { readFile, mkdir, writeFile } from "fs/promises";
 import { basename, join } from "path";
@@ -55,6 +55,61 @@ export const LineUtils = {
     },
     createUnknown(name) {
         return new LineInfoContainer(name, undefined, 'unknown://line');
+    },
+    /**
+     * 
+     * @param {LineInfoContainer} line
+     */
+    generateShiftRecords(line) {
+        /**
+         * @type {{"in": Record<string, Record<string,BusInfoContainer[]>>, "out": Record<string, Record<string,BusInfoContainer[]>>}}
+         */
+        let history = {
+            in: {},
+            out: {}
+        };
+        for (let bus of line.history_buses) {
+            // run record
+            for (let record of bus.shift_records) {
+                let { date, from, to } = record;
+                if (from === line.name) {
+                    history.out[date] ??= {};
+                    history.out[date][to] ??= [];
+                    history.out[date][to].push(bus);
+                } else if (to === line.name) {
+                    history.in[date] ??= {};
+                    history.in[date][from] ??= [];
+                    history.in[date][from].push(bus);
+                }
+            }
+        }
+        return history;
+    },
+    /**
+     * 
+     * @param { {in: Record<string, Record<string,BusInfoContainer[]>>, out: Record<string, Record<string,BusInfoContainer[]>>} } shift_records 
+     * @returns 
+     */
+    sortShiftRecordByDate(shift_records) {
+        /**
+         * @type { Record <string, {in: Record<string, BusInfoContainer[]>, out: Record<string, BusInfoContainer[]>}> }
+         */
+        let history = {
+        };
+        for (let [date, record] of Object.entries(shift_records.in)) {
+            history[date] ??= { in: {}, out: {} };
+            for (let [line, buses] of Object.entries(record)) {
+                history[date].in[line] = buses;
+            }
+        }
+        for (let [date, record] of Object.entries(shift_records.out)) {
+            history[date] ??= { in: {}, out: {} };
+            for (let [line, buses] of Object.entries(record)) {
+                history[date].out[line] = buses;
+            }
+        }
+        history = BUtil.sortDateObject(history);
+        return history;
     }
 }
 

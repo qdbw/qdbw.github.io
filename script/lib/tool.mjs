@@ -97,9 +97,68 @@ function getFuelText(id) {
     })[id];
 }
 
+function sumBuses(items) {
+  // 提取并验证 short_name 中的编号
+  const parsedItems = items
+    .map(item => {
+      const match = item.short_name.match(/^([A-Za-z]*)(\d{3,4})$/);
+      return match ? { prefix: match[1] || '', number: parseInt(match[2]), original: item.short_name } : null;
+    })
+    .filter(item => item !== null);
+
+  // 按前缀分组
+  const groups = parsedItems.reduce((acc, item) => {
+    if (!acc[item.prefix]) acc[item.prefix] = [];
+    acc[item.prefix].push(item);
+    return acc;
+  }, {});
+
+  // 处理每个分组并生成区间
+  const result = [];
+  for (const prefix in groups) {
+    const items = groups[prefix].sort((a, b) => a.number - b.number);
+    const ranges = [];
+    let currentStart = items[0];
+    let currentEnd = items[0];
+
+    for (let i = 1; i < items.length; i++) {
+      if (items[i].number === currentEnd.number + 1) {
+        currentEnd = items[i];
+      } else {
+        ranges.push({ start: currentStart, end: currentEnd });
+        currentStart = currentEnd = items[i];
+      }
+    }
+    ranges.push({ start: currentStart, end: currentEnd });
+
+    // 格式化区间为字符串
+    const formattedRanges = ranges.map(range => {
+      if (range.start === range.end) {
+        return range.start.original;
+      } else {
+        const startNumStr = range.start.original.slice(range.start.prefix.length);
+        const endNumStr = range.end.original.slice(range.end.prefix.length);
+        return `${range.start.prefix}${startNumStr}-${endNumStr}`;
+      }
+    });
+
+    result.push(...formattedRanges);
+  }
+
+  // 按前缀字典序排序（无前缀的排最前）
+  return result.sort((a, b) => {
+    const prefixA = a.match(/^[A-Za-z]*/)[0] || '';
+    const prefixB = b.match(/^[A-Za-z]*/)[0] || '';
+    if (!prefixA && prefixB) return -1;
+    if (prefixA && !prefixB) return 1;
+    return prefixA.localeCompare(prefixB);
+  });
+}
+
 export const BuildTools = {
     inferBrand,
     getFuelText,
     getGroupText,
-    build_time
+    build_time,
+    sumBuses
 }

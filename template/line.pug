@@ -63,14 +63,17 @@ block @article
                 each bus in local.line.current_buses
                     if !map[bus.model_string]
                         - map[bus.model_string] = []
-                    - map[bus.model_string].push({ 0: bus.code, 1: bus.short_name })
+                    - map[bus.model_string].push(bus)
                 each v,k in map
                     li.s-bc-li
-                        h4 #{k}
-                        ul.s-bc-d-ul
-                            each c in v
-                                li
-                                    a(href="/public/bus/"+c[0])= c[1]
+                        details
+                            summary
+                                a(href="/public/model/"+k)= k
+                                = local.tool.sumBuses(v).join(", ")
+                            ul.s-bc-d-ul
+                                each c in v
+                                    li
+                                        a(href="/public/bus/"+c.code)= c.short_name
         section.s-buses-hl
             h3 历史车型
             ul.s-bh-ul
@@ -79,3 +82,84 @@ block @article
                         a(href="/public/model/"+model)= model
     section.s-bus-history
         h2 调动记录
+        section.bus-move-section
+            ul.sbhs-ul
+                each obj,date in local.line.bus_shift_records_by_date
+                    li
+                        h3= date
+                        //- move-in
+                        each buses,line_string in obj.in
+                            details.sbhsoo-buses.move-in
+                                summary
+                                    span.move-line
+                                        if line_string == "@OFFLINE"
+                                            a.sbhsoo-linename.linemark-offline= "下线"
+                                        else if line_string == "@NEW"
+                                            a.sbhsoo-linename.linemark-newbus= "新车"
+                                        else
+                                            a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                            = "→" + local.line.name_pretty
+                                    = local.tool.sumBuses(buses).join(", ")
+                                .sbhsoo-list
+                                    each bus in buses
+                                        a(href="/public/bus/"+bus.code)= bus.short_name
+                        
+                        //- move-out
+                        each buses,line_string in obj.out
+                            details.sbhsoo-buses.move-out
+                                summary
+                                    span.move-line
+                                        if line_string == "@OFFLINE"
+                                            a.sbhsoo-linename.linemark-offline= "下线"
+                                        else if line_string == "@NEW"
+                                            a.sbhsoo-linename.linemark-newbus= "新车"
+                                        else
+                                            = local.line.name_pretty + "→"
+                                            a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                    = local.tool.sumBuses(buses).join(", ")
+                                .sbhsoo-list
+                                    each bus in buses
+                                        a(href="/public/bus/"+bus.code)= bus.short_name
+
+        //- section.sbhs-in.sbhs-section
+        //-     h3 调入
+        //-     ul.sbhs-ul
+        //-         each obj,date in local.line.bus_shift_records.in
+        //-             li.sbhs-object
+        //-                 h4= date
+        //-                 ul.sbhso-ul
+        //-                     each buses,line_string in obj
+        //-                         li.sbhso-object
+        //-                             details.sbhsoo-buses
+        //-                                 summary
+        //-                                     if line_string == "@OFFLINE"
+        //-                                         a.sbhsoo-linename.linemark-offline= "下线"
+        //-                                     else if line_string == "@NEW"
+        //-                                         a.sbhsoo-linename.linemark-newbus= "新车"
+        //-                                     else
+        //-                                         a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+        //-                                     = local.tool.sumBuses(buses).join(", ")
+        //-                                 .sbhsoo-list
+        //-                                     each bus in buses
+        //-                                         a(href="/public/bus/"+bus.code)= bus.short_name
+        //- section.sbhs-out.sbhs-section
+        //-     h3 调出
+        //-     ul.sbhs-ul
+        //-         each obj,date in local.line.bus_shift_records.out
+        //-             li.sbhs-object
+        //-                 h4= date
+        //-                 ul.sbhso-ul
+        //-                     each buses,line_string in obj
+        //-                         li.sbhso-object
+        //-                             details.sbhsoo-buses
+        //-                                 summary
+        //-                                     if line_string == "@OFFLINE"
+        //-                                         a.sbhsoo-linename.linemark-offline= "下线"
+        //-                                     else if line_string == "@NEW"
+        //-                                         a.sbhsoo-linename.linemark-newbus= "新车"
+        //-                                     else
+        //-                                         a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+        //-                                     = local.tool.sumBuses(buses).join(", ")
+        //-                                 .sbhsoo-list
+        //-                                     each bus in buses
+        //-                                         a(href="/public/bus/"+bus.code)= bus.short_name
