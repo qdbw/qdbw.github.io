@@ -13,3 +13,11 @@
         }
     }
 }
+
+.s-line-ul li {
+    display: inline-block;
+}
+
+.s-line-ul a {
+    text-decoration: none;
+}
