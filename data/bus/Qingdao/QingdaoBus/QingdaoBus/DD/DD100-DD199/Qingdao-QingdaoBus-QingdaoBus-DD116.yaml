@@ -1,1 +1,5 @@
 model: SWB6121EV5
+shift_records:
+  - date: "2025.01"
+    from: "28"
+    to: "@OFFLINE"

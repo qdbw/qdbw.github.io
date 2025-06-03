@@ -1,1 +1,8 @@
 model: SWB6115Q7-3
+shift_records:
+  - date: "2022.06"
+    from: "383"
+    to: "28"
+  - date: "2024.12"
+    from: "28"
+    to: "@OFFLINE"

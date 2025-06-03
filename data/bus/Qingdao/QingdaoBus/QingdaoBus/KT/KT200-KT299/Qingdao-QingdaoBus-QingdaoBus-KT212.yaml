@@ -1,1 +1,8 @@
 model: SWB6117Q8
+shift_records:
+  - date: "2024.04"
+    from: "@STANDBY"
+    to: "28"
+  - date: "2024.11"
+    from: "28"
+    to: "906"

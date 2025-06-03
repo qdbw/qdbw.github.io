@@ -1,1 +1,14 @@
 model: SWB6121EV6
+shift_records:
+  - date: "2016.06"
+    from: "@NEW"
+    to: "28"
+  - date: "2024.01"
+    from: "28"
+    to: "@OFFLINE"
+  - date: "2024.08"
+    from: "@OFFLINE"
+    to: "28"
+  - date: "2024.11"
+    from: "28"
+    to: "325"

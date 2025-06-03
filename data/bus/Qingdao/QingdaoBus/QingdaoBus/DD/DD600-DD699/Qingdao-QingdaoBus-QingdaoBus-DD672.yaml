@@ -1,8 +1,7 @@
-model: SWB6121EV6
 shift_records:
-  - date: "2016.06"
+  - date: "2018.02"
     from: "@NEW"
     to: "28"
   - date: "2021.12"
     from: "28"
-    to: "308"
+    to: "19"

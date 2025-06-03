@@ -1,1 +1,8 @@
 model: FDG6123EVG
+shift_records:
+  - date: "2021.01"
+    from: "312"
+    to: "28"
+  - date: "2021.12"
+    from: "28"
+    to: "370"

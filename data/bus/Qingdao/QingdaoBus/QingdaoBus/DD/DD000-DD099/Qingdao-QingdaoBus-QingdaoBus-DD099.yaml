@@ -1,1 +1,8 @@
 model: SWB6121EV5
+shift_records:
+  - date: "2018.05"
+    from: "314"
+    to: "28"
+  - date: "2018.06"
+    from: "28"
+    to: "314"

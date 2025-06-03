@@ -1,0 +1,10 @@
+shift_records:
+  - date: "2018.02"
+    from: "@NEW"
+    to: "28"
+  - date: "2018.05"
+    from: "28"
+    to: "314"
+  - date: "2018.06"
+    from: "314"
+    to: "28"

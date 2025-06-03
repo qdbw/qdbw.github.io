@@ -1,1 +1,8 @@
 model: SWB6115Q7-3
+shift_records:
+  - date: "2020.01"
+    from: "222"
+    to: "28"
+  - date: "2021.01"
+    from: "28"
+    to: "388"
