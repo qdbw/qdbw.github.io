@@ -97,9 +97,11 @@ block @article
                                 summary
                                     span.move-line
                                         if line_string == "@OFFLINE"
-                                            a.sbhsoo-linename.linemark-offline= "下线"
+                                            a.sbhsoo-linename.linemark-newbus= "重启"
                                         else if line_string == "@NEW"
                                             a.sbhsoo-linename.linemark-newbus= "新车"
+                                        else if line_string == "@STANDBY"
+                                            a.sbhsoo-linename.linemark-standby= "机动"
                                         else
                                             a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
                                             = "→" + local.line.name_pretty
@@ -115,8 +117,8 @@ block @article
                                     span.move-line
                                         if line_string == "@OFFLINE"
                                             a.sbhsoo-linename.linemark-offline= "下线"
-                                        else if line_string == "@NEW"
-                                            a.sbhsoo-linename.linemark-newbus= "新车"
+                                        else if line_string == "@STANDBY"
+                                            a.sbhsoo-linename.linemark-standby= "机动"
                                         else
                                             = local.line.name_pretty + "→"
                                             a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
