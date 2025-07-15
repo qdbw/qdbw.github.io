@@ -1,12 +1,12 @@
-Name: 西海岸东1路
+Name: 西海岸L2路
 FromTo:
-    -   - 黄岛轮渡
-        - 金沙滩啤酒城公交停车场
+    -   - 薛家岛公交枢纽站
+        - 世博园停车场
 Companies:
     - Qingdao/ZhenqingBus/ZhenqingBus
 TicketOptions:
     Manual: false
     Seasonal: false
 Routes:
-    - 下行
-    - 上行
+    # - 下行
+    # - 上行
