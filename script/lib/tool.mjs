@@ -62,7 +62,7 @@ const nameTable = {
     'Qingdao-JiaoyunGroup-JiaoyunTransportation': ['青岛交运集团','交运集团'],
     'Qingdao-JiaoyunGroup-WestCoach': ['青岛交运集团西海岸温馨巴士有限公司','交运西海岸'],
     'Qingdao-ChengyunHolding-ChengyunWestCoach': ['城运控股西海岸交通发展集团','西海岸交发'],
-    'Qingdao-ZhenqingBus-ZhenqingBus': ['青岛真情巴士有限公司','真情巴士']
+    'Qingdao-ZhenqingBus-ZhenqingBus': ['青岛真情巴士集团有限公司','真情巴士']
 }
 
 const build_time = new Date();
