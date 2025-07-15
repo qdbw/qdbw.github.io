@@ -8,5 +8,7 @@ TicketOptions:
   Manual: false
   Seasonal: false
 Routes:
-    # - 下行
-    # - 上行
+    - 下行
+    - 上行
+Histories:
+  - 2024.12-文阳路停车场-市政府南通路
