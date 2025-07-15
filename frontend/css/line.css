@@ -146,18 +146,22 @@ summary a {
     }
 }
 
-.bus-move-section details.move-out summary::marker {
-    content: '-';
-    font-family: 'monospace';
-    color: red;
-    font-weight: 1000;
-}
+.bus-move-section details {
+    & summary::marker {
+        font-family: 'monospace', monospace;
+        font-weight: 1000;
 
-.bus-move-section details.move-in summary::marker {
-    content: '+';
-    font-family: 'monospace';
-    color: rgb(149, 237, 16);
-    font-weight: 1000;
+    }
+
+    &.move-out summary::marker {
+        content: '-';
+        color: red;
+    }
+
+    &.move-in summary::marker {
+        content: '+';
+        color: rgb(149, 237, 16);
+    }
 }
 
 .sbhs-ul h3.hidden {

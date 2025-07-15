@@ -126,7 +126,7 @@ block @article
                                 .sbhsoo-list
                                     each bus in obj.buses
                                         a(href="/public/bus/"+bus.code)= bus.short_name
-                else // deprecated
+                else 
                     each obj,date in local.line.bus_shift_records_by_date
                         li
                             h3= date

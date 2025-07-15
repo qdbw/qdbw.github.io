@@ -1,0 +1,9 @@
+shift_records:
+  - date: "2019.07"
+    from: WestCoach-East-11
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "10"
+  - date: "2020.06"
+    from: WestCoach-East-1
+    to: WestCoach-East-12
+    order-WestCoach-East-1: "31"

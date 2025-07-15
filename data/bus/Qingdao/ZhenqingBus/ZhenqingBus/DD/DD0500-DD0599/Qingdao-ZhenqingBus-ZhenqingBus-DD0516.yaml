@@ -1,1 +1,6 @@
 model: ZQ6126BEVG10
+shift_records:
+  - date: "2023.02"
+    from: WestCoach-52
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "57"

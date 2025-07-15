@@ -1,1 +1,6 @@
 model: SWB6121EV7
+shift_records:
+  - date: "2019.08"
+    from: WestCoach-East-1
+    to: WestCoach-817
+    order-WestCoach-East-1: "15"

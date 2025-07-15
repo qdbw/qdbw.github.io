@@ -1,1 +1,6 @@
 model: LCK6115HQGN
+shift_records:
+  - date: "2020.04"
+    from: WestCoach-817
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "26"

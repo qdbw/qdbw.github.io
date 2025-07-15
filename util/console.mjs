@@ -147,7 +147,7 @@ if (operation === 'modify') {
             }
             yaml_content.shift_records.push({
                 date, from, to, 
-                [`order-${order-target-line}`]: order
+                [`order-${order_target_line}`]: order
             });
             yaml_content.shift_records.sort((a, b) => {
                 let [ya, ma, da] = String(a).split('.');

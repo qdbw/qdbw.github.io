@@ -1,0 +1,5 @@
+shift_records:
+  - date: "2019.05"
+    from: WestCoach-East-1
+    to: "@OFFLINE"
+    order-WestCoach-East-1: "8"

@@ -1,1 +1,6 @@
 model: XMQ6127AGCHEVN512
+shift_records:
+  - date: "2018.12"
+    from: WestCoach-East-1
+    to: WestCoach-K19
+    order-WestCoach-East-1: "3"

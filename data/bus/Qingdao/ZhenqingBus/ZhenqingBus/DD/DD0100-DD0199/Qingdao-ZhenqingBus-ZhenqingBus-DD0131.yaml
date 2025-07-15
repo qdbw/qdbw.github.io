@@ -1,1 +1,18 @@
 model: SWB6121EV6
+shift_records:
+  - date: "2018.10"
+    from: WestCoach-K1
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "2"
+  - date: "2020.06"
+    from: WestCoach-East-1
+    to: WestCoach-817
+    order-undefined: "30"
+  - date: "2020.09"
+    from: WestCoach-817
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "41"
+  - date: "2021.08"
+    from: WestCoach-East-1
+    to: WestCoach-811
+    order-WestCoach-East-1: "50"

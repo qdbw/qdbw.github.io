@@ -1,1 +1,6 @@
 model: FSQ6121FCEVG3
+shift_records:
+  - date: "2024.11"
+    from: WestCoach-East-8
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "65"

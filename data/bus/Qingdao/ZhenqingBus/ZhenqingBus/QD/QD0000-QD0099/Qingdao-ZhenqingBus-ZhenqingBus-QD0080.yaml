@@ -1,1 +1,6 @@
 model: QMJ6120FCEVGA1
+shift_records:
+  - date: "2025.05"
+    from: WestCoach-ZQBS-BX
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "74"

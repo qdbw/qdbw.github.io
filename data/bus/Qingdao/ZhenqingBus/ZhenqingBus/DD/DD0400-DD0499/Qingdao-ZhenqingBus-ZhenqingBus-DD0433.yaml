@@ -1,1 +1,14 @@
 model: ZK6125BEVG27
+shift_records:
+  - date: "2020.02"
+    from: WestCoach-East-10
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "23"
+  - date: "2021.03"
+    from: WestCoach-East-1
+    to: WestCoach-52
+    order-WestCoach-East-1: "47"
+  - date: "2023.02"
+    from: WestCoach-East-1
+    to: WestCoach-52
+    order-WestCoach-East-1: "55"

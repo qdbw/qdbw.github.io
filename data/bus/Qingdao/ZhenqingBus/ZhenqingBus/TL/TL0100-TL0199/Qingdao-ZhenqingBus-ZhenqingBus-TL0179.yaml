@@ -1,1 +1,22 @@
 model: LCK6115HQGN
+shift_records:
+  - date: "2018.09"
+    from: WestCoach-East-1
+    to: WestCoach-East-12
+    order-WestCoach-East-1: "1"
+  - date: "2020.06"
+    from: WestCoach-East-12
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "33"
+  - date: "2020.11"
+    from: WestCoach-East-1
+    to: WestCoach-East-12
+    order-WestCoach-East-1: "44"
+  - date: "2021.08"
+    from: WestCoach-East-12
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "49"
+  - date: "2024.12"
+    from: WestCoach-East-1
+    to: WestCoach-East-10
+    order-WestCoach-East-1: "68"

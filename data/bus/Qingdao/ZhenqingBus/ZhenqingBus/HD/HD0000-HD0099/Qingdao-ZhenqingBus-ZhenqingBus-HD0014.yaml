@@ -1,1 +1,10 @@
 model: ZK6120CHEVNPG4
+shift_records:
+  - date: "2019.08"
+    from: WestCoach-L2
+    to: WestCoach-East-1
+    order-WestCoach-East-1: "16"
+  - date: "2019.10"
+    from: WestCoach-East-1
+    to: WestCoach-71
+    order-WestCoach-East-1: "17"

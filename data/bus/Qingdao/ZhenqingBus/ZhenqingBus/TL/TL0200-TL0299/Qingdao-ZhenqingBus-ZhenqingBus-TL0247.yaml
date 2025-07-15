@@ -1,1 +1,6 @@
 model: LCK6180HQGNA
+shift_records:
+  - date: "2025.05"
+    from: WestCoach-East-1
+    to: WestCoach-East-12
+    order-WestCoach-East-1: "72"
