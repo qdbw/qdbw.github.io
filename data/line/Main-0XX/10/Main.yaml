@@ -1,0 +1,12 @@
+Name: 10路
+FromTo:
+  - - 板桥坊
+    - 李村公园
+Companies:
+  - Qingdao/QingdaoBus/QingdaoBus
+TicketOptions:
+  Manual: false
+  Seasonal: false
+Routes:
+    # - 下行
+    # - 上行

@@ -1,0 +1,12 @@
+Name: 39路
+FromTo:
+  - - 海大崂山停车场
+    - 流清河
+Companies:
+  - Qingdao/QingdaoBus/QingdaoBus
+TicketOptions:
+  Manual: false
+  Seasonal: false
+Routes:
+    # - 下行
+    # - 上行

@@ -1,0 +1,12 @@
+Name: 2路
+FromTo:
+  - - 金坛路
+    - 西镇
+Companies:
+  - Qingdao/QingdaoBus/QingdaoBus
+TicketOptions:
+  Manual: false
+  Seasonal: false
+Routes:
+    # - 下行
+    # - 上行

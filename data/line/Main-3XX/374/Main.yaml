@@ -1,0 +1,12 @@
+Name: 374路
+FromTo:
+  - - 文阳路停车场
+    - 理工大学
+Companies:
+  - Qingdao/ChengyunHolding/ChengyangBus
+TicketOptions:
+  Manual: false
+  Seasonal: false
+Routes:
+    # - 下行
+    # - 上行
