@@ -133,7 +133,8 @@ if (operation === 'modify') {
         let from = process.argv[operation_detail_begin + 2];
         let to = process.argv[operation_detail_begin + 3];
         let order = process.argv[operation_detail_begin + 4];
-        console.log(`MODIFY History: From ${from} to ${to} in ${date} with order ${order}`);
+        let order_target_line = process.argv[operation_detail_begin + 5];
+        console.log(`MODIFY History: From ${from} to ${to} in ${date} with order ${order} on ${order_target_line}`);
         objective_bypath.forEach(v => {
             let raw_content = readFileSync(v).toString();
             let yaml_content = parse(raw_content) ?? {};
@@ -145,12 +146,10 @@ if (operation === 'modify') {
                 }
             }
             yaml_content.shift_records.push({
-                date, from, to, order
+                date, from, to, 
+                [`order-${order-target-line}`]: order
             });
             yaml_content.shift_records.sort((a, b) => {
-                if(typeof a.order === 'number' && typeof b.order === 'number' && a !== b) {
-                    return a.order - b.order;
-                }
                 let [ya, ma, da] = String(a).split('.');
                 let [yb, mb, db] = String(b).split('.');
                 // Compare by year, month, day (with optional MM and DD)

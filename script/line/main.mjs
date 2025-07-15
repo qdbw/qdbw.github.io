@@ -85,7 +85,8 @@ export const LineUtils = {
         for (let bus of line.history_buses) {
             // run record
             for (let record of bus.shift_records) {
-                let { date, from, to, order } = record;
+                let { date, from, to } = record;
+                let order = record[`order-${line.name}`];
                 if (from === line.name) {
                     history.out[date] ??= {};
                     history.out[date][to] ??= [];
@@ -95,7 +96,7 @@ export const LineUtils = {
                     history.in[date][from] ??= [];
                     history.in[date][from].push(bus);
                 }
-                if(order && typeof order === 'number'){
+                if(order && typeof order !== 'undefined'){
                     history.value[order] ??= {
                         date,
                         from,
