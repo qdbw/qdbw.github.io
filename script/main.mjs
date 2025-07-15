@@ -24,6 +24,7 @@ let options = {
     buildmodel: true,
     buildstop: true
 };
+
 if (process.env.QDBFLAG) {
     let _opt = process.env.QDBFLAG.split(" ");
     _opt.forEach(v => {
@@ -33,24 +34,28 @@ if (process.env.QDBFLAG) {
                 break;
             case "!PAGE":
                 options.buildpage = false;
+                console.log('DISABLE Page');
                 break;
             case "BUS":
                 options.buildbus = true;
                 break;
             case "!BUS":
                 options.buildbus = false;
+                console.log('DISABLE Bus');
                 break;
             case "MODEL":
                 options.buildmodel = true;
                 break;
             case "!MODEL":
                 options.buildmodel = false;
+                console.log('DISABLE Model');
                 break;
             case "STOP":
                 options.buildstop = true;
                 break;
             case "!STOP":
                 options.buildstop = false;
+                console.log('DISABLE Stop');
                 break;
         }
     });

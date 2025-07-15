@@ -89,7 +89,7 @@ block @article
         section.bus-move-section
             ul.sbhs-ul
                 if local.line.bus_shift_records.value
-                    each obj,order in local.line.bus.shift_records.value
+                    each obj,order in local.line.bus_shift_records.value
                         li
                             h3= obj.date
                             details.sbhsoo-buses(class=obj.to===local.line.name ? 'move-in' : 'move-out')
