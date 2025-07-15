@@ -20,6 +20,7 @@ let digitOverrides = {
     'Qingdao/ZhenqingBus/ZhenqingBus/QD/': 4,
     'Qingdao/ZhenqingBus/ZhenqingBus/TC/': 4,
     'Qingdao/ZhenqingBus/ZhenqingBus/TL/': 4,
+    'Qingdao/JiaoyunGroup/WestCoach/XHA/': 4,
 };
 
 function getObjectFilePath(location, company, subcompany, id) {
