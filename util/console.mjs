@@ -16,6 +16,10 @@ import { parse, stringify } from "yaml";
 let digitOverrides = {
     'Qingdao/ChengyunHolding/ChengyangBus/CY/': 4,
     'Qingdao/ZhenqingBus/ZhenqingBus/DD/': 4,
+    'Qingdao/ZhenqingBus/ZhenqingBus/HD/': 4,
+    'Qingdao/ZhenqingBus/ZhenqingBus/QD/': 4,
+    'Qingdao/ZhenqingBus/ZhenqingBus/TC/': 4,
+    'Qingdao/ZhenqingBus/ZhenqingBus/TL/': 4,
 };
 
 function getObjectFilePath(location, company, subcompany, id) {
@@ -24,7 +28,7 @@ function getObjectFilePath(location, company, subcompany, id) {
     let num_id = Number(String(id).replace(prefix, ''));
     let p_from = Math.floor(num_id / 100);
     let digit = {
-        result: prefix ? 3 : 4,
+        [result]: prefix ? 3 : 4,
         ...digitOverrides
     }[result];
     p_from = String(p_from).padStart(digit - 2, '0');

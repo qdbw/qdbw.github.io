@@ -88,39 +88,39 @@ block @article
         h2 调动记录
         section.bus-move-section
             ul.sbhs-ul
-                if local.line.bus_shift_records.value
-                    each obj,order in local.line.bus_shift_records.value
-                        li
-                            h3= obj.date
-                            details.sbhsoo-buses(class=obj.to===local.line.name ? 'move-in' : 'move-out')
-                                summary
-                                    span.move-line
-                                        if obj.to===local.line.name
-                                            - let line_string = obj.from
-                                            if line_string == "@OFFLINE"
-                                                a.sbhsoo-linename.linemark-newbus= "重启"
-                                            else if line_string == "@NEW"
-                                                a.sbhsoo-linename.linemark-newbus= "新车"
-                                            else if line_string == "@STANDBY"
-                                                a.sbhsoo-linename.linemark-standby= "机动"
-                                                = "→" + local.line.name_pretty
-                                            else
-                                                a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
-                                                = "→" + local.line.name_pretty
+                - console.log(local.line.bus_shift_records.value)
+                each obj,order in local.line.bus_shift_records.value
+                    li(data-order=order)
+                        h3= obj.date
+                        details.sbhsoo-buses(class=obj.to===local.line.name ? 'move-in' : 'move-out')
+                            summary
+                                span.move-line
+                                    if obj.to===local.line.name
+                                        - let line_string = obj.from
+                                        if line_string == "@OFFLINE"
+                                            a.sbhsoo-linename.linemark-newbus= "重启"
+                                        else if line_string == "@NEW"
+                                            a.sbhsoo-linename.linemark-newbus= "新车"
+                                        else if line_string == "@STANDBY"
+                                            a.sbhsoo-linename.linemark-standby= "机动"
+                                            = "→" + local.line.name_pretty
                                         else
-                                            - let line_string = obj.to
-                                            if line_string == "@OFFLINE"
-                                                a.sbhsoo-linename.linemark-offline= "下线"
-                                            else if line_string == "@STANDBY"
-                                                = local.line.name_pretty + "→"
-                                                a.sbhsoo-linename.linemark-standby= "机动"
-                                            else
-                                                = local.line.name_pretty + "→"
-                                                a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
-                                    = local.tool.sumBuses(obj.buses).join(", ")
-                                .sbhsoo-list
-                                    each bus in obj.buses
-                                        a(href="/public/bus/"+bus.code)= bus.short_name
+                                            a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                            = "→" + local.line.name_pretty
+                                    else
+                                        - let line_string = obj.to
+                                        if line_string == "@OFFLINE"
+                                            a.sbhsoo-linename.linemark-offline= "下线"
+                                        else if line_string == "@STANDBY"
+                                            = local.line.name_pretty + "→"
+                                            a.sbhsoo-linename.linemark-standby= "机动"
+                                        else
+                                            = local.line.name_pretty + "→"
+                                            a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                = local.tool.sumBuses(obj.buses).join(", ")
+                            .sbhsoo-list
+                                each bus in obj.buses
+                                    a(href="/public/bus/"+bus.code)= bus.short_name
 
 
                 each obj,date in local.line.bus_shift_records_by_date
