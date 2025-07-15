@@ -1,0 +1,7 @@
+Name: 真情巴士客运班线
+Companies:
+    - Qingdao/ZhenqingBus/ZhenqingBus
+TicketOptions:
+    Manual: false
+    Seasonal: false
+Routes:

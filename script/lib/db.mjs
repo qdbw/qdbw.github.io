@@ -66,6 +66,7 @@ export class Database {
 
     constructor(data_dir) {
         this.data_dir = data_dir;
+        BuildTools._setContext(this);
     }
 
     async doInitialization() {

@@ -110,7 +110,7 @@ block @article
                                                 a.sbhsoo-linename.linemark-standby= "机动"
                                                 = "→" + local.line.name_pretty
                                             else
-                                                a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                                a.sbhsoo-linename(href="/public/line/"+line_string)= local.tool.getLineName(line_string)
                                                 = "→" + local.line.name_pretty
                                         else
                                             - let line_string = obj.to
@@ -121,7 +121,7 @@ block @article
                                                 a.sbhsoo-linename.linemark-standby= "机动"
                                             else
                                                 = local.line.name_pretty + "→"
-                                                a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                                a.sbhsoo-linename(href="/public/line/"+line_string)= local.tool.getLineName(line_string)
                                     = local.tool.sumBuses(obj.buses).join(", ")
                                 .sbhsoo-list
                                     each bus in obj.buses
@@ -143,7 +143,7 @@ block @article
                                                 a.sbhsoo-linename.linemark-standby= "机动"
                                                 = "→" + local.line.name_pretty
                                             else
-                                                a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                                a.sbhsoo-linename(href="/public/line/"+line_string)= local.tool.getLineName(line_string)
                                                 = "→" + local.line.name_pretty
                                         = local.tool.sumBuses(buses).join(", ")
                                     .sbhsoo-list
@@ -162,7 +162,7 @@ block @article
                                                 a.sbhsoo-linename.linemark-standby= "机动"
                                             else
                                                 = local.line.name_pretty + "→"
-                                                a.sbhsoo-linename(href="/public/line/"+line_string)= line_string
+                                                a.sbhsoo-linename(href="/public/line/"+line_string)= local.tool.getLineName(line_string)
                                         = local.tool.sumBuses(buses).join(", ")
                                     .sbhsoo-list
                                         each bus in buses
